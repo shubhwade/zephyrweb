@@ -1,0 +1,1137 @@
+[
+  {
+    "id": 1,
+    "title": "Bullseye",
+    "price": "30",
+    "tag": "CSI",
+    "college": "CSI",
+    "image": "/event1.webp",
+    "desc": "Bulls Eye is a two-stage event where participants first toss small plastic balls into a cup in a mini basketball game. In the second stage, they use a Nerf gun to knock down plastic glasses from a table. Precision and quick reflexes are key to winning this exciting challenge.",
+    "phone_no": "9987330273",
+    "prize_pool": "Vouchers",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event1.webp"
+  },
+  {
+    "id": 2,
+    "title": "CODM",
+    "price": "150",
+    "tag": "CSI",
+    "college": "CSI",
+    "image": "/event2.webp",
+    "desc": "The Call of Duty Mobile Showdown is an adrenaline-fueled gaming event that brings players and fans of the popular mobile game together for an epic competition. Participants showcase their skills in intense multiplayer battles, navigating various game modes and maps to prove their prowess. The event features both individual and team-based tournaments, where players strategize, communicate, and execute precise tactics to secure victory.",
+    "phone_no": "9987330273",
+    "prize_pool": "₹2000",
+    "teamSize": {
+      "min": 5,
+      "max": 5
+    },
+    "localImage": "/event2.webp"
+  },
+  {
+    "id": 3,
+    "title": "Garba Workshop",
+    "price": "200",
+    "tag": "CSI",
+    "college": "CSI",
+    "image": "/event3.webp",
+    "desc": "The Garba Workshop offers a unique opportunity to delve into the rich world of Garba, a traditional Indian dance form celebrated during Navaratri. Led by skilled instructors, this workshop provides participants with an immersive experience, where they'll learn the intricate footwork, graceful hand gestures, and spirited movements that define Garba.",
+    "phone_no": "9987330273",
+    "prize_pool": "Not Applicable",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event3.webp"
+  },
+  {
+    "id": 4,
+    "title": "Rink Football",
+    "price": "450",
+    "tag": "CSI",
+    "college": "CSI",
+    "image": "/event4.webp",
+    "desc": "The Rink Football Event is a thrilling sports spectacle that takes the fast-paced game of football indoors. Played within the confines of a rink, this event offers an exciting twist on traditional football, emphasizing speed, skill, and close- quarter teamwork.",
+    "phone_no": "9987330273",
+    "prize_pool": "₹3500",
+    "teamSize": {
+      "min": 5,
+      "max": 7
+    },
+    "localImage": "/event4.webp"
+  },
+  {
+    "id": 5,
+    "title": "Tech Hunt",
+    "price": "100",
+    "tag": "CSI",
+    "college": "CSI",
+    "image": "/event5.webp",
+    "desc": "Tech Hunt is an exhilarating event that challenges participants to solve code puzzles and unlock new levels. Each completed challenge reveals the location of the next PC, where players engage in immersive games and coding to progress further. Combining coding skills with strategic gameplay, this event takes participants on a thrilling journey through a series of interconnected tech challenges, testing their problem-solving abilities and teamwork at every stage.",
+    "phone_no": "9987330273",
+    "prize_pool": "₹1000",
+    "teamSize": {
+      "min": 3,
+      "max": 3
+    },
+    "localImage": "/event5.webp"
+  },
+  {
+    "id": 6,
+    "title": "Neon Cricket",
+    "price": "250",
+    "tag": "CSI",
+    "college": "CSI",
+    "image": "/event6.webp",
+    "desc": "The Neon Cricket Event is a mesmerizing fusion of sports and vibrant entertainment, played under UV lights and neon-themed settings, this event offers a breathtaking visual experience as players, equipment, and the cricket field glow in fluorescent colors. Teams compete in an electrifying atmosphere, showcasing their cricket skills while adorned in neon attire and accessories that add to the captivating ambiance.",
+    "phone_no": "9987330273",
+    "prize_pool": "₹2500",
+    "teamSize": {
+      "min": 5,
+      "max": 5
+    },
+    "localImage": "/event6.webp"
+  },
+  {
+    "id": 7,
+    "title": "Cricket Auction",
+    "price": "300",
+    "tag": "CSI",
+    "college": "CSI",
+    "image": "/event7.webp",
+    "desc": "The Cricket Auction Gala is an exhilarating event that adds an element of intrigue and strategy to the world of cricket. During this high-stakes gathering, team franchises bid for the services of top cricket players in a live auction format. The atmosphere is charged with anticipation as team owners, coaches, and cricket enthusiasts come together to compete for their preferred players.",
+    "phone_no": "9987330273",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 5,
+      "max": 5
+    },
+    "localImage": "/event7.webp"
+  },
+  {
+    "id": 8,
+    "title": "Escape Room",
+    "price": "250",
+    "tag": "ACM",
+    "college": "ACM",
+    "image": "/event8.webp",
+    "desc": "Step into the magical world of Harry Potter! Work with your team, uncover enchanted clues, and race against time to escape from Hogwarts before it's too late!",
+    "phone_no": "7506734599",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 4,
+      "max": 4
+    },
+    "localImage": "/event8.webp"
+  },
+  {
+    "id": 9,
+    "title": "Scavenger Hunt",
+    "price": "200",
+    "tag": "ACM",
+    "college": "ACM",
+    "image": "/event9.webp",
+    "desc": "A brain-teasing adventure where teams follow clues, solve technical tasks, and navigate challenges to reach the ultimate destination.",
+    "phone_no": "7506734599",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 4,
+      "max": 4
+    },
+    "localImage": "/event9.webp"
+  },
+  {
+    "id": 10,
+    "title": "Power Show",
+    "price": "100",
+    "tag": "ACM",
+    "college": "ACM",
+    "image": "/event10.webp",
+    "desc": "A power-packed fitness fest featuring group workouts, strength challenges, and competitions like Deadlift and Bench Press.",
+    "phone_no": "7506734599",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event10.webp"
+  },
+  {
+    "id": 11,
+    "title": "Valorant",
+    "price": "400",
+    "tag": "ACM",
+    "college": "ACM",
+    "image": "/event11.webp",
+    "desc": "Five-player squads battle in 25 thrilling rounds of tactical combat. Only the sharpest strategy and aim will claim victory.",
+    "phone_no": "7506734599",
+    "prize_pool": "₹18000",
+    "teamSize": {
+      "min": 5,
+      "max": 5
+    },
+    "localImage": "/event11.webp"
+  },
+  {
+    "id": 12,
+    "title": "Dance Workshop",
+    "price": "150",
+    "tag": "ACM",
+    "college": "ACM",
+    "image": "/event12.webp",
+    "desc": "A fun-filled freestyle dance workshop for all skill levels. Learn, express, and groove while connecting with fellow dance lovers.",
+    "phone_no": "7506734599",
+    "prize_pool": "Certificates",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event12.webp"
+  },
+  {
+    "id": 13,
+    "title": "WWE Console",
+    "price": "50",
+    "tag": "ACM",
+    "college": "ACM",
+    "image": "/event13.webp",
+    "desc": "A knockout-style WWE 2K25 tournament where players choose their superstars, battle it out, and fight for the championship title.",
+    "phone_no": "7506734599",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event13.webp"
+  },
+  {
+    "id": 14,
+    "title": "Project Presentation",
+    "price": "100",
+    "tag": "ACM",
+    "college": "ACM",
+    "image": "/event14.webp",
+    "desc": "Students present their Minor and Major projects, highlighting creativity, research, and problem-solving for recognition and awards.",
+    "phone_no": "7506734599",
+    "prize_pool": "₹4500",
+    "teamSize": {
+      "min": 2,
+      "max": 4
+    },
+    "localImage": "/event14.webp"
+  },
+  {
+    "id": 15,
+    "title": "Haunted House",
+    "price": "100",
+    "tag": "IETE",
+    "college": "IETE",
+    "image": "/event15.webp",
+    "desc": "Thrilling escape challenge through spooky puzzles and eerie surprises.",
+    "phone_no": "9082414734",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 4,
+      "max": 4
+    },
+    "localImage": "/event15.webp"
+  },
+  {
+    "id": 16,
+    "title": "Arm Wrestling",
+    "price": "30",
+    "tag": "IETE",
+    "college": "IETE",
+    "image": "/event16.webp",
+    "desc": "An intense one-on-one showdown where competitors lock arms, test their power, and battle for dominance in the ultimate strength challenge.",
+    "phone_no": "9082414734",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event16.webp"
+  },
+  {
+    "id": 17,
+    "title": "FIFA PS5",
+    "price": "150",
+    "tag": "IETE",
+    "college": "IETE",
+    "image": "/event17.webp",
+    "desc": "A high-energy gaming clash where players showcase their skills, strategies, and passion for football in electrifying matches on the PlayStation 5.",
+    "phone_no": "9082414734",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event17.webp"
+  },
+  {
+    "id": 18,
+    "title": "BGMI Classic",
+    "price": "200",
+    "tag": "IETE",
+    "college": "IETE",
+    "image": "/event18.webp",
+    "desc": "A battle royale showdown where squads drop in, gear up, and fight to be the last team standing in the classic BGMI mode.",
+    "phone_no": "9082414734",
+    "prize_pool": "₹12000",
+    "teamSize": {
+      "min": 4,
+      "max": 4
+    },
+    "localImage": "/event18.webp"
+  },
+  {
+    "id": 19,
+    "title": "Squid Game",
+    "price": "40",
+    "tag": "IETE",
+    "college": "IETE",
+    "image": "/event19.webp",
+    "desc": "A thrilling set of challenges inspired by the hit series, where participants test their skill, focus, and nerve to outlast the competition and claim victory.",
+    "phone_no": "9082414734",
+    "prize_pool": "₹2000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event19.webp"
+  },
+  {
+    "id": 20,
+    "title": "Gen AI Workshop",
+    "price": "100",
+    "tag": "IETE",
+    "college": "IETE",
+    "image": "/event20.webp",
+    "desc": "An interactive workshop introducing students to Generative AI, covering prompt engineering, ethical use, and hands-on tools for text, image, and content creation. Students will explore real-world applications, boosting creativity, productivity, and innovation in the digital era.",
+    "phone_no": "9082414734",
+    "prize_pool": "Not Applicable",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event20.webp"
+  },
+  {
+    "id": 21,
+    "title": "Content Creation Workshop",
+    "price": "100",
+    "tag": "IETE",
+    "college": "IETE",
+    "image": "/event21.webp",
+    "desc": "A practical workshop designed to equip students with modern content creation skills like digital storytelling, video editing, designing, and using trending tools. The session also emphasizes strategies for engagement, personal branding, and effective communication, making it highly valuable for aspiring digital creators, explore the digital space.",
+    "phone_no": "9082414734",
+    "prize_pool": "Not Applicable",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event21.webp"
+  },
+  {
+    "id": 22,
+    "title": "Free fire (BR Classic)",
+    "price": "200",
+    "tag": "ASCE",
+    "college": "ASCE",
+    "image": "/event22.webp",
+    "desc": "The ultimate test of survival instincts and sharp reflexes! Step into the battleground, loot, fight, and strategize to be the last one standing.Rules: Standard BR Classic mode. Solo/Duo/Squad (as per event format). No hacks, emulators, or unfair means. Referee’s decision is final.",
+    "phone_no": "9356216955",
+    "prize_pool": "₹8000",
+    "teamSize": {
+      "min": 1,
+      "max": 5
+    },
+    "localImage": "/event22.webp"
+  },
+  {
+    "id": 23,
+    "title": "Tug of War",
+    "prices": [
+      {
+        "teamSize": 6,
+        "cost": 300
+      },
+      {
+        "teamSize": 8,
+        "cost": 400
+      }
+    ],
+    "tag": "ASCE",
+    "college": "ASCE",
+    "image": "/event23.webp",
+    "desc": "A battle of pure strength, coordination, and determination! Teams will lock horns, pulling with every ounce of power to drag the opposition across the line.Rules: Each team must have equal number of participants. No sudden jerks or sitting down allowed. Best of 3 pulls decides the winner.",
+    "phone_no": "9356216955",
+    "prize_pool": "₹5000",
+    "teamSize": {
+      "min": 6,
+      "max": 8
+    },
+    "localImage": "/event23.webp"
+  },
+  {
+    "id": 24,
+    "title": "Box Cricket",
+    "price": "400",
+    "tag": "ASCE",
+    "college": "ASCE",
+    "image": "/event24.webp",
+    "desc": "Not just cricket, but cricket with a twist! Short, thrilling, and full of non-stop action inside a closed box arena.Rules: Underarm bowling only. Runs scored by hitting walls + running between wickets. No LBW, but caught-out applies. Team size as per event guidelines.",
+    "phone_no": "9356216955",
+    "prize_pool": "₹9000",
+    "teamSize": {
+      "min": 7,
+      "max": 7
+    },
+    "localImage": "/event24.webp"
+  },
+  {
+    "id": 25,
+    "title": "BGMI",
+    "price": "200",
+    "tag": "ASCE",
+    "college": "ASCE",
+    "image": "/event25.webp",
+    "desc": "Jump into the action-packed battlefield where only strategy and skill ensure survival. Assemble your squad, loot smart, and fight for that glorious chicken dinner! Rules: Squad format (4 players). No emulators/hacks. Earphones mandatory for communication. Referee’s decision is final.",
+    "phone_no": "9356216955",
+    "prize_pool": "₹12000",
+    "teamSize": {
+      "min": 4,
+      "max": 4
+    },
+    "localImage": "/event25.webp"
+  },
+  {
+    "id": 26,
+    "title": "Valorant",
+    "price": "400",
+    "tag": "ASCE",
+    "college": "ASCE",
+    "image": "/event26.webp",
+    "desc": "Teamwork, precision, and tactical brilliance decide the victor in this high-octane FPS! Will your squad clutch the round or crumble under pressure? Time to find out. Rules: 5v5 standard format. First to 13 rounds wins. No toxic behavior or unfair practices. Admins have the final say.",
+    "phone_no": "9356216955",
+    "prize_pool": "₹18000",
+    "teamSize": {
+      "min": 5,
+      "max": 5
+    },
+    "localImage": "/event26.webp"
+  },
+  {
+    "id": 27,
+    "title": "Neon Dodgeball",
+    "price": "60",
+    "tag": "ASCE",
+    "college": "ASCE",
+    "image": "/event27.webp",
+    "desc": "Fast, furious, and glowing with energy! Players must dodge, duck, dip, and dive as glowing balls zip across the arena. Speed and reflexes will keep you in the game. Rules: Hit by ball = out. Catch the ball = thrower out + one teammate returns. Last team standing wins. No headshots allowed.",
+    "phone_no": "9356216955",
+    "prize_pool": "Not Applicable",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event27.webp"
+  },
+  {
+    "id": 28,
+    "title": "Technical Event (TBA)",
+    "price": "Free",
+    "tag": "ASCE",
+    "college": "ASCE",
+    "image": "/event28.webp",
+    "desc": "Where innovation meets intelligence! A platform to showcase your problem-solving skills, creativity, and technical expertise. Expect mind-bending challenges, quizzes, and practical applications. Rules: Individual or team participation (as per event). Time-bound rounds. Plagiarism or malpractice will lead to disqualification.",
+    "phone_no": "9356216955",
+    "prize_pool": "Not Applicable",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event28.webp"
+  },
+  {
+    "id": 29,
+    "title": "Gel Blaster",
+    "price": "300",
+    "tag": "IEEE",
+    "college": "IEEE",
+    "image": "/event29.webp",
+    "desc": "Gel Blaster – A tactical 4v4 team battle with water-based gel bead blasters. Eliminate opponents to claim victory.",
+    "phone_no": "9920660432",
+    "prize_pool": "Goodies and Vouchers",
+    "teamSize": {
+      "min": 4,
+      "max": 4
+    },
+    "localImage": "/event29.webp"
+  },
+  {
+    "id": 30,
+    "title": "Valorant",
+    "price": "400",
+    "tag": "IEEE",
+    "college": "IEEE",
+    "image": "/event30.webp",
+    "desc": "Valorant (IEEExASCExACMxS4DS) – A 5v5 tactical shooter where strategy and precision decide the winner. First to 13 rounds wins.",
+    "phone_no": "9920660432",
+    "prize_pool": "₹18000",
+    "teamSize": {
+      "min": 5,
+      "max": 5
+    },
+    "localImage": "/event30.webp"
+  },
+  {
+    "id": 31,
+    "title": "AR Cricket",
+    "price": "150",
+    "tag": "IEEE",
+    "college": "IEEE",
+    "image": "/event31.webp",
+    "desc": "AR Cricket – Solo batting challenge in augmented reality. Score the most runs in 2 overs to top the leaderboard.",
+    "phone_no": "9920660432",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event31.webp"
+  },
+  {
+    "id": 32,
+    "title": "BGMI Classic",
+    "price": "200",
+    "tag": "IEEE",
+    "college": "IEEE",
+    "image": "/event32.webp",
+    "desc": "BGMI (Classic) (IEEExASCExIETE) – Survival battle royale where squads fight to be the last team standing.",
+    "phone_no": "9920660432",
+    "prize_pool": "₹12000",
+    "teamSize": {
+      "min": 4,
+      "max": 4
+    },
+    "localImage": "/event32.webp"
+  },
+  {
+    "id": 33,
+    "title": "Ideathon",
+    "price": "50",
+    "tag": "IEEE",
+    "college": "IEEE",
+    "image": "/event33.webp",
+    "desc": "Ideathon – A hackathon-style competition to pitch innovative project ideas solving real-world challenges.",
+    "phone_no": "9920660432",
+    "prize_pool": "Prizes in Kind worth ₹30,000",
+    "teamSize": {
+      "min": 2,
+      "max": 4
+    },
+    "localImage": "/event33.webp"
+  },
+  {
+    "id": 34,
+    "title": "Art Workshop",
+    "price": "225",
+    "tag": "IEEE",
+    "college": "IEEE",
+    "image": "/event34.webp",
+    "desc": "Art Workshop (Fluid Art) – A guided creative session where participants design beautiful fluid art pieces to take home.",
+    "phone_no": "9920660432",
+    "prize_pool": "Prizes in Kind worth ₹2000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event34.webp"
+  },
+  {
+    "id": 35,
+    "title": "Catch the Baton",
+    "price": "60",
+    "tag": "IEEE",
+    "college": "IEEE",
+    "image": "/event35.webp",
+    "desc": "Catch the Baton – A fun reflex game testing speed, agility, and reaction time. Catch fast, win big!",
+    "phone_no": "9920660432",
+    "prize_pool": "₹1000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event35.webp"
+  },
+  {
+    "id": 36,
+    "title": "Mystery Maze",
+    "prices": [
+      {
+        "teamSize": 2,
+        "cost": 160
+      },
+      {
+        "teamSize": 4,
+        "cost": 280
+      }
+    ],
+    "tag": "ACM-SIGAI",
+    "college": "ACM-SIGAI",
+    "image": "/event36.webp",
+    "desc": "Step into the Mystery Maze, where every corner hides a challenge and every clue pulls you deeper into an adventure. Four daring participants must work as a team to unravel mind-bending puzzles and decode cryptic hints across five thrilling levels. With twists, turns, and unexpected surprises, the Mystery Maze isn’t just a race against time—it’s a battle of wit, teamwork, and determination. Only the sharpest minds will escape the labyrinth’s grip!",
+    "phone_no": "7045851407",
+    "prize_pool": "7500",
+    "teamSize": {
+      "min": 2,
+      "max": 4
+    },
+    "localImage": "/event36.webp"
+  },
+  {
+    "id": 37,
+    "title": "Takeshi’s Castle",
+    "prices": [
+      {
+        "teamSize": 2,
+        "cost": 170
+      },
+      {
+        "teamSize": 4,
+        "cost": 300
+      }
+    ],
+    "tag": "ACM-SIGAI",
+    "college": "ACM-SIGAI",
+    "image": "/event37.webp",
+    "desc": "Get ready for chaos, laughter, and pure fun in this Takeshi’s Castle-inspired showdown! From the hilarious Sumo Showdown in oversized suits, to the nerve-racking Bridge Crossing under a barrage of giant balls, and the adrenaline-pumping Guard Wall chase, every round brings non-stop action. With teamwork, quick reflexes, and a good sense of humor, contestants will fight their way through three outrageous levels of entertainment that guarantee smiles and epic moments.",
+    "phone_no": "7045851407",
+    "prize_pool": "₹7000",
+    "teamSize": {
+      "min": 2,
+      "max": 4
+    },
+    "localImage": "/event37.webp"
+  },
+  {
+    "id": 38,
+    "title": "Free fire (TDM)",
+    "prices": [
+      {
+        "teamSize": 2,
+        "cost": 130
+      },
+      {
+        "teamSize": 4,
+        "cost": 250
+      }
+    ],
+    "tag": "ACM-SIGAI",
+    "college": "ACM-SIGAI",
+    "image": "/event38.webp",
+    "desc": "Enter the battlefield in a high-stakes Free Fire 4v4 clash! Teams of four will face off in a best-of-three format, where precision, coordination, and strategy are everything. Each match demands quick reflexes, tactical planning, and flawless execution to outsmart opponents. With every round more intense than the last, Free Fire promises fierce battles, nail-biting finishes, and a chance to prove who truly dominates the arena.",
+    "phone_no": "7045851407",
+    "prize_pool": "₹7000",
+    "teamSize": {
+      "min": 2,
+      "max": 4
+    },
+    "localImage": "/event38.webp"
+  },
+  {
+    "id": 39,
+    "title": "Box Cricket",
+    "price": "400",
+    "tag": "ACM-SIGAI, S4DS, ASCE",
+    "college": "ACM-SIGAI, S4DS, ASCE",
+    "image": "/event39.webp",
+    "desc": "Fast-paced, high-energy, and packed with drama—Box Cricket transforms the traditional game into a thrilling indoor showdown! Played in a compact arena, every ball counts, and every shot can change the game. With shorter overs, lightning-fast decisions, and last-ball thrillers, this format keeps players and spectators on the edge of their seats. It’s cricket like you’ve never experienced before—intense, competitive, and unforgettable.",
+    "phone_no": "7045851407",
+    "prize_pool": "₹9000",
+    "teamSize": {
+      "min": 5,
+      "max": 7
+    },
+    "localImage": "/event39.webp"
+  },
+  {
+    "id": 40,
+    "title": "Bullseye",
+    "price": "30",
+    "tag": "ACM-SIGAI, CSI",
+    "college": "ACM-SIGAI, CSI",
+    "image": "/event40.webp",
+    "desc": "Bulls Eye is a two-stage event where participants first toss small plastic balls into a cup in a mini basketball game. In the second stage, they use a Nerf gun to knock down plastic glasses from a table. Precision and quick reflexes are key to winning this exciting challenge.",
+    "phone_no": "7045851407",
+    "prize_pool": "Coupons",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event40.webp"
+  },
+  {
+    "id": 41,
+    "title": "Simulator Mania",
+    "price": "200",
+    "tag": "S4DS",
+    "college": "S4DS",
+    "image": "/event41.webp",
+    "desc": "High energy gaming event where players dive into two adrenaline-packed racing experiences: Gran Turismo (GT) and Formula 1(F1).",
+    "phone_no": "9175955132",
+    "prize_pool": "₹4000",
+    "teamSize": {
+      "min": 1,
+      "max": 2
+    },
+    "localImage": "/event41.webp"
+  },
+  {
+    "id": 42,
+    "title": "Neon Bowling",
+    "price": "120",
+    "tag": "S4DS",
+    "college": "S4DS",
+    "image": "/event42.webp",
+    "desc": "Regular bowling played under blacklights, where lanes, pins and balls glow in vibrant neon colors.",
+    "phone_no": "9175955132",
+    "prize_pool": "₹3000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event42.webp"
+  },
+  {
+    "id": 43,
+    "title": "Box Cricket",
+    "price": "400",
+    "tag": "S4DS",
+    "college": "S4DS",
+    "image": "/event43.webp",
+    "desc": "A high-energy, fast paced version of cricket played in a compact arena with shorter overs. This format ensures thrilling, action-packed matches.",
+    "phone_no": "9175955132",
+    "prize_pool": "₹9000",
+    "teamSize": {
+      "min": 5,
+      "max": 7
+    },
+    "localImage": "/event43.webp"
+  },
+  {
+    "id": 44,
+    "title": "Valorant",
+    "price": "400",
+    "tag": "S4DS",
+    "college": "S4DS",
+    "image": "/event44.webp",
+    "desc": "A special team-up where players jump into Riot’s tactical 5v5 shooter, combining strategy, sharp aim, and unique agent abilities.",
+    "phone_no": "9175955132",
+    "prize_pool": "₹18000",
+    "teamSize": {
+      "min": 5,
+      "max": 5
+    },
+    "localImage": "/event44.webp"
+  },
+  {
+    "id": 45,
+    "title": "CanvaSphere Hack",
+    "price": "50",
+    "tag": "S4DS",
+    "college": "S4DS",
+    "image": "/event45.webp",
+    "desc": "An online creative challenge where participants use Canva to design bold, eye-catching visuals.",
+    "phone_no": "9175955132",
+    "prize_pool": "Kinds",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event45.webp"
+  },
+  {
+    "id": 46,
+    "title": "Capture the Flag(CTF)",
+    "price": "60",
+    "tag": "OWASP",
+    "college": "OWASP",
+    "image": "/event46.webp",
+    "desc": "This is a brief description for Event 41.",
+    "phone_no": "9152026104",
+    "prize_pool": "₹5000",
+    "teamSize": {
+      "min": 1,
+      "max": 2
+    },
+    "localImage": "/event46.webp"
+  },
+  {
+    "id": 47,
+    "title": "Skribble",
+    "price": "100",
+    "tag": "OWASP",
+    "college": "OWASP",
+    "image": "/event47.webp",
+    "desc": "This is a brief description for Event 41.",
+    "phone_no": "9152026104",
+    "prize_pool": "₹2000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event47.webp"
+  },
+  {
+    "id": 48,
+    "title": "Rocket League",
+    "price": "100",
+    "tag": "OWASP",
+    "college": "OWASP",
+    "image": "/event48.webp",
+    "desc": "This is a brief description for Event 41.",
+    "phone_no": "9152026104",
+    "prize_pool": "₹1500",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event48.webp"
+  },
+  {
+    "id": 49,
+    "title": "E football",
+    "price": "60",
+    "tag": "OWASP",
+    "college": "OWASP",
+    "image": "/event49.webp",
+    "desc": "This is a brief description for Event 41.",
+    "phone_no": "9152026104",
+    "prize_pool": "₹1000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event49.webp"
+  },
+  {
+    "id": 50,
+    "title": "Stumble Guys",
+    "price": "60",
+    "tag": "OWASP",
+    "college": "OWASP",
+    "image": "/event50.webp",
+    "desc": "This is a brief description for Event 41.",
+    "phone_no": "9152026104",
+    "prize_pool": "₹1500",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event50.webp"
+  },
+  {
+    "id": 51,
+    "title": "Neon Football",
+    "prices": [
+      {
+        "teamSize": 1,
+        "cost": 70
+      },
+      {
+        "teamSize": 2,
+        "cost": 120
+      }
+    ],
+    "prize_pool": "₹2000",
+    "teamSize": {
+      "min": 1,
+      "max": 2
+    },
+    "tag": "IEI",
+    "college": "IEI",
+    "image": "/event51.webp",
+    "desc": "Glow-in-the-dark football with neon lights, glowing field, ball, and players for a thrilling and immersive game.",
+    "phone_no": "7304603452",
+    "localImage": "/event51.webp"
+  },
+  {
+    "id": 52,
+    "title": "E Arena",
+    "prices": [
+      {
+        "teamSize": 1,
+        "cost": 120
+      },
+      {
+        "teamSize": 2,
+        "cost": 200
+      }
+    ],
+    "prize_pool": "₹5000",
+    "teamSize": {
+      "min": 1,
+      "max": 2
+    },
+    "tag": "IEI",
+    "college": "IEI",
+    "image": "/event52.webp",
+    "desc": "Gamers compete on PC & PlayStation titles like Mortal Kombat, Tekken, CS2, Fall Guys, and mini-games to climb the leaderboard.",
+    "phone_no": "7304603452",
+    "localImage": "/event52.webp"
+  },
+  {
+    "id": 53,
+    "title": "Workshop on AIoT",
+    "price": "100",
+    "prize_pool": "₹2000",
+    "tag": "IEI",
+    "college": "IEI",
+    "image": "/event53.webp",
+    "desc": "Discover how AI-driven IoT transforms industries—smart homes, healthcare, transport, & more—with real-world insights and future trends.",
+    "phone_no": "7304603452",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event53.webp"
+  },
+  {
+    "id": 54,
+    "title": "Space Blitz(Ar Vr)",
+    "price": "130",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "prize_pool": "₹2000",
+    "tag": "IEI",
+    "college": "IEI",
+    "image": "/event54.webp",
+    "desc": "Test reflexes and aim—shoot targets, score points, climb ranks, and win prizes in a fast-paced contest.",
+    "phone_no": "7304603452",
+    "localImage": "/event54.webp"
+  },
+  {
+    "id": 55,
+    "title": "Arcade game",
+    "price": "50",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "prize_pool": "₹1000",
+    "tag": "IEI",
+    "college": "IEI",
+    "image": "/event55.webp",
+    "desc": "Two-player teams race through rapid 1‑minute games, earning points through speed, skill, and teamwork.",
+    "phone_no": "7304603452",
+    "localImage": "/event55.webp"
+  },
+  {
+    "id": 56,
+    "title": "CAD Competition",
+    "price": "200",
+    "tag": "TRS",
+    "college": "TRS",
+    "image": "https://github.com/ap27killerclown/ap27killerclown/blob/main/823550ab-2289-4d64-83f7-33116aa188c8.jpg?raw=true",
+    "desc": " A high-energy Battlegrounds Mobile India Team Deathmatch event designed to test reflexes, strategy, and teamwork. Players will face off in fast-paced rounds where quick decision-making and coordination are the keys to victory, providing both thrill and competitive spirit to participants and spectators. ",
+    "phone_no": "9821430779",
+    "prize_pool": "₹5000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event-custom-56.jpg"
+  },
+  {
+    "id": 57,
+    "title": "3D Printing Workshop",
+    "price": "200",
+    "tag": "TRS",
+    "college": "TRS",
+    "image": "https://github.com/ap27killerclown/ap27killerclown/blob/main/c925c610-24ce-4e68-ae2a-ef9780f48a54.jpg?raw=true",
+    "desc": " A high-energy Battlegrounds Mobile India Team Deathmatch event designed to test reflexes, strategy, and teamwork. Players will face off in fast-paced rounds where quick decision-making and coordination are the keys to victory, providing both thrill and competitive spirit to participants and spectators.  ",
+    "phone_no": "9821430779",
+    "prize_pool": "Certificate",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event-custom-57.jpg"
+  },
+  {
+    "id": 58,
+    "title": "BGMI (TDM)",
+    "price": "200",
+    "tag": "TRS",
+    "college": "TRS",
+    "image": "https://github.com/ap27killerclown/ap27killerclown/blob/main/dc5faca5-eb7f-4b45-90c3-bbe4372de8e9.jpg?raw=true",
+    "desc": "BGMI TDM (Team Deathmatch) is a fast-paced multiplayer battle mode in Battlegrounds Mobile India. Two teams of players compete in a small arena, where the objective is to eliminate opponents and reach the target kill count before the other team. Matches are quick, intense, and focus on reflexes, teamwork, and weapon mastery. ",
+    "phone_no": "9821430779",
+    "prize_pool": "₹8000",
+    "teamSize": {
+      "min": 4,
+      "max": 4
+    },
+    "localImage": "/event-custom-58.jpg"
+  },
+  {
+    "id": 59,
+    "title": "Glow Carrom",
+    "price": "150",
+    "tag": "TRS",
+    "college": "TRS",
+    "image": "https://github.com/ap27killerclown/ap27killerclown/blob/main/f7d9eb7d-69a3-46d0-8730-ba5e71e673f1.jpg?raw=true",
+    "desc": "Glow Carrom is a fun twist on the classic board game, played under UV or neon lighting with glow-in-the-dark coins and a board. Players use the striker to pocket glowing coins, aiming to score points just like in traditional carrom, but with an exciting visual effect that makes the game more engaging and lively. ",
+    "phone_no": "9821430779",
+    "prize_pool": "₹3500",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event-custom-59.jpg"
+  },
+  {
+    "id": 60,
+    "title": "Dart Football",
+    "price": "40",
+    "tag": "TRS",
+    "college": "TRS",
+    "image": "https://github.com/ap27killerclown/ap27killerclown/blob/main/519b00e1-8cae-4c4e-9eca-3ff7d6206fb6.jpg?raw=true",
+    "desc": "Football Darts is a fun, hybrid game that combines elements of football (soccer) and darts. In this game, a giant inflatable or poster dartboard is mounted vertically on a wall or stand. Players aim to kick a football at the dartboard, trying to hit specific sections to score points, just like in traditional darts. The closer the ball lands to the bullseye, the higher the score. The game is typically played in rounds ",
+    "phone_no": "9821430779",
+    "prize_pool": "Prizes in Kinds",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event-custom-60.jpg"
+  },
+  {
+    "id": 61,
+    "title": "Vintage Photo Booth",
+    "price": "100",
+    "tag": "BBA",
+    "college": "BBA",
+    "image": "https://raw.githubusercontent.com/ap27killerclown/ap27killerclown/refs/heads/main/491a4fbd-cad9-4941-9f1b-755522c95e25.png",
+    "desc": "A vintage-themed photo booth designed to create a nostalgic atmosphere for attendees. The setup will include retro backdrops, fairy lights, and an array of antique props such as gramophones, hats, mustaches, old cameras, and funky vintage frames, providing the perfect opportunity to capture memorable and stylish photographs.",
+    "phone_no": "9969461707",
+    "prize_pool": "Not Applicable",
+    "teamSize": {
+      "min": 1,
+      "max": 4
+    },
+    "localImage": "/event-custom-61.png"
+  },
+  {
+    "id": 62,
+    "title": "Anomaly",
+    "price": "60",
+    "tag": "ACM-SIGAI",
+    "college": "ACM-SIGAI",
+    "image": "/event62.webp",
+    "desc": "Dive into a retro cyber world with Anomaly, a mind-bending puzzle adventure like no other. Guided by Glitch, a witty fragment of lost code, you’ll step into the role of a Debugger unraveling paradoxes, repairing corrupted data, and decoding strange patterns. Every puzzle fuses logic, story, and real coding concepts to challenge both your mind and creativity. But beware—the system anomaly doesn’t want you to win. Can you outsmart the digital chaos before it consumes everything?",
+    "phone_no": "7045851407",
+    "prize_pool": "₹4000",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event62.webp"
+  },
+  {
+    "id": 63,
+    "title": "Murderer Among Us",
+    "price": "60",
+    "tag": "BCA",
+    "college": "BCA",
+    "image": "/event63.webp",
+    "desc": "Step into a classroom turned crime scene in this thrilling mystery game! Each round, every player receives unique scripts with secrets and clues about a shocking campus murder. But beware — one of you is the hidden murderer! Can you solve the case before time runs out? ",
+    "phone_no": "8452801821",
+    "prize_pool": "₹2000",
+    "teamSize": {
+      "min": 1,
+      "max": 4
+    },
+    "localImage": "/event63.webp"
+  },
+  {
+    "id": 64,
+    "title": "Clash Royale",
+    "price": "100",
+    "tag": "ASME",
+    "college": "ASME",
+    "image": "/event64.webp",
+    "desc": "Clash Royale is a fast-paced strategy game where every card can change the tide of battle. Build powerful decks with Clash of Clans troops, spells, and defenses, then face rivals in real-time 1v1 and 2v2 duels. Collect and upgrade cards, protect your King while destroying enemy towers, and rise through the leagues from beginner to Champion. With global tournaments, clans, and endless strategies, Clash Royale isn’t just a game—it’s a battle for glory!",
+    "phone_no": "9527771166",
+    "prize_pool": "Vouchers",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event64.webp"
+  },
+  {
+    "id": 65,
+    "title": "Dare Pong",
+    "prices": [
+      {
+        "teamSize": 1,
+        "cost": 60
+      },
+      {
+        "teamSize": 2,
+        "cost": 80
+      }
+    ],
+    "tag": "ASME",
+    "college": "ASME",
+    "image": "/event65.webp",
+    "desc": "Dare Pong takes the classic pong setup and adds a thrilling twist—every cup hides a surprise dare! Land the ball, and your opponent must complete the challenge written under the cup, turning every round into laughter, excitement, and unforgettable moments. From funny tasks to bold challenges, it’s the perfect game to break the ice, spark energy, and keep the fun going all night!",
+    "phone_no": "9527771166",
+    "prize_pool": "Vouchers",
+    "teamSize": {
+      "min": 1,
+      "max": 2
+    },
+    "localImage": "/event65.webp"
+  },
+  {
+    "id": 66,
+    "title": "Spin the Wheel",
+    "price": "30",
+    "tag": "ASME",
+    "college": "ASME",
+    "image": "/event66.webp",
+    "desc": "Dare to test your luck? Every spin unlocks surprises—thrilling challenges, exciting prizes, and unexpected twists that keep everyone on the edge of their seat. Simple to play, impossible to resist, and guaranteed to bring nonstop energy and fun to any party or event. One spin can change it all!",
+    "phone_no": "9527771166",
+    "prize_pool": "Vouchers",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event66.webp"
+  },
+  {
+    "id": 67,
+    "title": "F1 Reaction Game",
+    "price": "30",
+    "tag": "ASME",
+    "college": "ASME",
+    "image": "/event67.webp",
+    "desc": "Think you’ve got reflexes like an F1 driver? Test your lightning-fast reactions with the F1 Reaction Game! The goal is simple—hit the lights, buttons, or targets as quickly as possible before time runs out. Every second counts, just like on the track, where the difference between victory and defeat is measured in milliseconds. Perfect for parties, events, or team challenges, this game brings the thrill of Formula 1 precision, speed, and adrenaline right to your fingertips.",
+    "phone_no": "9527771166",
+    "prize_pool": "Vouchers",
+    "teamSize": {
+      "min": 1,
+      "max": 1
+    },
+    "localImage": "/event67.webp"
+  }
+]
