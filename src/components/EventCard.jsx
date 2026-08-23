@@ -3,6 +3,8 @@ import { ArrowUpRight } from 'lucide-react';
 
 export function EventCard({ event, onSelect }) {
   const imageSrc = event.image || `/event${event.numericId || event.id || 1}.webp`;
+  const priceDisplay = event.priceDisplay || 'Register';
+  const prizeDisplay = event.prizeDisplay || 'Open';
 
   return (
     <div
@@ -55,15 +57,18 @@ export function EventCard({ event, onSelect }) {
         <div className="pt-3 border-t-2 border-black flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="px-2 py-0.5 bg-white border-2 border-black font-neo font-bold text-xs text-black shadow-[1.5px_1.5px_0px_0px_#000]">
-              {event.priceDisplay}
+              {priceDisplay}
             </span>
             <span className="px-2 py-0.5 bg-black border-2 border-black font-neo font-bold text-xs text-white shadow-[1.5px_1.5px_0px_0px_#000]">
-              {event.prizeDisplay}
+              {prizeDisplay}
             </span>
           </div>
 
-          <div className="w-8 h-8 bg-black text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all shrink-0">
-            <ArrowUpRight className="w-4 h-4 stroke-[3px]" />
+          <div className="flex items-center gap-2">
+            <span className="font-neo font-black text-[10px] uppercase tracking-[0.18em] text-black">Register</span>
+            <div className="w-8 h-8 bg-black text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all shrink-0">
+              <ArrowUpRight className="w-4 h-4 stroke-[3px]" />
+            </div>
           </div>
         </div>
       </div>

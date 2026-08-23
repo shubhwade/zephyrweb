@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Hero } from '../components/Hero';
-import { ArrowRight, Trophy, Calendar, BookOpen, Phone } from 'lucide-react';
+import { ArrowRight, Trophy, BookOpen, Phone } from 'lucide-react';
 
 export function HomePage({ onNavigate }) {
   useEffect(() => {
@@ -15,14 +15,6 @@ export function HomePage({ onNavigate }) {
       description: 'Esports, Hackathons, Robotics, CAD Modeling, and Creative Challenges across all 11 chapters.',
       actionText: 'Explore Events',
       icon: Trophy,
-    },
-    {
-      id: 'schedule',
-      title: 'Schedule',
-      subtitle: '3-DAY TIMELINE',
-      description: 'Keynotes, hackathon phases, project expos, and championship finals.',
-      actionText: 'View Schedule',
-      icon: Calendar,
     },
     {
       id: 'about',

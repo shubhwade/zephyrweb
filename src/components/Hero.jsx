@@ -23,6 +23,17 @@ export function Hero() {
           </span>
           <span className="h-[1px] w-8 sm:w-16 bg-gradient-to-l from-transparent to-[#1C1C1C]/60" />
         </div>
+
+        <div className="w-full flex justify-center px-2 sm:px-4 animate-fade-in -mt-1 sm:-mt-2">
+          <div className="relative w-full max-w-[760px]">
+            <img
+              src="/wordmark/forge-of-worlds-transparent.webp"
+              alt=""
+              className="block w-full h-auto max-h-[150px] sm:max-h-[190px] md:max-h-[220px] object-contain opacity-100 select-none pointer-events-none"
+            />
+          </div>
+        </div>
+
       </div>
 
       {/* Minimal Scroll Indicator */}

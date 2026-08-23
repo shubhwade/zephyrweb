@@ -11,7 +11,6 @@ export function Footer({ onNavigate }) {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About Fest' },
     { id: 'events', label: '67 Events Directory' },
-    { id: 'schedule', label: 'Schedule' },
     { id: 'contact', label: 'Contact Desks' },
   ];
 

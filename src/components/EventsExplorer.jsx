@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ALL_EVENTS, CATEGORIES, filterAndSearchEvents } from '../data/events';
-import { COMMITTEES_DATA } from '../data/committees';
+import { ALL_EVENTS, CATEGORIES, filterAndSearchEvents, ACTIVE_COMMITTEES } from '../data/events';
 import { EventCard } from './EventCard';
 import { EventModal } from './EventModal';
 import { Search, X, RotateCcw, Filter } from 'lucide-react';
@@ -64,7 +63,7 @@ export function EventsExplorer({ onShowToast }) {
 
         <div className="flex items-center gap-2.5">
           <div className="px-3 py-1.5 bg-black text-white border-2 border-black font-neo font-bold tracking-wider uppercase text-xs shadow-[2px_2px_0px_0px_#000]">
-            {filteredEvents.length} OF 67 EVENTS
+            {filteredEvents.length} OF {ALL_EVENTS.length} EVENTS
           </div>
 
           {hasActiveFilters && (
@@ -116,10 +115,10 @@ export function EventsExplorer({ onShowToast }) {
               onChange={(e) => setSelectedCommittee(e.target.value)}
               className="w-full px-3 py-2 bg-white border-2 border-black text-xs sm:text-sm text-black focus:outline-none focus:bg-black/5 transition-all uppercase tracking-wider font-neo font-bold rounded-none"
             >
-              <option value="ALL">All 11 Chapters ({ALL_EVENTS.length})</option>
-              {COMMITTEES_DATA.filter((c) => c.id !== 'ALL').map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.name} ({ALL_EVENTS.filter((e) => e.committee === c.id).length})
+              <option value="ALL">All Active Committees ({ALL_EVENTS.length})</option>
+              {ACTIVE_COMMITTEES.map((committee) => (
+                <option key={committee} value={committee}>
+                  {committee} ({ALL_EVENTS.filter((e) => e.committeesList.includes(committee)).length})
                 </option>
               ))}
             </select>
@@ -164,19 +163,19 @@ export function EventsExplorer({ onShowToast }) {
         {/* Desktop Quick Chapter Pills */}
         <div className="hidden md:block pt-3 border-t-2 border-black">
           <div className="flex flex-wrap gap-2">
-            {COMMITTEES_DATA.map((comm) => {
-              const isSelected = selectedCommittee === comm.id;
+            {ACTIVE_COMMITTEES.map((committee) => {
+              const isSelected = selectedCommittee === committee;
               return (
                 <button
-                  key={comm.id}
-                  onClick={() => setSelectedCommittee(comm.id)}
+                  key={committee}
+                  onClick={() => setSelectedCommittee(committee)}
                   className={`px-3 py-1 text-xs font-neo font-bold uppercase tracking-wider transition-all duration-150 rounded-none border-2 border-black ${
                     isSelected
                       ? 'bg-black text-white shadow-[2px_2px_0px_0px_#000] -translate-y-0.5'
                       : 'bg-white text-black hover:bg-black hover:text-white'
                   }`}
                 >
-                  {comm.name}
+                  {committee}
                 </button>
               );
             })}

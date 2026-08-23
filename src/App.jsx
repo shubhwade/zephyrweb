@@ -4,7 +4,6 @@ import { VideoBackground } from './components/VideoBackground';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { EventsPage } from './pages/EventsPage';
-import { SchedulePage } from './pages/SchedulePage';
 import { ContactPage } from './pages/ContactPage';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';
@@ -14,7 +13,6 @@ export default function App() {
     const path = window.location.pathname.toLowerCase();
     if (path.includes('about')) return 'about';
     if (path.includes('event')) return 'events';
-    if (path.includes('schedule')) return 'schedule';
     if (path.includes('contact')) return 'contact';
     return 'home';
   });
@@ -53,7 +51,6 @@ export default function App() {
       const path = window.location.pathname.toLowerCase();
       if (path.includes('about')) setCurrentPage('about');
       else if (path.includes('event')) setCurrentPage('events');
-      else if (path.includes('schedule')) setCurrentPage('schedule');
       else if (path.includes('contact')) setCurrentPage('contact');
       else setCurrentPage('home');
     };
@@ -67,7 +64,6 @@ export default function App() {
     let targetPath = '/';
     if (pageId === 'about') targetPath = '/about';
     if (pageId === 'events') targetPath = '/events';
-    if (pageId === 'schedule') targetPath = '/schedule';
     if (pageId === 'contact') targetPath = '/contact';
 
     window.history.pushState({}, '', targetPath);
@@ -106,10 +102,6 @@ export default function App() {
 
         {currentPage === 'events' && (
           <EventsPage onShowToast={showToast} onNavigate={navigateToPage} />
-        )}
-
-        {currentPage === 'schedule' && (
-          <SchedulePage onShowToast={showToast} onNavigate={navigateToPage} />
         )}
 
         {currentPage === 'contact' && (

@@ -18,7 +18,6 @@ export function Navbar({ currentPage = 'home', onNavigate }) {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'events', label: 'Events' },
-    { id: 'schedule', label: 'Schedule' },
     { id: 'contact', label: 'Contact' },
   ];
 
