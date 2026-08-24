@@ -104,7 +104,17 @@ export function InteractiveWordmark() {
                   loop
                   preload="auto"
                   className="w-full h-full object-contain pointer-events-none"
-                  style={{ backgroundColor: 'transparent' }}
+                  style={{
+                    backgroundColor: 'transparent',
+                    WebkitMaskImage: `url('${letter.poster}')`,
+                    maskImage: `url('${letter.poster}')`,
+                    WebkitMaskSize: 'contain',
+                    maskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskPosition: 'center',
+                  }}
                 >
                   <source src={letter.webm} type="video/webm" />
                   <source src={letter.mp4} type="video/mp4" />
