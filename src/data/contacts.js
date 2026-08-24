@@ -7,7 +7,7 @@ export const TECHNICAL_CONTACTS = {
   helpline: [
     { name: 'Shubh Wade', role: 'Joint Technical Secretary', phone: '8454079844' },
     { name: 'Saisha Batulwar', role: 'Joint Technical Secretary', phone: '8452831419' },
-    { name: 'Yatin Verma', role: 'Joint Technical Secretary', phone: '9820423758' }
+    { name: 'Yatin Varma', role: 'Joint Technical Secretary', phone: '9820423758' }
   ]
 };
 
