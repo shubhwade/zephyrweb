@@ -59,7 +59,6 @@ const LETTERS_CONFIG = [
 
 export function InteractiveWordmark() {
   const videoRefs = useRef({});
-  const mobileVideoRef = useRef(null);
 
   // Play all letter videos simultaneously in a synchronized loop
   useEffect(() => {
@@ -71,13 +70,6 @@ export function InteractiveWordmark() {
         video.play().catch(() => {});
       }
     });
-
-    if (mobileVideoRef.current) {
-      mobileVideoRef.current.muted = true;
-      mobileVideoRef.current.playsInline = true;
-      mobileVideoRef.current.loop = true;
-      mobileVideoRef.current.play().catch(() => {});
-    }
   }, []);
 
   return (
@@ -88,22 +80,38 @@ export function InteractiveWordmark() {
         aria-label="Zephyr Wordmark"
       >
         {/* ========================================================= */}
-        {/* MOBILE VIEW: Panoramic Video with Transparent Alpha      */}
+        {/* MOBILE VIEW: Keep the individual letters, stack them vertically */}
         {/* ========================================================= */}
-        <div className="block sm:hidden w-full aspect-[1800/480] overflow-hidden relative">
-          <video
-            ref={mobileVideoRef}
-            poster="/wordmark/zephyr-wordmark-trans.png"
-            autoPlay
-            muted
-            playsInline
-            loop
-            preload="auto"
-            className="w-full h-full object-contain pointer-events-none drop-shadow-sm"
-          >
-            <source src="/wordmark/zephyr-wordmark-motion.webm" type="video/webm" />
-            <source src="/wordmark/zephyr-wordmark-motion.mp4" type="video/mp4" />
-          </video>
+        <div className="sm:hidden w-full max-w-[150px] mx-auto flex flex-col items-center justify-center gap-0.85 px-2">
+          {LETTERS_CONFIG.map((letter) => (
+            <div
+              key={letter.id}
+              className="relative flex items-center justify-center w-full"
+              style={{ width: 'min(28vw, 110px)' }}
+            >
+              <div
+                className="relative w-full overflow-hidden"
+                style={{ aspectRatio: letter.aspect }}
+              >
+                <video
+                  ref={(el) => {
+                    if (el) videoRefs.current[letter.id] = el;
+                  }}
+                  poster={letter.poster}
+                  autoPlay
+                  muted
+                  playsInline
+                  loop
+                  preload="auto"
+                  className="w-full h-full object-contain pointer-events-none"
+                  style={{ backgroundColor: 'transparent' }}
+                >
+                  <source src={letter.webm} type="video/webm" />
+                  <source src={letter.mp4} type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* ========================================================= */}

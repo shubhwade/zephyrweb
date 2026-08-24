@@ -39,9 +39,8 @@ export function Navbar({ currentPage = 'home', onNavigate }) {
           : 'bg-[#FFFDF5] border-b-4 border-black py-2.5 shadow-[0_4px_0px_0px_#000]'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center relative pointer-events-auto">
-          
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between md:justify-center relative pointer-events-auto gap-3">
           {/* Centered Desktop Navigation Links */}
           <nav className="hidden md:flex items-center justify-center gap-2 lg:gap-3">
             {navLinks.map((link) => {
