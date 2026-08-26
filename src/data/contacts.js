@@ -25,6 +25,12 @@ export const PROFESSIONAL_BODY_CONTACTS = [
   { committee: 'ASME - TCET', name: 'Varuna Karande', role: 'CP', phone: '9967852636' }
 ];
 
+export const OUTREACH_CONTACTS = [
+  { name: 'Tanisha Giri', role: 'Joint Outreach Secretary', phone: '9004939237' },
+  { name: 'Soumita Pramanick', role: 'Joint Outreach Secretary', phone: '6297302156' },
+  { name: 'Varun Maurya', role: 'Joint Outreach Secretary', phone: '8104751559' }
+];
+
 export const CONTACT_INFO = {
   institution: 'Thakur College of Engineering & Technology (TCET)',
   organizer: 'TCET Student Development & Welfare Association (TSDW)',
@@ -50,6 +56,7 @@ export const CONTACT_INFO = {
   ],
   technicalQueries: TECHNICAL_CONTACTS,
   helpline: TECHNICAL_CONTACTS.helpline,
+  outreachHelpline: OUTREACH_CONTACTS,
   professionalBodyContacts: PROFESSIONAL_BODY_CONTACTS,
   committeeHelplines: [
     { committee: 'CSI', lead: 'President, CSI TCET', phone: '+91 9987330273' },

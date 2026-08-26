@@ -24,7 +24,7 @@ export function Hero() {
           <span className="h-[1px] w-8 sm:w-16 bg-gradient-to-l from-transparent to-[#1C1C1C]/60" />
         </div>
 
-        <div className="w-full flex justify-center px-2 sm:px-4 animate-fade-in -mt-1 sm:-mt-2">
+        <div className="hidden sm:flex w-full justify-center px-2 sm:px-4 animate-fade-in -mt-1 sm:-mt-2">
           <div className="relative w-full max-w-[620px] sm:max-w-[760px]">
             <img
               src="/wordmark/forge-of-worlds-transparent.webp"

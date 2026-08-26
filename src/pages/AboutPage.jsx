@@ -53,8 +53,8 @@ export function AboutPage({ onNavigate }) {
           </div>
 
           <div className="pt-3.5 border-t-2 border-black flex items-center justify-between text-xs font-neo font-bold text-black uppercase tracking-wider">
-            <span>EDITION</span>
-            <span className="font-black bg-black text-white px-2 py-0.5">21ST (2025)</span>
+            <span>PAST EDITION</span>
+            <span className="font-black bg-black text-white px-2 py-0.5">21ST • 2025</span>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Hero } from '../components/Hero';
-import { ArrowRight, Trophy, BookOpen, Phone } from 'lucide-react';
+import { ArrowRight, Trophy, BookOpen, Phone, Handshake } from 'lucide-react';
 
 export function HomePage({ onNavigate }) {
   useEffect(() => {
@@ -31,6 +31,14 @@ export function HomePage({ onNavigate }) {
       description: 'Direct contacts for student leads, committee heads, and campus registration desks.',
       actionText: 'Get In Touch',
       icon: Phone,
+    },
+    {
+      id: 'sponsors',
+      title: 'Our Past Sponsors',
+      subtitle: 'PARTNERS',
+      description: 'A legacy of support from brands that believe in student innovation and technical excellence.',
+      actionText: 'View All Sponsors',
+      icon: Handshake,
     }
   ];
 
@@ -81,6 +89,13 @@ export function HomePage({ onNavigate }) {
                   <p className="font-body text-xs sm:text-sm text-black/80 font-medium leading-relaxed">
                     {item.description}
                   </p>
+
+                  {item.id === 'sponsors' && (
+                    <div className="flex items-center gap-2 text-[10px] font-neo font-black uppercase tracking-[0.18em] text-black/70">
+                      <span className="inline-block h-2 w-2 bg-black" />
+                      <span>10+ partners</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-3 border-t-2 border-black flex items-center justify-between font-neo font-black text-xs uppercase tracking-wider text-black">
@@ -98,3 +113,6 @@ export function HomePage({ onNavigate }) {
     </main>
   );
 }
+
+
+

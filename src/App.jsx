@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { EventsPage } from './pages/EventsPage';
 import { ContactPage } from './pages/ContactPage';
+import { SponsorsPage } from './pages/SponsorsPage';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';
 
@@ -14,6 +15,7 @@ export default function App() {
     if (path.includes('about')) return 'about';
     if (path.includes('event')) return 'events';
     if (path.includes('contact')) return 'contact';
+    if (path.includes('sponsor')) return 'sponsors';
     return 'home';
   });
 
@@ -52,6 +54,7 @@ export default function App() {
       if (path.includes('about')) setCurrentPage('about');
       else if (path.includes('event')) setCurrentPage('events');
       else if (path.includes('contact')) setCurrentPage('contact');
+      else if (path.includes('sponsor')) setCurrentPage('sponsors');
       else setCurrentPage('home');
     };
 
@@ -65,6 +68,7 @@ export default function App() {
     if (pageId === 'about') targetPath = '/about';
     if (pageId === 'events') targetPath = '/events';
     if (pageId === 'contact') targetPath = '/contact';
+    if (pageId === 'sponsors') targetPath = '/sponsors';
 
     window.history.pushState({}, '', targetPath);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -106,6 +110,10 @@ export default function App() {
 
         {currentPage === 'contact' && (
           <ContactPage onShowToast={showToast} onNavigate={navigateToPage} />
+        )}
+
+        {currentPage === 'sponsors' && (
+          <SponsorsPage onNavigate={navigateToPage} />
         )}
       </div>
 

@@ -3,7 +3,7 @@ import { CONTACT_INFO } from '../data/contacts';
 import { ArrowRight, AtSign, Mail, Phone } from 'lucide-react';
 
 export function ContactSection() {
-  const { technicalQueries, helpline, professionalBodyContacts } = CONTACT_INFO;
+  const { technicalQueries, helpline, outreachHelpline, professionalBodyContacts } = CONTACT_INFO;
 
   return (
     <div className="space-y-6 sm:space-y-8">
@@ -140,6 +140,55 @@ export function ContactSection() {
               >
                 <Phone className="w-3.5 h-3.5 stroke-[2.5px]" />
                 <span>{person.phone.replace(/(\d{5})(\d{5})/, '$1 $2')}</span>
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <span className="px-2.5 py-0.5 bg-black text-white border-2 border-black font-neo font-black text-[10px] uppercase tracking-[0.22em] inline-block shadow-[1.5px_1.5px_0px_0px_#000]">
+            Outreach Helpline
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5">
+          {outreachHelpline.map((person) => (
+            <div
+              key={person.name}
+              className="neo-card-lg p-4 sm:p-5 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#000]"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="w-11 h-11 bg-black border-2 border-black flex items-center justify-center text-white shadow-[2px_2px_0px_0px_#000]">
+                  <Phone className="w-4 h-4 stroke-[2.5px]" />
+                </div>
+
+                <a
+                  href={`tel:+91${person.phone}`}
+                  className="inline-flex items-center gap-1 font-neo font-black text-[10px] uppercase tracking-[0.18em] text-black hover:opacity-70 transition-opacity"
+                  aria-label={`Call ${person.name}`}
+                >
+                  <span>Call</span>
+                  <ArrowRight className="w-3 h-3 stroke-[2.5px]" />
+                </a>
+              </div>
+
+              <div className="mt-4 space-y-2">
+                <h3 className="font-neo font-black text-xl text-black uppercase tracking-tight">
+                  {person.name}
+                </h3>
+                <p className="font-body text-xs sm:text-sm text-black/75 font-medium">
+                  {person.role}
+                </p>
+              </div>
+
+              <a
+                href={`tel:+91${person.phone}`}
+                className="mt-4 flex items-center gap-2 border-2 border-black bg-[#f5f0e8] px-3 py-2.5 font-neo font-black text-[11px] uppercase tracking-[0.16em] text-black transition-colors hover:bg-black hover:text-white"
+              >
+                <Phone className="w-3.5 h-3.5 stroke-[2.5px]" />
+                <span>{`+91 ${person.phone.replace(/(\d{5})(\d{5})/, '$1 $2')}`}</span>
               </a>
             </div>
           ))}

@@ -82,15 +82,6 @@ export function validateScheduleIntegrity() {
 
   const isValid = errors.length === 0;
 
-  if (import.meta.env?.DEV) {
-    if (!isValid) {
-      console.error("[Schedule Validation FAILED]", errors);
-    }
-    if (warnings.length > 0) {
-      console.warn("[Schedule Validation Warnings]", warnings);
-    }
-  }
-
   return {
     isValid,
     errors,

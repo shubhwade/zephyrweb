@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { X, Phone, Copy, ArrowRight, MessageCircle, Check, AlertCircle } from 'lucide-react';
+import { X, Phone, Copy, ArrowRight, MessageCircle, Check, AlertCircle, Sparkles } from 'lucide-react';
 import {
   buildWhatsAppMessage,
   buildWhatsAppUrl,
@@ -124,14 +124,6 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
 
     const waUrl = buildWhatsAppUrl(selectedCommitteeContact.phone, message);
 
-    if (import.meta.env.DEV) {
-      console.log('Selected Event', event.title);
-      console.log('Selected Committee', selectedCommittee);
-      console.log('Resolved CP', selectedCommitteeContact.name);
-      console.log('Resolved Phone', selectedCommitteeContact.phone);
-      console.log('Generated WhatsApp URL', waUrl);
-    }
-
     const payload = {
       eventName: event.title,
       committee: selectedCommittee,
@@ -181,8 +173,8 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
       try {
         await navigator.clipboard.writeText(text);
         if (onCopyContact) onCopyContact(text);
-      } catch (error) {
-        console.warn('Clipboard copy failed', error);
+      } catch {
+        // Ignore clipboard failures and keep the fallback flow intact.
       }
     }
   };
@@ -258,8 +250,9 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
               </button>
             </div>
             {event.collabNote && (
-              <div className="p-2 bg-black/5 border-2 border-black font-neo font-bold text-[11px] text-black">
-                ✦ {event.collabNote}
+              <div className="flex items-center gap-2 p-2 bg-black/5 border-2 border-black font-neo font-bold text-[11px] text-black">
+                <Sparkles className="w-3.5 h-3.5 stroke-[2.5px] shrink-0" />
+                <span>{event.collabNote}</span>
               </div>
             )}
           </div>

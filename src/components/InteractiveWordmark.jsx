@@ -82,12 +82,12 @@ export function InteractiveWordmark() {
         {/* ========================================================= */}
         {/* MOBILE VIEW: Keep the individual letters, stack them vertically */}
         {/* ========================================================= */}
-        <div className="sm:hidden w-full max-w-[150px] mx-auto flex flex-col items-center justify-center gap-0.85 px-2">
+        <div className="sm:hidden w-full max-w-[100px] mx-auto flex flex-col items-center justify-center gap-0 px-1 mt-0.5 mb-0">
           {LETTERS_CONFIG.map((letter) => (
             <div
               key={letter.id}
               className="relative flex items-center justify-center w-full"
-              style={{ width: 'min(28vw, 110px)' }}
+              style={{ width: 'min(20vw, 72px)' }}
             >
               <div
                 className="relative w-full overflow-hidden"

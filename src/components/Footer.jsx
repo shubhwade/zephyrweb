@@ -112,7 +112,7 @@ export function Footer({ onNavigate }) {
         {/* Bottom Copyright & Back to Top */}
         <div className="pt-6 border-t-4 border-black flex flex-col sm:flex-row items-center justify-between gap-4 font-neo font-bold text-xs text-black">
           <div className="text-center sm:text-left bg-white border-2 border-black px-3.5 py-2 shadow-[2px_2px_0px_0px_#000]">
-            © 2004–2025 Zephyr Techfest & TSDW Council. TCET Mumbai.
+            © 2004–2026 Zephyr Techfest & TSDW Council. TCET Mumbai.
           </div>
 
           <button
