@@ -11,6 +11,8 @@ export const COMMITTEE_CONTACTS = {
   IEI: { label: 'IEI - TCET', name: 'Shreya Shrivastav', phone: '7208445992' },
   ASCE: { label: 'ASCE - TCET', name: 'Bhavik Thakur', phone: '7400128532' },
   ASME: { label: 'ASME - TCET', name: 'Varuna Karande', phone: '9967852636' },
+  AAAI: { label: 'AAAI - TCET', name: 'Shrishti Saroj', phone: '8928261591' },
+  BBA: { label: 'BBA - TCET', name: 'Smit Dingankar', phone: '8591550413' },
   IOT: { label: 'IOT - TCET', name: 'IOT Team', phone: '' },
 };
 
@@ -40,7 +42,7 @@ export const EVENT_COMMITTEE_ROUTE = {
   'Fall Guys': ['TRS'],
   'Dance Workshop': ['ACM'],
   'Vibecoding': ['ACM'],
-  'Cyber Heist': ['ACM'],
+  'Cyber Heist': ['ACM', 'CSI'],
   'Escape Room': ['ACM'],
   'Scavenger Hunt': ['ACM'],
   'Power Show': ['ACM'],
@@ -94,6 +96,8 @@ export function normalizeCommitteeKey(value) {
     'IEEE - TCET': 'IEEE',
     'IETE - TCET': 'IETE',
     'ASME - TCET': 'ASME',
+    'AAAI - TCET': 'AAAI',
+    'BBA - TCET': 'BBA',
   };
 
   return direct[normalized] || normalized.toUpperCase();
