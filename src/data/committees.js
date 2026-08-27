@@ -114,7 +114,7 @@ export const COMMITTEES_DATA = [
     name: "SIGAI",
     shortName: "SIGAI",
     fullName: "ACM Special Interest Group on Artificial Intelligence (ACM-SIGAI)",
-    description: "Neural network mysteries, Takeshi's Castle obstacle intelligence, and Anomaly coding hunts.",
+    description: "Neural network mysteries, Takeshi's Castle obstacle intelligence, and AI Crime Lab coding hunts.",
     accent: "#C5A059",
     categorySpecialty: "Artificial Intelligence",
     lead: "SIGAI AI Lab Council",

@@ -1,6 +1,6 @@
 import { MASTER_EVENTS } from './eventsMaster';
 export const CATEGORIES = ['All', 'Gaming', 'Sports', 'Tech', 'Creative', 'Puzzle / Experience'];
-export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IOT','ASME'];
+export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IOT','ASME','AAAI','BBA'];
 export const ALL_EVENTS = MASTER_EVENTS.map((event) => ({
   ...event,
   id: event.eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
@@ -17,7 +17,7 @@ export const ALL_EVENTS = MASTER_EVENTS.map((event) => ({
   isShared: Boolean(event.isShared),
   collabNote: event.isShared ? `Shared with ${event.committees.join(' · ')}` : null,
   priceDisplay: event.priceDisplay || 'Register',
-  prizeDisplay: event.prizeDisplay || 'Open',
+  prizeDisplay: event.prizeDisplay || event.prizePool || 'Open',
   teamDisplay: event.teamDisplay || 'Team',
 }));
 export function filterAndSearchEvents({ events = ALL_EVENTS, searchQuery = '', selectedCommittee = 'ALL', selectedCategory = 'All', priceFilter = 'all' }) {
