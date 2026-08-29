@@ -13,7 +13,7 @@ export const COMMITTEE_CONTACTS = {
   ASME: { label: 'ASME - TCET', name: 'Varuna Karande', phone: '9967852636' },
   AAAI: { label: 'AAAI - TCET', name: 'Shrishti Saroj', phone: '8928261591' },
   BBA: { label: 'BBA - TCET', name: 'Smit Dingankar', phone: '8591550413' },
-  IOT: { label: 'IOT - TCET', name: 'IOT Team', phone: '' },
+  IOT: { label: 'IEI - TCET', name: 'Shreya Shrivastav', phone: '7208445992' },
 };
 
 export const EVENT_COMMITTEE_ROUTE = {

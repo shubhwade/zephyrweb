@@ -1,8 +1,10 @@
 import { MASTER_EVENTS } from './eventsMaster';
+import { getCommitteeContact } from './committeeContacts';
 export const CATEGORIES = ['All', 'Gaming', 'Sports', 'Tech', 'Creative', 'Puzzle / Experience'];
 export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IOT','ASME','AAAI','BBA'];
 export const ALL_EVENTS = MASTER_EVENTS.map((event) => ({
   ...event,
+  phone_no: getCommitteeContact(event.committees[0])?.phone || '',
   id: event.eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
   title: event.eventName,
   tag: event.committees.length > 1 ? event.committees.join(' · ') : `${event.committees[0]} - TCET`,

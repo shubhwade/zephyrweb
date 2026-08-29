@@ -12,37 +12,29 @@ export function VideoBackground({
     const video = videoRef.current;
     if (!video) return;
 
+    video.muted = true;
     video.playsInline = true;
     video.loop = true;
 
-    // Attempt unmuted playback by default
-    video.muted = false;
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Fallback for browsers requiring prior user gesture: start muted and unmute on first gesture
-        video.muted = true;
-        video.play().catch(() => {});
+    const play = () => {
+      if (!video.paused) return;
+      video.play().catch(() => {});
+    };
+    const retryEvents = ['loadeddata', 'canplay', 'visibilitychange'];
+    retryEvents.forEach((eventName) => {
+      const target = eventName === 'visibilitychange' ? document : video;
+      target.addEventListener(eventName, play);
+    });
+    window.addEventListener('pageshow', play);
+    play();
 
-        const unmuteOnInteraction = () => {
-          if (videoRef.current) {
-            videoRef.current.muted = false;
-            if (videoRef.current.paused) {
-              videoRef.current.play().catch(() => {});
-            }
-          }
-          window.removeEventListener('click', unmuteOnInteraction);
-          window.removeEventListener('touchstart', unmuteOnInteraction);
-          window.removeEventListener('scroll', unmuteOnInteraction);
-          window.removeEventListener('keydown', unmuteOnInteraction);
-        };
-
-        window.addEventListener('click', unmuteOnInteraction, { once: true, passive: true });
-        window.addEventListener('touchstart', unmuteOnInteraction, { once: true, passive: true });
-        window.addEventListener('scroll', unmuteOnInteraction, { once: true, passive: true });
-        window.addEventListener('keydown', unmuteOnInteraction, { once: true, passive: true });
+    return () => {
+      retryEvents.forEach((eventName) => {
+        const target = eventName === 'visibilitychange' ? document : video;
+        target.removeEventListener(eventName, play);
       });
-    }
+      window.removeEventListener('pageshow', play);
+    };
   }, [src]);
 
   return (
@@ -53,6 +45,7 @@ export function VideoBackground({
         src={src}
         poster={poster}
         autoPlay
+        muted
         loop
         playsInline
         preload="auto"

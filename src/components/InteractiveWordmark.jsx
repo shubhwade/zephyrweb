@@ -60,16 +60,36 @@ const LETTERS_CONFIG = [
 export function InteractiveWordmark() {
   const videoRefs = useRef({});
 
-  // Play all letter videos simultaneously in a synchronized loop
   useEffect(() => {
-    Object.values(videoRefs.current).forEach((video) => {
-      if (video) {
+    const videos = Object.values(videoRefs.current).filter(Boolean);
+    const play = () => {
+      videos.forEach((video) => {
         video.muted = true;
         video.playsInline = true;
         video.loop = true;
-        video.play().catch(() => {});
-      }
+        if (video.paused) video.play().catch(() => {});
+      });
+    };
+    const retry = () => {
+      if (!document.hidden) play();
+    };
+
+    videos.forEach((video) => {
+      video.addEventListener('loadeddata', play);
+      video.addEventListener('canplay', play);
     });
+    document.addEventListener('visibilitychange', retry);
+    window.addEventListener('pageshow', play);
+    play();
+
+    return () => {
+      videos.forEach((video) => {
+        video.removeEventListener('loadeddata', play);
+        video.removeEventListener('canplay', play);
+      });
+      document.removeEventListener('visibilitychange', retry);
+      window.removeEventListener('pageshow', play);
+    };
   }, []);
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { X, Phone, Copy, ArrowRight, MessageCircle, Check, AlertCircle, Sparkles } from 'lucide-react';
 import {
   buildWhatsAppMessage,
@@ -25,6 +25,7 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [waPayload, setWaPayload] = useState(null);
   const [openState, setOpenState] = useState('idle');
+  const registrationTimeoutRef = useRef(null);
 
   const committeeChoices = useMemo(() => {
     if (!event) return [];
@@ -63,6 +64,10 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
     setOpenState('idle');
     setIsSubmitting(false);
   }, [event, isOpen, committeeChoices]);
+
+  useEffect(() => () => {
+    if (registrationTimeoutRef.current) clearTimeout(registrationTimeoutRef.current);
+  }, []);
 
   if (!isOpen || !event) return null;
 
@@ -134,11 +139,12 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
       message,
     };
 
-    setTimeout(() => {
+    registrationTimeoutRef.current = setTimeout(() => {
       setWaPayload(payload);
       setView('ready');
       setIsSubmitting(false);
       setOpenState('ready');
+      registrationTimeoutRef.current = null;
     }, 400);
   };
 

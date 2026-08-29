@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Navbar } from './components/Navbar';
 import { VideoBackground } from './components/VideoBackground';
 import { HomePage } from './pages/HomePage';
@@ -23,14 +23,21 @@ export default function App() {
   const [scrollY, setScrollY] = useState(0);
   const [toastMessage, setToastMessage] = useState(null);
   const [toastType, setToastType] = useState('success');
+  const toastTimeoutRef = useRef(null);
 
   const showToast = (message, type = 'success') => {
+    if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
     setToastMessage(message);
     setToastType(type);
-    setTimeout(() => {
+    toastTimeoutRef.current = setTimeout(() => {
       setToastMessage(null);
+      toastTimeoutRef.current = null;
     }, 4500);
   };
+
+  useEffect(() => () => {
+    if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
+  }, []);
 
   // Scroll Progress & Smooth Scroll Position
   useEffect(() => {
