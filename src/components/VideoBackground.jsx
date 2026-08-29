@@ -1,5 +1,26 @@
 import React, { useRef, useState, useEffect } from 'react';
 
+function configureDecorativeVideo(video) {
+  if (!video) return;
+
+  video.autoplay = true;
+  video.defaultMuted = true;
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.controls = false;
+  video.controlsList = 'nodownload nofullscreen noplaybackrate';
+  video.disablePictureInPicture = true;
+  video.preload = 'auto';
+
+  video.setAttribute('autoplay', '');
+  video.setAttribute('muted', '');
+  video.setAttribute('loop', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+  video.removeAttribute('controls');
+}
+
 export function VideoBackground({
   src = '/bg-video.mp4',
   poster = '/bg-video-poster.jpg',
@@ -12,34 +33,63 @@ export function VideoBackground({
     const video = videoRef.current;
     if (!video) return;
 
-    video.muted = true;
-    video.playsInline = true;
-    video.loop = true;
+    configureDecorativeVideo(video);
 
-    const play = () => {
-      if (!video.paused) return;
-      video.play().catch(() => {});
+    let playAttemptInFlight = false;
+    let playRetryTimer = null;
+
+    const canAttemptPlayback = () => !document.hidden && video.isConnected && video.readyState >= 2;
+
+    const attemptPlayback = () => {
+      if (playAttemptInFlight || !canAttemptPlayback() || !video.paused) return;
+
+      playAttemptInFlight = true;
+      video.play()
+        .then(() => {
+          playAttemptInFlight = false;
+          if (playRetryTimer) {
+            clearTimeout(playRetryTimer);
+            playRetryTimer = null;
+          }
+        })
+        .catch(() => {
+          playAttemptInFlight = false;
+          if (playRetryTimer) clearTimeout(playRetryTimer);
+          playRetryTimer = window.setTimeout(() => {
+            if (!document.hidden) {
+              configureDecorativeVideo(video);
+              if (!video.paused) return;
+              attemptPlayback();
+            }
+          }, 250);
+        });
     };
-    const retryEvents = ['loadeddata', 'canplay', 'visibilitychange'];
-    retryEvents.forEach((eventName) => {
-      const target = eventName === 'visibilitychange' ? document : video;
-      target.addEventListener(eventName, play);
-    });
-    window.addEventListener('pageshow', play);
-    play();
+
+    const onMediaReady = () => {
+      configureDecorativeVideo(video);
+      if (!document.hidden) {
+        attemptPlayback();
+      }
+    };
+
+    const mediaEvents = ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough'];
+    mediaEvents.forEach((eventName) => video.addEventListener(eventName, onMediaReady));
+    document.addEventListener('visibilitychange', onMediaReady);
+    window.addEventListener('pageshow', onMediaReady);
+
+    configureDecorativeVideo(video);
+    onMediaReady();
 
     return () => {
-      retryEvents.forEach((eventName) => {
-        const target = eventName === 'visibilitychange' ? document : video;
-        target.removeEventListener(eventName, play);
-      });
-      window.removeEventListener('pageshow', play);
+      mediaEvents.forEach((eventName) => video.removeEventListener(eventName, onMediaReady));
+      document.removeEventListener('visibilitychange', onMediaReady);
+      window.removeEventListener('pageshow', onMediaReady);
+      if (playRetryTimer) clearTimeout(playRetryTimer);
     };
   }, [src]);
 
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-      {/* Background Video Element with Audio Enabled by Default */}
       <video
         ref={videoRef}
         src={src}
@@ -49,6 +99,8 @@ export function VideoBackground({
         loop
         playsInline
         preload="auto"
+        controls={false}
+        disablePictureInPicture
         onLoadedData={() => setHasLoaded(true)}
         className={`w-full h-full object-cover transition-opacity duration-1000 ${
           hasLoaded ? 'opacity-100 scale-100' : 'opacity-0'
@@ -58,7 +110,6 @@ export function VideoBackground({
         }}
       />
 
-      {/* Atmospheric Parchment Fade Overlay: Allows ambient video to remain visible across all pages */}
       <div
         className="absolute inset-0 bg-[#FFFDF5] pointer-events-none transition-opacity duration-300 ease-out"
         style={{

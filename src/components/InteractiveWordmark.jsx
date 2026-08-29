@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const LETTERS_CONFIG = [
   {
@@ -57,40 +57,146 @@ const LETTERS_CONFIG = [
   },
 ];
 
+function configureDecorativeVideo(video) {
+  if (!video) return;
+
+  video.autoplay = true;
+  video.defaultMuted = true;
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.controls = false;
+  video.controlsList = 'nodownload nofullscreen noplaybackrate';
+  video.disablePictureInPicture = true;
+  video.preload = 'auto';
+
+  video.setAttribute('autoplay', '');
+  video.setAttribute('muted', '');
+  video.setAttribute('loop', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+  video.removeAttribute('controls');
+}
+
 export function InteractiveWordmark() {
   const videoRefs = useRef({});
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(min-width: 640px)').matches;
+  });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 640px)');
+    const handleChange = (event) => setIsDesktop(event.matches);
+
+    setIsDesktop(mediaQuery.matches);
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
 
   useEffect(() => {
     const videos = Object.values(videoRefs.current).filter(Boolean);
-    const play = () => {
-      videos.forEach((video) => {
-        video.muted = true;
-        video.playsInline = true;
-        video.loop = true;
-        if (video.paused) video.play().catch(() => {});
-      });
+
+    const attemptPlayback = (video) => {
+      if (!video || document.hidden) return;
+      configureDecorativeVideo(video);
+      if (video.paused) {
+        video.play().catch(() => {
+          const retry = () => {
+            if (!document.hidden) {
+              configureDecorativeVideo(video);
+              if (video.paused) {
+                video.play().catch(() => {});
+              }
+            }
+          };
+          window.setTimeout(retry, 250);
+        });
+      }
     };
-    const retry = () => {
-      if (!document.hidden) play();
+
+    const onReady = () => {
+      videos.forEach((video) => attemptPlayback(video));
+    };
+
+    const onVisibility = () => {
+      if (!document.hidden) {
+        videos.forEach((video) => attemptPlayback(video));
+      }
     };
 
     videos.forEach((video) => {
-      video.addEventListener('loadeddata', play);
-      video.addEventListener('canplay', play);
+      configureDecorativeVideo(video);
+      ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough'].forEach((eventName) => {
+        video.addEventListener(eventName, onReady);
+      });
     });
-    document.addEventListener('visibilitychange', retry);
-    window.addEventListener('pageshow', play);
-    play();
+
+    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener('pageshow', onReady);
+    onReady();
 
     return () => {
       videos.forEach((video) => {
-        video.removeEventListener('loadeddata', play);
-        video.removeEventListener('canplay', play);
+        ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough'].forEach((eventName) => {
+          video.removeEventListener(eventName, onReady);
+        });
       });
-      document.removeEventListener('visibilitychange', retry);
-      window.removeEventListener('pageshow', play);
+      document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('pageshow', onReady);
     };
-  }, []);
+  }, [isDesktop]);
+
+  const renderLetterVideo = (letter) => (
+    <div
+      key={letter.id}
+      className={isDesktop ? 'relative flex flex-col items-center justify-center p-0 cursor-default' : 'relative flex items-center justify-center w-full'}
+      style={isDesktop ? { width: `${letter.widthPct}%` } : { width: 'min(20vw, 72px)' }}
+    >
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ aspectRatio: letter.aspect }}
+      >
+        <video
+          ref={(el) => {
+            if (el) videoRefs.current[letter.id] = el;
+          }}
+          poster={letter.poster}
+          autoPlay
+          muted
+          playsInline
+          loop
+          preload="auto"
+          controls={false}
+          disablePictureInPicture
+          className={isDesktop ? 'w-full h-full object-contain pointer-events-none' : 'w-full h-full object-contain pointer-events-none'}
+          style={
+            isDesktop
+              ? { backgroundColor: 'transparent' }
+              : {
+                  backgroundColor: 'transparent',
+                  WebkitMaskImage: `url('${letter.poster}')`,
+                  maskImage: `url('${letter.poster}')`,
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                }
+          }
+        >
+          <source src={letter.webm} type="video/webm" />
+          <source src={letter.mp4} type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  );
 
   return (
     <div className="w-full flex flex-col items-center select-none">
@@ -99,87 +205,15 @@ export function InteractiveWordmark() {
         role="region"
         aria-label="Zephyr Wordmark"
       >
-        {/* ========================================================= */}
-        {/* MOBILE VIEW: Keep the individual letters, stack them vertically */}
-        {/* ========================================================= */}
-        <div className="sm:hidden w-full max-w-[100px] mx-auto flex flex-col items-center justify-center gap-0 px-1 mt-0.5 mb-0">
-          {LETTERS_CONFIG.map((letter) => (
-            <div
-              key={letter.id}
-              className="relative flex items-center justify-center w-full"
-              style={{ width: 'min(20vw, 72px)' }}
-            >
-              <div
-                className="relative w-full overflow-hidden"
-                style={{ aspectRatio: letter.aspect }}
-              >
-                <video
-                  ref={(el) => {
-                    if (el) videoRefs.current[letter.id] = el;
-                  }}
-                  poster={letter.poster}
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  preload="auto"
-                  className="w-full h-full object-contain pointer-events-none"
-                  style={{
-                    backgroundColor: 'transparent',
-                    WebkitMaskImage: `url('${letter.poster}')`,
-                    maskImage: `url('${letter.poster}')`,
-                    WebkitMaskSize: 'contain',
-                    maskSize: 'contain',
-                    WebkitMaskRepeat: 'no-repeat',
-                    maskRepeat: 'no-repeat',
-                    WebkitMaskPosition: 'center',
-                    maskPosition: 'center',
-                  }}
-                >
-                  <source src={letter.webm} type="video/webm" />
-                  <source src={letter.mp4} type="video/mp4" />
-                </video>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ========================================================= */}
-        {/* DESKTOP VIEW: All Letter Videos Playing Simultaneously   */}
-        {/* ========================================================= */}
-        <div className="hidden sm:flex w-full items-center justify-between">
-          {LETTERS_CONFIG.map((letter) => (
-            <div
-              key={letter.id}
-              style={{ width: `${letter.widthPct}%` }}
-              className="relative flex flex-col items-center justify-center p-0 cursor-default"
-            >
-              {/* Transparent Letter Video Frame */}
-              <div
-                className="relative w-full overflow-hidden"
-                style={{ aspectRatio: letter.aspect }}
-              >
-                <video
-                  ref={(el) => {
-                    if (el) videoRefs.current[letter.id] = el;
-                  }}
-                  poster={letter.poster}
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  preload="auto"
-                  className="w-full h-full object-contain pointer-events-none"
-                  style={{ backgroundColor: 'transparent' }}
-                >
-                  <source src={letter.webm} type="video/webm" />
-                  <source src={letter.mp4} type="video/mp4" />
-                </video>
-              </div>
-
-            </div>
-          ))}
-        </div>
+        {isDesktop ? (
+          <div className="flex w-full items-center justify-between">
+            {LETTERS_CONFIG.map(renderLetterVideo)}
+          </div>
+        ) : (
+          <div className="w-full max-w-[100px] mx-auto flex flex-col items-center justify-center gap-0 px-1 mt-0.5 mb-0">
+            {LETTERS_CONFIG.map(renderLetterVideo)}
+          </div>
+        )}
       </div>
     </div>
   );
