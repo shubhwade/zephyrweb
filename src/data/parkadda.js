@@ -82,6 +82,7 @@ export const EVENT_PARKADDA_MAP = {
   'box-cricket': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_BOX_CRICKET', eventName: 'Box Cricket' },
   'mystery-maze': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY', eventName: 'Mystery Maze' },
   'takeshis-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
+  'takeshi-s-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
   'free-fire-tdm': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM)' },
   'ai-crime-lab': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_AI_CRIME', eventName: 'AI Crime Lab' },
 
@@ -114,6 +115,7 @@ function normalizeKey(value) {
   return String(value || '')
     .trim()
     .toLowerCase()
+    .replace(/['’]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
 }
