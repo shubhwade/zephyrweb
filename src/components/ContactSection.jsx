@@ -1,6 +1,6 @@
 import React from 'react';
 import { CONTACT_INFO } from '../data/contacts';
-import { ArrowRight, AtSign, Mail, MessageCircle, Phone } from 'lucide-react';
+import { ArrowRight, AtSign, Mail, Phone } from 'lucide-react';
 
 export function ContactSection() {
   const { technicalQueries, helpline, outreachHelpline, professionalBodyContacts } = CONTACT_INFO;
@@ -237,12 +237,10 @@ export function ContactSection() {
                 </div>
 
                 <a
-                  href={contact.whatsapp ? `https://api.whatsapp.com/send?phone=91${contact.phone}` : `tel:${contact.phone}`}
-                  target={contact.whatsapp ? '_blank' : undefined}
-                  rel={contact.whatsapp ? 'noreferrer' : undefined}
+                  href={`tel:${contact.phone}`}
                   className="flex items-center gap-2 border-2 border-black bg-[#f5f0e8] px-3 py-2.5 font-neo font-black text-[10px] uppercase tracking-[0.18em] text-black transition-colors hover:bg-black hover:text-white"
                 >
-                  {contact.whatsapp ? <MessageCircle className="w-3.5 h-3.5 stroke-[2.5px]" /> : <Phone className="w-3.5 h-3.5 stroke-[2.5px]" />}
+                  <Phone className="w-3.5 h-3.5 stroke-[2.5px]" />
                   <span>{contact.phone.replace(/(\d{5})(\d{5})/, '$1 $2')}</span>
                 </a>
               </div>

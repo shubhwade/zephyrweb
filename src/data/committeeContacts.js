@@ -140,32 +140,3 @@ export function getCommitteeContact(committeeKey) {
   return COMMITTEE_CONTACTS[normalized] || null;
 }
 
-export function buildWhatsAppMessage({ eventName, committeeName, cpName, participantName, email, phone, college, teamName }) {
-  const committeeLabel = committeeName || 'Committee';
-  const lines = [
-    `Hello ${cpName || 'CP'},`,
-    '',
-    'I would like to register for the ZEPHYR event.',
-    '',
-    `Event: ${eventName || 'Event'}`,
-    `Committee: ${committeeLabel}`,
-    '',
-    `Participant Name: ${participantName || 'N/A'}`,
-    `Email: ${email || 'N/A'}`,
-    `Phone: ${phone || 'N/A'}`,
-    `College: ${college || 'N/A'}`,
-  ];
-
-  if (teamName) {
-    lines.push(`Team Name: ${teamName}`);
-  }
-
-  lines.push('', 'Please let me know the next steps for registration.', '', 'Thank you!');
-  return lines.join('\n');
-}
-
-export function buildWhatsAppUrl(phoneNumber, message) {
-  const normalizedPhone = normalizePhoneNumber(phoneNumber);
-  if (!normalizedPhone) return '';
-  return `https://wa.me/${normalizedPhone}?text=${encodeURIComponent(message)}`;
-}

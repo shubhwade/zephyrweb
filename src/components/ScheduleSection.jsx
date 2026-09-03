@@ -6,6 +6,8 @@ import { ScheduleFilterBar } from './ScheduleFilterBar.jsx';
 import { ScheduleTimeline } from './ScheduleTimeline.jsx';
 import { EventModal } from './EventModal.jsx';
 
+import { getParkAddaEventUrl, getParkAddaEventId, getParkAddaPackageCode } from '../data/parkadda.js';
+
 export function ScheduleSection({ onShowToast, _onNavigate }) {
   const [activeDayId, setActiveDayId] = useState('day-1');
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,6 +41,10 @@ export function ScheduleSection({ onShowToast, _onNavigate }) {
 
   const handleOpenEventDetails = (masterEvent) => {
     if (!masterEvent) return;
+    const parkAddaEventId = getParkAddaEventId(masterEvent);
+    const parkAddaPackageCode = getParkAddaPackageCode(masterEvent);
+    const parkAddaUrl = getParkAddaEventUrl(masterEvent);
+
     // Format object for EventModal compatibility
     const formattedForModal = {
       id: masterEvent.numericId || masterEvent.id,
@@ -57,7 +63,10 @@ export function ScheduleSection({ onShowToast, _onNavigate }) {
         : 'Solo (1 Player)',
       image: masterEvent.image || `/event${masterEvent.numericId || 1}.webp`,
       phone_no: masterEvent.phoneNo || '9987330273',
-      venue: masterEvent.venueHint || 'TCET Campus'
+      venue: masterEvent.venueHint || 'TCET Campus',
+      parkAddaEventId,
+      parkAddaPackageCode,
+      parkAddaUrl
     };
     setModalEvent(formattedForModal);
   };
@@ -65,7 +74,7 @@ export function ScheduleSection({ onShowToast, _onNavigate }) {
   const handleRegisterFromModal = (event) => {
     setModalEvent(null);
     if (onShowToast) {
-      onShowToast(`Registration initiated for ${event.title}. Coordinator: +91 ${event.phone_no}`);
+      onShowToast(`Opening ParkAdda for ${event.title} (Event ID: ${event.parkAddaEventId || 'ZEPHYR26'})...`);
     }
   };
 

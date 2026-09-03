@@ -64,12 +64,36 @@ export function EventCard({ event, onSelect }) {
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="font-neo font-black text-[10px] uppercase tracking-[0.18em] text-black">Register</span>
-            <div className="w-8 h-8 bg-black text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all shrink-0">
-              <ArrowUpRight className="w-4 h-4 stroke-[3px]" />
+          {event.parkAddaUrl ? (
+            <a
+              href={event.parkAddaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-2 group/reg hover:opacity-90 transition-opacity"
+              aria-label={`Register for ${event.title} on ParkAdda`}
+            >
+              <span className="font-neo font-black text-[10px] uppercase tracking-[0.18em] text-black group-hover/reg:underline">
+                Register
+              </span>
+              <div className="w-8 h-8 bg-black text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all shrink-0">
+                <ArrowUpRight className="w-4 h-4 stroke-[3px]" />
+              </div>
+            </a>
+          ) : (
+            <div
+              className="flex items-center gap-2 opacity-50 cursor-not-allowed"
+              title="Registration not currently available for this event"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <span className="font-neo font-black text-[10px] uppercase tracking-[0.18em] text-black/60">
+                Unavailable
+              </span>
+              <div className="w-8 h-8 bg-neutral-200 text-neutral-500 border-2 border-neutral-400 flex items-center justify-center shrink-0">
+                <ArrowUpRight className="w-4 h-4 stroke-[2px]" />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

@@ -22,9 +22,9 @@ export const PROFESSIONAL_BODY_CONTACTS = [
   { committee: 'IEEE - TCET', name: 'Tanmay Malkapurkar', role: 'CP', phone: '8149773228' },
   { committee: 'IEI - TCET', name: 'Shreya Shrivastav', role: 'CP', phone: '7208445992' },
   { committee: 'ASCE - TCET', name: 'Bhavik Thakur', role: 'CP', phone: '7400128532' },
-  { committee: 'ASME - TCET', name: 'Varuna Karande', role: 'CP', phone: '9967852636', whatsapp: true },
-  { committee: 'AAAI - TCET', name: 'Shrishti Saroj', role: 'CP', phone: '8928261591', whatsapp: true },
-  { committee: 'BBA - TCET', name: 'Smit Dingankar', role: 'CP', phone: '8591550413', whatsapp: true }
+  { committee: 'ASME - TCET', name: 'Varuna Karande', role: 'CP', phone: '9967852636' },
+  { committee: 'AAAI - TCET', name: 'Shrishti Saroj', role: 'CP', phone: '8928261591' },
+  { committee: 'BBA - TCET', name: 'Smit Dingankar', role: 'CP', phone: '8591550413' }
 ];
 
 export const OUTREACH_CONTACTS = [

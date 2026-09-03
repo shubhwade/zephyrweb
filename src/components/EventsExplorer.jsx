@@ -37,7 +37,7 @@ export function EventsExplorer({ onShowToast }) {
   const handleRegisterEvent = (event) => {
     setSelectedEvent(null);
     if (onShowToast) {
-      onShowToast(`Registration initiated for ${event.title}. Coordinator: +91 ${event.phone_no}`);
+      onShowToast(`Opening ParkAdda for ${event.title} (Event ID: ${event.parkAddaEventId || 'ZEPHYR26'})...`);
     }
   };
 

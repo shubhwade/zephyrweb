@@ -1,27 +1,39 @@
 import { MASTER_EVENTS } from './eventsMaster';
 import { getCommitteeContact } from './committeeContacts';
+import { getParkAddaEventUrl, getParkAddaEventId, getParkAddaPackageCode } from './parkadda';
+
 export const CATEGORIES = ['All', 'Gaming', 'Sports', 'Tech', 'Creative', 'Puzzle / Experience'];
 export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IOT','ASME','AAAI','BBA'];
-export const ALL_EVENTS = MASTER_EVENTS.map((event) => ({
-  ...event,
-  phone_no: getCommitteeContact(event.committees[0])?.phone || '',
-  id: event.eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-  title: event.eventName,
-  tag: event.committees.length > 1 ? event.committees.join(' · ') : `${event.committees[0]} - TCET`,
-  committee: event.committees[0],
-  committeesList: event.committees,
-  primaryCommittee: event.committees[0],
-  category: event.category,
-  desc: event.description,
-  description: event.description,
-  imageAlt: event.imageAlt,
-  imageSource: 'Unsplash',
-  isShared: Boolean(event.isShared),
-  collabNote: event.isShared ? `Shared with ${event.committees.join(' · ')}` : null,
-  priceDisplay: event.priceDisplay || 'Register',
-  prizeDisplay: event.prizeDisplay || event.prizePool || 'Open',
-  teamDisplay: event.teamDisplay || 'Team',
-}));
+
+export const ALL_EVENTS = MASTER_EVENTS.map((event) => {
+  const eventId = getParkAddaEventId(event);
+  const packageCode = getParkAddaPackageCode(event);
+  const parkAddaUrl = getParkAddaEventUrl(event);
+
+  return {
+    ...event,
+    phone_no: getCommitteeContact(event.committees[0])?.phone || '',
+    id: event.eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+    title: event.eventName,
+    tag: event.committees.length > 1 ? event.committees.join(' · ') : `${event.committees[0]} - TCET`,
+    committee: event.committees[0],
+    committeesList: event.committees,
+    primaryCommittee: event.committees[0],
+    category: event.category,
+    desc: event.description,
+    description: event.description,
+    imageAlt: event.imageAlt,
+    imageSource: 'Unsplash',
+    isShared: Boolean(event.isShared),
+    collabNote: event.isShared ? `Shared with ${event.committees.join(' · ')}` : null,
+    priceDisplay: event.priceDisplay || 'Register',
+    prizeDisplay: event.prizeDisplay || event.prizePool || 'Open',
+    teamDisplay: event.teamDisplay || 'Team',
+    parkAddaEventId: eventId,
+    parkAddaPackageCode: packageCode,
+    parkAddaUrl,
+  };
+});
 export function filterAndSearchEvents({ events = ALL_EVENTS, searchQuery = '', selectedCommittee = 'ALL', selectedCategory = 'All', priceFilter = 'all' }) {
   const query = searchQuery.trim().toLowerCase();
   return events.filter((evt) => {
