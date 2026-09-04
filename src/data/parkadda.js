@@ -37,6 +37,10 @@ export const EVENT_PARKADDA_MAP = {
   'tug-of-war-7p1': { eventId: 'ZEPHYR26', packageCode: 'ASCE_TUG_7P1', eventName: 'Tug of War (7+1)' },
   'neon-dodgeball': { eventId: 'ZEPHYR26', packageCode: 'ASCE_NEON_DODGE', eventName: 'Neon Dodgeball' },
   'free-fire-classic': { eventId: 'ZEPHYR26', packageCode: 'ASCE_FF_CLASSIC', eventName: 'Free Fire (Classic)' },
+  'bgmi-classic': { eventId: 'ZEPHYR26', packageCode: 'ASCE_BGMI_CLASSIC', eventName: 'BGMI (Classic)' },
+  'asce-bgmi-classic': { eventId: 'ZEPHYR26', packageCode: 'ASCE_BGMI_CLASSIC', eventName: 'BGMI (Classic)' },
+  'iete-bgmi-classic': { eventId: 'ZEPHYR26', packageCode: 'ASCE_BGMI_CLASSIC', eventName: 'BGMI (Classic)' },
+  'ieee-bgmi-classic': { eventId: 'ZEPHYR26', packageCode: 'ASCE_BGMI_CLASSIC', eventName: 'BGMI (Classic)' },
 
   // TRS Events
   'glow-carrom': { eventId: 'ZEPHYR26', packageCode: 'TRS_GLOW_CARROM', eventName: 'Glow Carrom' },
@@ -81,8 +85,12 @@ export const EVENT_PARKADDA_MAP = {
   // SIGAI Events
   'box-cricket': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_BOX_CRICKET', eventName: 'Box Cricket' },
   'mystery-maze': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY', eventName: 'Mystery Maze' },
+  // Takeshi's Castle
   'takeshis-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
   'takeshi-s-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
+  'takeshi-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
+  'sigai-takeshis-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
+  'sigai-takeshi-s-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
   'free-fire-tdm': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM)' },
   'ai-crime-lab': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_AI_CRIME', eventName: 'AI Crime Lab' },
 
@@ -106,6 +114,11 @@ export const EVENT_PARKADDA_MAP = {
   // AAAI Events
   'among-us': { eventId: 'ZEPHYR26', packageCode: 'AAAI_AMONG_US', eventName: 'AMONG US' },
   'the-sql-investigation': { eventId: 'ZEPHYR26', packageCode: 'AAAI_SQL_INV', eventName: 'The SQL Investigation' },
+
+  // BBA Events
+  photobooth: { eventId: 'ZEPHYR26', packageCode: 'BBA_PHOTOBOOTH', eventName: 'Photobooth' },
+  'photo-booth': { eventId: 'ZEPHYR26', packageCode: 'BBA_PHOTOBOOTH', eventName: 'Photobooth' },
+  'bba-photobooth': { eventId: 'ZEPHYR26', packageCode: 'BBA_PHOTOBOOTH', eventName: 'Photobooth' },
 };
 
 /**
@@ -130,15 +143,30 @@ function normalizeKey(value) {
 export function getParkAddaMapping(eventOrId) {
   if (!eventOrId) return null;
 
-  let key = '';
+  const candidates = [];
   if (typeof eventOrId === 'string') {
-    key = normalizeKey(eventOrId);
-  } else {
-    key = normalizeKey(eventOrId.id || eventOrId.title || eventOrId.eventName);
+    candidates.push(eventOrId);
+  } else if (typeof eventOrId === 'object') {
+    if (eventOrId.id) candidates.push(eventOrId.id);
+    if (eventOrId.title) candidates.push(eventOrId.title);
+    if (eventOrId.eventName) candidates.push(eventOrId.eventName);
   }
 
-  if (EVENT_PARKADDA_MAP[key]) {
-    return EVENT_PARKADDA_MAP[key];
+  for (const candidate of candidates) {
+    const key = normalizeKey(candidate);
+    if (EVENT_PARKADDA_MAP[key]) {
+      return EVENT_PARKADDA_MAP[key];
+    }
+    // Also try stripping committee prefixes (e.g. sigai-takeshis-castle -> takeshis-castle)
+    const strippedKey = key.replace(/^(csi|asce|owasp|trs|acm|s4ds|ieee|iete|sigai|iei|iot|asme|aaai|bba)-+/i, '');
+    if (EVENT_PARKADDA_MAP[strippedKey]) {
+      return EVENT_PARKADDA_MAP[strippedKey];
+    }
+    // Also try apostrophe variation (takeshi-s-castle <-> takeshis-castle)
+    const variant1 = key.replace(/-s-/g, 's-');
+    if (EVENT_PARKADDA_MAP[variant1]) return EVENT_PARKADDA_MAP[variant1];
+    const variant2 = strippedKey.replace(/-s-/g, 's-');
+    if (EVENT_PARKADDA_MAP[variant2]) return EVENT_PARKADDA_MAP[variant2];
   }
 
   // Check if the event object already has packageCode or parkAddaEventId

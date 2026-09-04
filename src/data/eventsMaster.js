@@ -145,6 +145,16 @@ export const MASTER_EVENTS = [
 
 export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
   acc[event.id] = event;
+  const noApos = event.id.replace(/-s-/g, 's-');
+  const plain = event.id.replace(/-s-/g, '-');
+  acc[noApos] = event;
+  acc[plain] = event;
+  (event.committeeIds || []).forEach((cid) => {
+    const prefix = cid.toLowerCase();
+    acc[`${prefix}-${event.id}`] = event;
+    acc[`${prefix}-${noApos}`] = event;
+    acc[`${prefix}-${plain}`] = event;
+  });
   return acc;
 }, {});
 

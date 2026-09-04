@@ -674,7 +674,7 @@ export const SCHEDULE_ITEMS = [
     eventId: "sigai-takeshis-castle",
     venue: "Grounds West Quad",
     venueConfirmed: true,
-    action: { label: "Register for ₹100", type: "register" },
+    action: { label: "Register for ₹300", type: "register" },
     status: "scheduled"
   },
   {
