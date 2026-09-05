@@ -91,20 +91,32 @@ export const EVENT_PARKADDA_MAP = {
   'takeshi-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
   'sigai-takeshis-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
   'sigai-takeshi-s-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
+  'takeshis-castle-2p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI_2P', eventName: "Takeshi's Castle (2 Players)" },
+  'takeshis-castle-4p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle (4 Players)" },
+  'takeshis-castle-2-players': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI_2P', eventName: "Takeshi's Castle (2 Players)" },
+  'takeshis-castle-4-players': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle (4 Players)" },
   'free-fire-tdm': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM)' },
   'ai-crime-lab': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_AI_CRIME', eventName: 'AI Crime Lab' },
 
   // IEI / IOT Events
   'neon-football': { eventId: 'ZEPHYR26', packageCode: 'IEI_NEON_FB', eventName: 'Neon Football' },
+  'neon-football-solo': { eventId: 'ZEPHYR26', packageCode: 'IEI_NEON_FB', eventName: 'Neon Football (Solo)' },
+  'neon-football-duo': { eventId: 'ZEPHYR26', packageCode: 'IEI_NEON_FB_DUO', eventName: 'Neon Football (Duo)' },
   'ar-vr-space-blitz': { eventId: 'ZEPHYR26', packageCode: 'IEI_ARVR_BLITZ', eventName: 'AR-VR Space Blitz' },
   'two-minute-arcade': { eventId: 'ZEPHYR26', packageCode: 'IEI_2MIN_ARC', eventName: 'Two Minute Arcade' },
-  'workshop-on-ai-iot': { eventId: 'ZEPHYR26', packageCode: 'IEI_AI_IOT_WS', eventName: 'Workshop on AI-IoT' },
+  'model-rocketry-workshop': { eventId: 'ZEPHYR26', packageCode: 'IEI_AI_IOT_WS', eventName: 'Model Rocketry Workshop' },
+  'workshop-on-ai-iot': { eventId: 'ZEPHYR26', packageCode: 'IEI_AI_IOT_WS', eventName: 'Model Rocketry Workshop' },
   'mortal-kombat': { eventId: 'ZEPHYR26', packageCode: 'IEI_MK', eventName: 'Mortal Kombat' },
 
   // ASME Events
   'football-dart': { eventId: 'ZEPHYR26', packageCode: 'ASME_FB_DART_SOLO', eventName: 'Football Dart' },
+  'football-dart-single': { eventId: 'ZEPHYR26', packageCode: 'ASME_FB_DART_SOLO', eventName: 'Football Dart (Single)' },
+  'football-dart-duo': { eventId: 'ZEPHYR26', packageCode: 'ASME_FB_DART_DUO', eventName: 'Football Dart (Duo)' },
   'spin-the-wheel': { eventId: 'ZEPHYR26', packageCode: 'ASME_SPIN_SOLO', eventName: 'Spin the Wheel' },
-  'workshop-solidworks': { eventId: 'ZEPHYR26', packageCode: 'ASME_SOLIDWORKS', eventName: 'Workshop Solidworks' },
+  'spin-the-wheel-single': { eventId: 'ZEPHYR26', packageCode: 'ASME_SPIN_SOLO', eventName: 'Spin the Wheel (Single)' },
+  'spin-the-wheel-duo': { eventId: 'ZEPHYR26', packageCode: 'ASME_SPIN_DUO', eventName: 'Spin the Wheel (Duo)' },
+  'racing-team': { eventId: 'ZEPHYR26', packageCode: 'ASME_SOLIDWORKS', eventName: 'Racing Team' },
+  'workshop-solidworks': { eventId: 'ZEPHYR26', packageCode: 'ASME_SOLIDWORKS', eventName: 'Racing Team' },
 
   // OWASP Events
   'capture-the-flag': { eventId: 'ZEPHYR26', packageCode: 'OWASP_CTF', eventName: 'Capture The Flag' },

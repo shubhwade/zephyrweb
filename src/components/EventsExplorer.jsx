@@ -116,11 +116,14 @@ export function EventsExplorer({ onShowToast }) {
               className="w-full px-3 py-2 bg-white border-2 border-black text-xs sm:text-sm text-black focus:outline-none focus:bg-black/5 transition-all uppercase tracking-wider font-neo font-bold rounded-none"
             >
               <option value="ALL">All Active Committees ({ALL_EVENTS.length})</option>
-              {ACTIVE_COMMITTEES.map((committee) => (
-                <option key={committee} value={committee}>
-                  {committee} ({ALL_EVENTS.filter((e) => e.committeesList.includes(committee)).length})
-                </option>
-              ))}
+              {ACTIVE_COMMITTEES.map((committee) => {
+                const label = committee === 'TRS' ? 'The Robotics Society (TRS)' : committee;
+                return (
+                  <option key={committee} value={committee}>
+                    {label} ({ALL_EVENTS.filter((e) => e.committeesList.includes(committee)).length})
+                  </option>
+                );
+              })}
             </select>
           </div>
 
@@ -165,6 +168,7 @@ export function EventsExplorer({ onShowToast }) {
           <div className="flex flex-wrap gap-2">
             {ACTIVE_COMMITTEES.map((committee) => {
               const isSelected = selectedCommittee === committee;
+              const label = committee === 'TRS' ? 'The Robotics Society' : committee;
               return (
                 <button
                   key={committee}
@@ -175,7 +179,7 @@ export function EventsExplorer({ onShowToast }) {
                       : 'bg-white text-black hover:bg-black hover:text-white'
                   }`}
                 >
-                  {committee}
+                  {label}
                 </button>
               );
             })}

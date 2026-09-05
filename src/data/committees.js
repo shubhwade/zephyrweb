@@ -51,13 +51,13 @@ export const COMMITTEES_DATA = [
   {
     id: "TRS",
     code: "TRS",
-    name: "TRS",
-    shortName: "TRS",
+    name: "The Robotics Society",
+    shortName: "The Robotics Society",
     fullName: "The Robotics Society — TCET",
     description: "Robotics mechanics, CAD precision design, 3D printing masterclasses, and tactical tournaments.",
     accent: "#A24B36",
     categorySpecialty: "Robotics & Fabrication",
-    lead: "TRS Technical Board",
+    lead: "The Robotics Society Technical Board",
     contact: "+91 9137520094"
   },
   {
@@ -143,6 +143,30 @@ export const COMMITTEES_DATA = [
     categorySpecialty: "Kinetic & Mechanical Tech",
     lead: "ASME Student Section",
     contact: "+91 9167384912"
+  },
+  {
+    id: "AAAI",
+    code: "AAAI",
+    name: "AAAI",
+    shortName: "AAAI",
+    fullName: "Association for the Advancement of Artificial Intelligence — TCET Chapter",
+    description: "AI-driven algorithmic investigations, social deduction challenges, and tech tournaments.",
+    accent: "#5C3A21",
+    categorySpecialty: "Artificial Intelligence & Analytics",
+    lead: "AAAI Student Chapter",
+    contact: "+91 8928261591"
+  },
+  {
+    id: "BBA",
+    code: "BBA",
+    name: "BBA",
+    shortName: "BBA",
+    fullName: "BBA Department — TCET",
+    description: "Creative student interactions, festival experiences, and management showcases.",
+    accent: "#6B2D5C",
+    categorySpecialty: "Management & Creative Media",
+    lead: "BBA Working Committee",
+    contact: "+91 8591550413"
   }
 ];
 
@@ -158,5 +182,7 @@ export const COMMITTEE_CODES = [
   "IETE",
   "SIGAI",
   "IOT",
-  "ASME"
+  "ASME",
+  "AAAI",
+  "BBA"
 ];

@@ -20,10 +20,18 @@ const EVENT_DETAILS = {
   'CodM': { prizePool: 'Worth ₹2,000', priceDisplay: '₹150', teamDisplay: '5' },
   'Tech Hunt': { prizePool: 'Worth ₹1,000', priceDisplay: '₹100', teamDisplay: '3' },
   'Human Snake Ladder': { prizePool: 'Coupons', priceDisplay: '₹50', teamDisplay: 'Solo' },
-  'Tug of War': { prizePool: '₹5,000', priceDisplay: '₹300 = 5+1 / ₹400 = 7+1', teamDisplay: '5+1 or 7+1' },
-  'Box Cricket': { prizePool: '₹3,000 (out of ₹9,000)', priceDisplay: '₹400', teamDisplay: '7' },
-  Valorant: { prizePool: '₹4,500', priceDisplay: '₹400', teamDisplay: '5' },
-  'BGMI (Classic)': { prizePool: '₹4,000', priceDisplay: '₹200', teamDisplay: '4' },
+  'Tug of War': {
+    prizePool: '₹2,500',
+    priceDisplay: '₹300 (5+1) / ₹400 (7+1)',
+    teamDisplay: '5+1 or 7+1',
+    options: [
+      { key: '5p1', label: '5+1 Team', priceDisplay: '₹300', packageCode: 'ASCE_TUG_5P1' },
+      { key: '7p1', label: '7+1 Team', priceDisplay: '₹400', packageCode: 'ASCE_TUG_7P1' }
+    ]
+  },
+  'Box Cricket': { prizePool: '₹9,000', priceDisplay: '₹400', teamDisplay: '7' },
+  Valorant: { prizePool: '₹18,000', priceDisplay: '₹400', teamDisplay: '5' },
+  'BGMI (Classic)': { prizePool: '₹12,000', priceDisplay: '₹200', teamDisplay: '4' },
   'Technical Event (AutoCAD)': { prizePool: 'Not listed', priceDisplay: 'Not listed', teamDisplay: 'Individual' },
   'Neon Dodgeball': { prizePool: 'Not listed', priceDisplay: '₹60', teamDisplay: 'Individual' },
   'Free Fire (Classic)': { prizePool: '₹8,000', priceDisplay: '₹200', teamDisplay: '4+1' },
@@ -43,9 +51,9 @@ const EVENT_DETAILS = {
   'Power Show': { prizePool: '₹3,000', priceDisplay: '₹100', teamDisplay: 'Individual' },
   'Neon Bowling': { prizePool: '₹2,000', priceDisplay: '₹120', teamDisplay: 'Solo' },
   'Canvashpere Hack': { prizePool: 'Not listed', priceDisplay: '₹50', teamDisplay: 'Individual' },
-  Traitors: { prizePool: '₹3,000', priceDisplay: '₹200', teamDisplay: '4+1' },
+  Traitors: { prizePool: '₹3,000', priceDisplay: '₹200', teamDisplay: '4' },
   'Gel Blaster': { prizePool: 'Kind', priceDisplay: '₹300', teamDisplay: '4' },
-  'Human Foosball': { prizePool: '₹2,000', priceDisplay: '₹200', teamDisplay: '4+1' },
+  'Human Foosball': { prizePool: '₹2,000', priceDisplay: '₹200', teamDisplay: '4' },
   'AR Cricket': { prizePool: '₹3,000', priceDisplay: '₹150', teamDisplay: 'Individual' },
   Ideathon: { prizePool: '₹10,000', priceDisplay: '₹100', teamDisplay: '2/3/4' },
   'Art Workshop (Tote Bag)': { prizePool: 'Not listed', priceDisplay: '₹225', teamDisplay: 'Individual' },
@@ -56,22 +64,56 @@ const EVENT_DETAILS = {
   'Squid Game': { prizePool: '₹3,000', priceDisplay: '₹50', teamDisplay: 'Individual' },
   'Gen AI Workshop': { prizePool: '₹1,000', priceDisplay: '₹100', teamDisplay: 'Individual' },
   'Content Creation Workshop': { prizePool: '₹500', priceDisplay: '₹100', teamDisplay: 'Individual' },
-  'Mystery Maze': { prizePool: '₹7,000', priceDisplay: '₹280', teamDisplay: 'Two or Four' },
-  "Takeshi's Castle": { prizePool: '₹7,500', priceDisplay: '₹300', teamDisplay: 'Two or Four' },
-  'Free Fire (TDM)': { prizePool: '₹7,000', priceDisplay: '₹250', teamDisplay: 'Two or Four' },
+  'Mystery Maze': { prizePool: '₹7,000', priceDisplay: '₹160 (2 Players) / ₹280 (4 Players)', teamDisplay: '2 or 4 Players' },
+  "Takeshi's Castle": {
+    prizePool: '₹7,500',
+    priceDisplay: '₹170 (2 Players) / ₹300 (4 Players)',
+    teamDisplay: '2 or 4 Players',
+    options: [
+      { key: '2p', label: '2 Players', priceDisplay: '₹170', packageCode: 'SIGAI_TAKESHI_2P' },
+      { key: '4p', label: '4 Players', priceDisplay: '₹300', packageCode: 'SIGAI_TAKESHI' }
+    ]
+  },
+  'Free Fire (TDM)': { prizePool: '₹7,000', priceDisplay: '₹140 (2 Players) / ₹250 (4 Players)', teamDisplay: '2 or 4 Players' },
   'AI Crime Lab': { prizePool: '₹6,000', priceDisplay: '₹60', teamDisplay: 'Solo' },
-  'Neon Football': { prizePool: '₹5,500', priceDisplay: '₹80', teamDisplay: 'Solo or Duo' },
+  'Neon Football': {
+    prizePool: '₹5,500',
+    priceDisplay: '₹80 (Solo) / ₹140 (Duo)',
+    teamDisplay: 'Solo or Duo',
+    options: [
+      { key: 'solo', label: 'Solo', priceDisplay: '₹80', packageCode: 'IEI_NEON_FB' },
+      { key: 'duo', label: 'Duo', priceDisplay: '₹140', packageCode: 'IEI_NEON_FB_DUO' }
+    ]
+  },
   'AR-VR Space Blitz': { prizePool: '₹2,000', priceDisplay: '₹130', teamDisplay: 'Individual' },
   'Two Minute Arcade': { prizePool: '₹1,500', priceDisplay: '₹50', teamDisplay: 'Individual' },
+  'Model Rocketry Workshop': { prizePool: '₹2,000', priceDisplay: '₹100', teamDisplay: 'Individual' },
   'Workshop on AI-IoT': { prizePool: '₹2,000', priceDisplay: '₹100', teamDisplay: 'Individual' },
   'Mortal Kombat': { prizePool: '₹2,000', priceDisplay: '₹60', teamDisplay: 'Individual' },
-  'Football Dart': { prizePool: 'Vouchers', priceDisplay: '₹40 Single / ₹60 Duo', teamDisplay: 'Solo or Duo' },
-  'Spin the Wheel': { prizePool: 'Vouchers', priceDisplay: '₹30 Single / ₹50 Duo', teamDisplay: 'Solo or Duo' },
+  'Football Dart': {
+    prizePool: 'Vouchers',
+    priceDisplay: '₹40 Single / ₹60 Duo',
+    teamDisplay: 'Solo or Duo',
+    options: [
+      { key: 'single', label: 'Single', priceDisplay: '₹40', packageCode: 'ASME_FB_DART_SOLO' },
+      { key: 'duo', label: 'Duo', priceDisplay: '₹60', packageCode: 'ASME_FB_DART_DUO' }
+    ]
+  },
+  'Spin the Wheel': {
+    prizePool: 'Vouchers',
+    priceDisplay: '₹30 Single / ₹50 Duo',
+    teamDisplay: 'Solo or Duo',
+    options: [
+      { key: 'single', label: 'Single', priceDisplay: '₹30', packageCode: 'ASME_SPIN_SOLO' },
+      { key: 'duo', label: 'Duo', priceDisplay: '₹50', packageCode: 'ASME_SPIN_DUO' }
+    ]
+  },
+  'Racing Team': { prizePool: 'Online Certificate', priceDisplay: '₹500', teamDisplay: 'Individual' },
   'Workshop Solidworks': { prizePool: 'Online Certificate', priceDisplay: '₹500', teamDisplay: 'Individual' },
   'AMONG US': { prizePool: '₹2,000', priceDisplay: '₹60', teamDisplay: 'Solo' },
   'The SQL Investigation': { prizePool: '₹1,000', priceDisplay: '₹30', teamDisplay: 'Individual' },
   Photobooth: { prizePool: 'Not listed', priceDisplay: '₹100', teamDisplay: 'Solo or Group' },
-  'Cyber Heist': { prizePool: '₹500', priceDisplay: '₹50', teamDisplay: 'Individual' }
+  'Cyber Heist': { prizePool: '₹1,000', priceDisplay: '₹50', teamDisplay: 'Individual' }
 };
 
 export const MASTER_EVENTS = [
@@ -125,11 +167,11 @@ export const MASTER_EVENTS = [
   {eventName:'Neon Football',committees:['IOT'],category:'Sports',image:'/wordmark/neon football.jpg',imageAlt:'Football under glowing blue and purple arena lights',description:'A futuristic football match built on speed, rhythm and electric atmosphere.',isShared:false},
   {eventName:'AR-VR Space Blitz',committees:['IOT'],category:'Tech',image:'/wordmark/ar vr blitz.jpg',imageAlt:'Immersive AR-VR space battlefield with headset and futuristic visuals',description:'A space-themed immersive challenge combining VR and AR action.',isShared:false},
   {eventName:'Two Minute Arcade',committees:['IOT'],category:'Puzzle / Experience',image:'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',imageAlt:'Retro-modern arcade machines in a colorful instant-play zone',description:'A high-speed arcade challenge built for quick rounds and instant reactions.',isShared:false},
-  {eventName:'Workshop on AI-IoT',committees:['IOT'],category:'Tech',image:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',imageAlt:'AI and IoT workshop with sensors, boards and data dashboards',description:'A hands-on lab session exploring intelligent connected systems and devices.',isShared:false},
+  {eventName:'Model Rocketry Workshop',committees:['IOT'],category:'Tech',image:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',imageAlt:'Hands-on model rocketry workshop with rocket design and fabrication',description:'A hands-on model rocketry workshop where participants will learn the fundamentals of building rockets and get practical experience in designing and making their own model rockets.',isShared:false},
   {eventName:'Mortal Kombat',committees:['IOT'],category:'Gaming',image:'/wordmark/mortal kombat.jpg',imageAlt:'Fighting game arena with two combatants facing each other',description:'A dramatic fighting showdown defined by combo execution and precision.',isShared:false},
   {eventName:'Football Dart',committees:['ASME'],category:'Sports',image:'/wordmark/football dart.jpg',imageAlt:'Football hitting a giant dartboard target in a sports challenge',description:'A creative sports challenge where precision meets football power.',isShared:false},
   {eventName:'Spin the Wheel',committees:['ASME'],category:'Puzzle / Experience',image:'/wordmark/spin the wheel.jpg',imageAlt:'Prize wheel spinning in a carnival-style event',description:'A suspenseful spin-to-win moment built around rewards and crowd energy.',isShared:false},
-  {eventName:'Workshop Solidworks',committees:['ASME'],category:'Tech',image:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',imageAlt:'SolidWorks mechanical design workstation with 3D modeling',description:'A hands-on CAD workshop focused on engineering design and product modeling.',isShared:false},
+  {eventName:'Racing Team',committees:['ASME'],category:'Tech',image:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',imageAlt:'High-performance racing vehicle and automotive design engineering',description:'High-performance automotive engineering, vehicle design and racing team aerodynamics.',isShared:false},
   {eventName:'AMONG US',committees:['AAAI'],category:'Gaming',image:'/wordmark/among us.jpg',imageAlt:'Among Us game challenge',description:'A social deduction challenge built around teamwork and deception.',isShared:false},
   {eventName:'The SQL Investigation',committees:['AAAI'],category:'Tech',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'SQL investigation on a computer workstation',description:'A database investigation challenge focused on querying and deduction.',isShared:false},
   {eventName:'Cyber Heist',committees:['ACM','CSI'],category:'Tech',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'Cybersecurity challenge on a computer workstation',description:'A technical heist challenge focused on cybersecurity and problem solving.',isShared:true},
@@ -155,8 +197,33 @@ export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
     acc[`${prefix}-${noApos}`] = event;
     acc[`${prefix}-${plain}`] = event;
   });
+
+  // Multi-committee combined prefixes (e.g. asce-owasp-sigai-box-cricket, trs-asme-glow-carrom)
+  if (event.committeeIds && event.committeeIds.length > 1) {
+    const combined1 = event.committeeIds.map((c) => c.toLowerCase()).join('-');
+    acc[`${combined1}-${event.id}`] = event;
+    const combined2 = event.committeeIds.slice().reverse().map((c) => c.toLowerCase()).join('-');
+    acc[`${combined2}-${event.id}`] = event;
+  }
+
+  // Backwards-compatible aliases for renamed events
+  if (event.eventName === 'Racing Team') {
+    acc['workshop-solidworks'] = event;
+    acc['asme-workshop-solidworks'] = event;
+  }
+  if (event.eventName === 'Model Rocketry Workshop') {
+    acc['workshop-on-ai-iot'] = event;
+    acc['iot-workshop-on-ai-iot'] = event;
+    acc['iot-workshop-ai-iot'] = event;
+  }
+
   return acc;
-}, {});
+}, {
+  'owasp-ctf': MASTER_EVENTS.find((e) => e.eventName === 'Capture The Flag'),
+  'asce-autocad': MASTER_EVENTS.find((e) => e.eventName === 'Technical Event (AutoCAD)'),
+  'owasp-acm-wwe-console': MASTER_EVENTS.find((e) => e.eventName === 'WWE Console'),
+  'trs-asme-bgmi-tdm': MASTER_EVENTS.find((e) => e.eventName === 'BGMI (TDM)'),
+});
 
 export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IOT','ASME','AAAI','BBA'];
 export const EVENT_RELATIONSHIP_COUNT = MASTER_EVENTS.reduce((total, event) => total + event.committeesList.length, 0);

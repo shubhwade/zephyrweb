@@ -1,11 +1,16 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { X, Phone, Copy, ArrowRight, Sparkles, AlertCircle, ShieldCheck } from 'lucide-react';
-import { getParkAddaEventUrl, getParkAddaEventId, getParkAddaPackageCode } from '../data/parkadda';
+import { getParkAddaEventUrl, getParkAddaEventId, getParkAddaPackageCode, buildParkAddaUrl } from '../data/parkadda';
 
 export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }) {
-  const parkAddaUrl = useMemo(() => {
-    if (!event) return null;
-    return event.parkAddaUrl || getParkAddaEventUrl(event);
+  const [selectedOptionKey, setSelectedOptionKey] = useState(null);
+
+  useEffect(() => {
+    if (event?.options && event.options.length > 0) {
+      setSelectedOptionKey(event.options[0].key);
+    } else {
+      setSelectedOptionKey(null);
+    }
   }, [event]);
 
   const parkAddaEventId = useMemo(() => {
@@ -13,10 +18,31 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
     return event.parkAddaEventId || getParkAddaEventId(event);
   }, [event]);
 
-  const parkAddaPackageCode = useMemo(() => {
+  const selectedOption = useMemo(() => {
+    if (!event?.options || event.options.length === 0) return null;
+    return event.options.find((opt) => opt.key === selectedOptionKey) || event.options[0];
+  }, [event, selectedOptionKey]);
+
+  const activePackageCode = useMemo(() => {
+    if (selectedOption?.packageCode) return selectedOption.packageCode;
     if (!event) return null;
     return event.parkAddaPackageCode || getParkAddaPackageCode(event);
-  }, [event]);
+  }, [event, selectedOption]);
+
+  const activeParkAddaUrl = useMemo(() => {
+    if (activePackageCode && parkAddaEventId) {
+      return buildParkAddaUrl(parkAddaEventId, activePackageCode);
+    }
+    if (!event) return null;
+    return event.parkAddaUrl || getParkAddaEventUrl(event);
+  }, [event, activePackageCode, parkAddaEventId]);
+
+  const activePriceDisplay = useMemo(() => {
+    if (selectedOption?.priceDisplay) {
+      return `${selectedOption.priceDisplay} (${selectedOption.label})`;
+    }
+    return event?.priceDisplay || 'Register';
+  }, [event, selectedOption]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -40,7 +66,12 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
 
   const handleRegisterClick = () => {
     if (onRegister) {
-      onRegister(event);
+      onRegister({
+        ...event,
+        selectedOption,
+        parkAddaPackageCode: activePackageCode,
+        parkAddaUrl: activeParkAddaUrl,
+      });
     }
   };
 
@@ -121,14 +152,48 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
             )}
           </div>
 
+          {/* Interactive Tier / Team Option Selector */}
+          {event.options && event.options.length > 1 && (
+            <div className="p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="font-neo font-bold text-[10px] uppercase tracking-wider text-black">
+                  Select Entry Tier / Team Option:
+                </span>
+                <span className="font-neo font-black text-xs text-black">
+                  {selectedOption ? `${selectedOption.label} — ${selectedOption.priceDisplay}` : ''}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                {event.options.map((opt) => {
+                  const isSelected = selectedOption?.key === opt.key;
+                  return (
+                    <button
+                      key={opt.key}
+                      type="button"
+                      onClick={() => setSelectedOptionKey(opt.key)}
+                      className={`px-3 py-2 text-xs font-neo font-bold uppercase tracking-wider border-2 border-black transition-all flex items-center justify-between ${
+                        isSelected
+                          ? 'bg-black text-white shadow-[2px_2px_0px_0px_#000] -translate-y-0.5'
+                          : 'bg-white text-black hover:bg-black/5'
+                      }`}
+                    >
+                      <span>{opt.label}</span>
+                      <span className="font-neo font-black">{opt.priceDisplay}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Quick Metrics: Fee, Prize Pool, Format */}
           <div className="grid grid-cols-3 gap-2 sm:gap-3">
             <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
               <span className="font-neo font-bold text-[9px] sm:text-[10px] text-black/70 uppercase tracking-wider block">
                 Reg Fee
               </span>
-              <span className="font-neo font-black text-sm sm:text-base text-black truncate block">
-                {event.priceDisplay}
+              <span className="font-neo font-black text-xs sm:text-sm text-black truncate block" title={activePriceDisplay}>
+                {activePriceDisplay}
               </span>
             </div>
             <div className="p-2.5 sm:p-3 bg-black text-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
@@ -206,16 +271,16 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
                 </span>
               </div>
               <span className="px-2 py-0.5 bg-black text-white font-neo font-bold text-[10px] uppercase tracking-widest">
-                ParkAdda • {parkAddaPackageCode ? `${parkAddaEventId || 'ZEPHYR26'} (${parkAddaPackageCode})` : (parkAddaEventId || 'ZEPHYR26')}
+                ParkAdda • {activePackageCode ? `${parkAddaEventId || 'ZEPHYR26'} (${activePackageCode})` : (parkAddaEventId || 'ZEPHYR26')}
               </span>
             </div>
             <p className="font-body text-[11px] text-black/75 leading-relaxed">
-              Clicking register automatically adds <strong>{event.title}</strong> to your ParkAdda cart for instant checkout.
+              Clicking register automatically adds <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''} to your ParkAdda cart for instant checkout.
             </p>
           </div>
 
           {/* Fail-safe Notice if ParkAdda mapping is invalid */}
-          {!parkAddaUrl && (
+          {!activeParkAddaUrl && (
             <div className="flex items-start gap-2 border-2 border-amber-600 bg-amber-50 p-2.5 text-xs text-amber-900 font-medium">
               <AlertCircle className="w-4 h-4 mt-0.5 shrink-0 text-amber-700" />
               <span>
@@ -230,16 +295,16 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
               Back
             </button>
 
-            {parkAddaUrl ? (
+            {activeParkAddaUrl ? (
               <a
-                href={parkAddaUrl}
+                href={activeParkAddaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleRegisterClick}
                 className="neo-btn-primary px-5 sm:px-6 py-2 text-xs flex items-center gap-2 group"
                 aria-label={`Register now for ${event.title}`}
               >
-                <span>Register Now</span>
+                <span>Register Now{selectedOption ? ` (${selectedOption.label})` : ''}</span>
                 <ArrowRight className="w-3.5 h-3.5 stroke-[3px] group-hover:translate-x-0.5 transition-transform" />
               </a>
             ) : (
