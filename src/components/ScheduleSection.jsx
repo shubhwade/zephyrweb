@@ -74,7 +74,7 @@ export function ScheduleSection({ onShowToast, _onNavigate }) {
   const handleRegisterFromModal = (event) => {
     setModalEvent(null);
     if (onShowToast) {
-      onShowToast(`Opening ParkAdda for ${event.title} (Event ID: ${event.parkAddaEventId || 'ZEPHYR26'})...`);
+      onShowToast(`Opening ParkAdda Events Portal for ${event.title}...`);
     }
   };
 

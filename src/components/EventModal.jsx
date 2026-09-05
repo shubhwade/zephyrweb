@@ -271,11 +271,11 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
                 </span>
               </div>
               <span className="px-2 py-0.5 bg-black text-white font-neo font-bold text-[10px] uppercase tracking-widest">
-                ParkAdda • {activePackageCode ? `${parkAddaEventId || 'ZEPHYR26'} (${activePackageCode})` : (parkAddaEventId || 'ZEPHYR26')}
+                ParkAdda • parkadda.com/events
               </span>
             </div>
             <p className="font-body text-[11px] text-black/75 leading-relaxed">
-              Clicking register automatically adds <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''} to your ParkAdda cart for instant checkout.
+              Clicking register redirects you to the official <strong>ParkAdda Events Portal</strong> to register for <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''}.
             </p>
           </div>
 

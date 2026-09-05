@@ -37,7 +37,7 @@ export function EventsExplorer({ onShowToast }) {
   const handleRegisterEvent = (event) => {
     setSelectedEvent(null);
     if (onShowToast) {
-      onShowToast(`Opening ParkAdda for ${event.title} (Event ID: ${event.parkAddaEventId || 'ZEPHYR26'})...`);
+      onShowToast(`Opening ParkAdda Events Portal for ${event.title}...`);
     }
   };
 
