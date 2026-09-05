@@ -65,7 +65,7 @@ export function EventCard({ event, onSelect }) {
           </div>
 
           <a
-            href="https://www.parkadda.com/events"
+            href={event.parkAddaUrl || 'https://www.parkadda.com/events'}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => {

@@ -29,7 +29,13 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
     return event.parkAddaPackageCode || getParkAddaPackageCode(event);
   }, [event, selectedOption]);
 
-  const activeParkAddaUrl = 'https://www.parkadda.com/events';
+  const activeParkAddaUrl = useMemo(() => {
+    if (activePackageCode) {
+      return buildParkAddaUrl(parkAddaEventId || 'ZEPHYR26', activePackageCode);
+    }
+    if (!event) return 'https://www.parkadda.com/events';
+    return event.parkAddaUrl || getParkAddaEventUrl(event);
+  }, [event, activePackageCode, parkAddaEventId]);
 
   const activePriceDisplay = useMemo(() => {
     if (selectedOption?.priceDisplay) {
@@ -265,11 +271,11 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
                 </span>
               </div>
               <span className="px-2 py-0.5 bg-black text-white font-neo font-bold text-[10px] uppercase tracking-widest">
-                ParkAdda • parkadda.com/events
+                ParkAdda • {activePackageCode ? `${parkAddaEventId || 'ZEPHYR26'} (${activePackageCode})` : (parkAddaEventId || 'ZEPHYR26')}
               </span>
             </div>
             <p className="font-body text-[11px] text-black/75 leading-relaxed">
-              Clicking register redirects you to the official <strong>ParkAdda Events Portal</strong> to register for <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''}.
+              Clicking register automatically adds <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''} to your ParkAdda cart for instant checkout.
             </p>
           </div>
 
@@ -280,7 +286,7 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
             </button>
 
             <a
-              href="https://www.parkadda.com/events"
+              href={activeParkAddaUrl || 'https://www.parkadda.com/events'}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleRegisterClick}

@@ -12,8 +12,8 @@
 export const PARKADDA_CONFIG = {
   baseUrl: 'https://www.parkadda.com',
   eventsUrl: 'https://www.parkadda.com/events',
-  bookEndpoint: '/events',
-  viewEndpoint: '/events',
+  bookEndpoint: '/events/book',
+  viewEndpoint: '/events/view',
   defaultEventId: 'ZEPHYR26',
   portalName: 'ParkAdda',
 };
@@ -217,24 +217,31 @@ export function getParkAddaPackageCode(eventOrId) {
 }
 
 /**
- * Safely constructs the verified ParkAdda URL.
- * Redirects all event registrations to https://www.parkadda.com/events.
+ * Safely constructs the verified ParkAdda URL for a specific event.
+ * Automatically adds the exact competition package to the cart on https://www.parkadda.com.
  *
- * @param {string} [eventId]
- * @param {string} [packageCode]
- * @returns {string} - Exact ParkAdda events portal URL
+ * @param {string} [eventId] - ParkAdda Event ID (e.g. 'ZEPHYR26')
+ * @param {string} [packageCode] - Specific competition package code (e.g. 'ACM_VALORANT')
+ * @returns {string} - Exact ParkAdda booking URL
  */
 export function buildParkAddaUrl(eventId, packageCode) {
-  return PARKADDA_CONFIG.eventsUrl;
+  const cleanEventId = (eventId || PARKADDA_CONFIG.defaultEventId || 'ZEPHYR26').trim();
+  if (packageCode && typeof packageCode === 'string' && packageCode.trim()) {
+    return `${PARKADDA_CONFIG.baseUrl}${PARKADDA_CONFIG.bookEndpoint}?event_id=${encodeURIComponent(cleanEventId)}&package_code=${encodeURIComponent(packageCode.trim())}`;
+  }
+  return `${PARKADDA_CONFIG.baseUrl}${PARKADDA_CONFIG.bookEndpoint}?event_id=${encodeURIComponent(cleanEventId)}`;
 }
 
 /**
- * Resolves the official verified ParkAdda URL that redirects to the events portal.
- * Redirects all registrations directly to https://www.parkadda.com/events.
+ * Resolves the official verified ParkAdda URL for an event.
+ * Redirects directly to the specific event's booking page on https://www.parkadda.com.
  *
  * @param {object|string} [eventOrId] - The event object or identifier
- * @returns {string} - Direct ParkAdda events portal URL: https://www.parkadda.com/events
+ * @returns {string} - Direct ParkAdda booking URL for that specific event
  */
 export function getParkAddaEventUrl(eventOrId) {
-  return PARKADDA_CONFIG.eventsUrl;
+  const mapping = getParkAddaMapping(eventOrId);
+  const packageCode = mapping?.packageCode || (typeof eventOrId === 'object' ? eventOrId.packageCode || eventOrId.parkAddaPackageCode : null);
+  const eventId = mapping?.eventId || (typeof eventOrId === 'object' ? eventOrId.parkAddaEventId : null) || PARKADDA_CONFIG.defaultEventId;
+  return buildParkAddaUrl(eventId, packageCode);
 }
