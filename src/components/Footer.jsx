@@ -15,7 +15,7 @@ export function Footer({ onNavigate }) {
   ];
 
   const committees = [
-    'CSI', 'ASCE', 'OWASP', 'The Robotics Society', 'ACM', 'S4DS', 'IEEE', 'IETE', 'SIGAI', 'IOT / IEI', 'ASME'
+    'CSI', 'ASCE', 'OWASP', 'The Robotics Society', 'ACM', 'S4DS', 'IEEE', 'IETE', 'SIGAI', 'IOT / IEI', 'ASME', 'AAAI', 'BBA'
   ];
 
   return (
@@ -71,7 +71,7 @@ export function Footer({ onNavigate }) {
           <div className="md:col-span-4 p-6 sm:p-7 bg-white border-4 border-black shadow-[6px_6px_0px_0px_#000] space-y-4 flex flex-col justify-between">
             <div className="space-y-3">
               <span className="px-2.5 py-0.5 bg-black text-white border-2 border-black font-neo font-black text-[10px] uppercase tracking-wider inline-block shadow-[1.5px_1.5px_0px_0px_#000]">
-                11 CHAPTERS
+                13 CHAPTERS
               </span>
               <div className="flex flex-wrap gap-1.5 font-neo">
                 {committees.map((c) => (

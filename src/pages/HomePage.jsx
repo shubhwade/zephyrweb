@@ -12,7 +12,7 @@ export function HomePage({ onNavigate }) {
       id: 'events',
       title: 'Events Directory',
       subtitle: '67 COMPETITIONS',
-      description: 'Esports, Hackathons, Robotics, CAD Modeling, and Creative Challenges across all 11 chapters.',
+      description: 'Esports, Hackathons, Robotics, CAD Modeling, and Creative Challenges across all 13 chapters.',
       actionText: 'Explore Events',
       icon: Trophy,
     },

@@ -190,6 +190,6 @@ export function getFestivalStats() {
   return {
     totalDays: FESTIVAL_DAYS.length,
     totalSessions: SCHEDULE_ITEMS.length,
-    activeCommitteesCount: 11
+    activeCommitteesCount: 13
   };
 }

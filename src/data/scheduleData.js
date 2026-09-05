@@ -1,6 +1,6 @@
 // Comprehensive 3-Day Normalized Schedule Dataset for ZEPHYR MMXXV
 // Architecture: Centralized data layer referencing MASTER_EVENTS by stable IDs.
-// Includes 100% of all active events across all 11 committees.
+// Includes 100% of all active events across all 13 committees.
 
 export const SCHEDULE_METADATA = {
   dataSource: "development_temporary", // Will switch to "official" upon final council signoff
@@ -8,7 +8,7 @@ export const SCHEDULE_METADATA = {
   festDaysCount: 3,
   defaultTimezone: "Asia/Kolkata",
   lastUpdated: "2026-08-23",
-  notice: "Comprehensive festival schedule covering all 11 chapters. Session timings and room allocations subject to final committee confirmation."
+  notice: "Comprehensive festival schedule covering all 13 chapters. Session timings and room allocations subject to final committee confirmation."
 };
 
 export const FESTIVAL_DAYS = [

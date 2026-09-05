@@ -69,6 +69,8 @@ export const CONTACT_INFO = {
     { committee: 'IETE', lead: 'Chairperson, IETE TCET', phone: '+91 9004812390' },
     { committee: 'SIGAI', lead: 'Secretary, ACM-SIGAI', phone: '+91 9820119482' },
     { committee: 'IOT / IEI', lead: 'IoT Lead, IEI TCET', phone: '+91 9833441920' },
-    { committee: 'ASME', lead: 'Chairperson, ASME TCET', phone: '+91 9167384912' }
+    { committee: 'ASME', lead: 'Chairperson, ASME TCET', phone: '+91 9167384912' },
+    { committee: 'AAAI', lead: 'Chairperson, AAAI TCET', phone: '+91 8928261591' },
+    { committee: 'BBA', lead: 'Department Lead, BBA TCET', phone: '+91 8591550413' }
   ]
 };

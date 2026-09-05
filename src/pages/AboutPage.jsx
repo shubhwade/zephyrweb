@@ -129,7 +129,7 @@ export function AboutPage({ onNavigate }) {
 
         <div className="p-4 sm:p-5 bg-white text-black border-3 border-black shadow-[4px_4px_0px_0px_#000] space-y-0.5">
           <div className="font-neo font-black text-2xl sm:text-3xl text-black">
-            11+
+            13+
           </div>
           <div className="font-neo font-bold text-[11px] sm:text-xs text-black uppercase tracking-wider">
             Student Chapters
