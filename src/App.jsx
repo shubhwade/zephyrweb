@@ -12,6 +12,10 @@ import { Toast } from './components/Toast';
 export default function App() {
   const [currentPage, setCurrentPage] = useState(() => {
     const path = window.location.pathname.toLowerCase();
+    if (path.includes('linkedin')) {
+      window.location.replace('https://www.linkedin.com/company/thakurengineering/posts/?feedView=all');
+      return 'home';
+    }
     if (path.includes('about')) return 'about';
     if (path.includes('event')) return 'events';
     if (path.includes('contact')) return 'contact';
@@ -58,6 +62,10 @@ export default function App() {
   useEffect(() => {
     const handlePopState = () => {
       const path = window.location.pathname.toLowerCase();
+      if (path.includes('linkedin')) {
+        window.location.replace('https://www.linkedin.com/company/thakurengineering/posts/?feedView=all');
+        return;
+      }
       if (path.includes('about')) setCurrentPage('about');
       else if (path.includes('event')) setCurrentPage('events');
       else if (path.includes('contact')) setCurrentPage('contact');

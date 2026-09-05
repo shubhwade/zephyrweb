@@ -2,6 +2,18 @@
   "framework": "vite",
   "buildCommand": "vite build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/company/thakurengineering/posts/?feedView=all",
+      "permanent": false
+    },
+    {
+      "source": "/linkedin/(.*)",
+      "destination": "https://www.linkedin.com/company/thakurengineering/posts/?feedView=all",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

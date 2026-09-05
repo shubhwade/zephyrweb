@@ -52,9 +52,7 @@ export const CONTACT_INFO = {
   ],
   socials: [
     { name: 'Instagram', handle: '@zephyr_tcet', url: 'https://www.instagram.com/zephyr_tcet/' },
-    { name: 'LinkedIn', handle: 'TSDW TCET', url: 'https://linkedin.com' },
-    { name: 'YouTube', handle: 'TCET Official', url: 'https://youtube.com' },
-    { name: 'GitHub', handle: 'tcet-opensource', url: 'https://github.com' }
+    { name: 'LinkedIn', handle: 'Thakur Engineering', url: 'https://www.linkedin.com/company/thakurengineering/posts/?feedView=all' }
   ],
   technicalQueries: TECHNICAL_CONTACTS,
   helpline: TECHNICAL_CONTACTS.helpline,
