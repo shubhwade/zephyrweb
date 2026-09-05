@@ -193,15 +193,19 @@ export function getParkAddaMapping(eventOrId) {
     }
   }
 
-  return null;
+  // Fallback: Always return a valid mapping for every event
+  return {
+    eventId: PARKADDA_CONFIG.defaultEventId,
+    packageCode: 'ZEPHYR26',
+    eventName: typeof eventOrId === 'string' ? eventOrId : (eventOrId?.title || eventOrId?.eventName || 'Zephyr Event'),
+  };
 }
 
 /**
  * Resolves the ParkAdda Event ID for a given event object or identifier.
  */
 export function getParkAddaEventId(eventOrId) {
-  const mapping = getParkAddaMapping(eventOrId);
-  return mapping ? mapping.eventId : null;
+  return PARKADDA_CONFIG.defaultEventId;
 }
 
 /**
@@ -209,7 +213,7 @@ export function getParkAddaEventId(eventOrId) {
  */
 export function getParkAddaPackageCode(eventOrId) {
   const mapping = getParkAddaMapping(eventOrId);
-  return mapping ? mapping.packageCode : null;
+  return mapping ? mapping.packageCode : 'ZEPHYR26';
 }
 
 /**

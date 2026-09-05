@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { X, Phone, Copy, ArrowRight, Sparkles, AlertCircle, ShieldCheck } from 'lucide-react';
+import { X, Phone, Copy, ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
 import { getParkAddaEventUrl, getParkAddaEventId, getParkAddaPackageCode, buildParkAddaUrl } from '../data/parkadda';
 
 export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }) {
@@ -29,13 +29,7 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
     return event.parkAddaPackageCode || getParkAddaPackageCode(event);
   }, [event, selectedOption]);
 
-  const activeParkAddaUrl = useMemo(() => {
-    if (activePackageCode && parkAddaEventId) {
-      return buildParkAddaUrl(parkAddaEventId, activePackageCode);
-    }
-    if (!event) return null;
-    return event.parkAddaUrl || getParkAddaEventUrl(event);
-  }, [event, activePackageCode, parkAddaEventId]);
+  const activeParkAddaUrl = 'https://www.parkadda.com/events';
 
   const activePriceDisplay = useMemo(() => {
     if (selectedOption?.priceDisplay) {
@@ -279,42 +273,23 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
             </p>
           </div>
 
-          {/* Fail-safe Notice if ParkAdda mapping is invalid */}
-          {!activeParkAddaUrl && (
-            <div className="flex items-start gap-2 border-2 border-amber-600 bg-amber-50 p-2.5 text-xs text-amber-900 font-medium">
-              <AlertCircle className="w-4 h-4 mt-0.5 shrink-0 text-amber-700" />
-              <span>
-                Registration for this event is currently unavailable on the portal. Please contact the coordinator desk above for assistance.
-              </span>
-            </div>
-          )}
-
           {/* Bottom Action Buttons */}
           <div className="pt-2 border-t-2 border-black flex items-center justify-between gap-3">
             <button onClick={onClose} className="neo-btn-outline px-4 py-2 text-xs">
               Back
             </button>
 
-            {activeParkAddaUrl ? (
-              <a
-                href={activeParkAddaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleRegisterClick}
-                className="neo-btn-primary px-5 sm:px-6 py-2 text-xs flex items-center gap-2 group"
-                aria-label={`Register now for ${event.title}`}
-              >
-                <span>Register Now{selectedOption ? ` (${selectedOption.label})` : ''}</span>
-                <ArrowRight className="w-3.5 h-3.5 stroke-[3px] group-hover:translate-x-0.5 transition-transform" />
-              </a>
-            ) : (
-              <button
-                disabled
-                className="neo-btn-primary px-5 sm:px-6 py-2 text-xs flex items-center gap-2 opacity-60 cursor-not-allowed"
-              >
-                <span>Registration Unavailable</span>
-              </button>
-            )}
+            <a
+              href="https://www.parkadda.com/events"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleRegisterClick}
+              className="neo-btn-primary px-5 sm:px-6 py-2 text-xs flex items-center gap-2 group"
+              aria-label={`Register now for ${event.title}`}
+            >
+              <span>Register Now{selectedOption ? ` (${selectedOption.label})` : ''}</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[3px] group-hover:translate-x-0.5 transition-transform" />
+            </a>
           </div>
         </div>
       </div>
