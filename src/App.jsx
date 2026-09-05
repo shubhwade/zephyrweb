@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from './components/Navbar';
 import { VideoBackground } from './components/VideoBackground';
 import { HomePage } from './pages/HomePage';
@@ -143,6 +144,9 @@ export default function App() {
           onClose={() => setToastMessage(null)}
         />
       )}
+
+      {/* 6. Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
