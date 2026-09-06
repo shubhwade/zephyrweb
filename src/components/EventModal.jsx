@@ -117,6 +117,11 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
             <span className="px-2.5 py-0.5 bg-black text-white border-2 border-black font-neo font-bold text-[10px] sm:text-[11px] uppercase tracking-wider">
               {event.category}
             </span>
+            {event.mode && (
+              <span className="px-2.5 py-0.5 bg-white text-black border-2 border-black font-neo font-bold text-[10px] sm:text-[11px] uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_#000]">
+                {event.mode}
+              </span>
+            )}
             {event.isCollab && (
               <span className="px-2.5 py-0.5 bg-white text-black border-2 border-black font-neo font-bold text-[10px] sm:text-[11px] uppercase tracking-wider">
                 Joint Event

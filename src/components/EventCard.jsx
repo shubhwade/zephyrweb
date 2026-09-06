@@ -32,7 +32,12 @@ export function EventCard({ event, onSelect }) {
           )}
         </div>
 
-        <div className="absolute top-2.5 right-2.5 z-10">
+        <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1.5">
+          {event.mode && (
+            <span className="px-2 py-0.5 bg-white text-black border-2 border-black font-neo font-bold text-[10px] uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_#000]">
+              {event.mode}
+            </span>
+          )}
           <span className="px-2 py-0.5 bg-black text-white border-2 border-black font-neo font-bold text-[10px] uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_#000]">
             {event.category}
           </span>
