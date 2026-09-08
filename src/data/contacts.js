@@ -24,7 +24,10 @@ export const PROFESSIONAL_BODY_CONTACTS = [
   { committee: 'ASCE - TCET', name: 'Bhavik Thakur', role: 'CP', phone: '7400128532' },
   { committee: 'ASME - TCET', name: 'Varuna Karande', role: 'CP', phone: '9967852636' },
   { committee: 'AAAI - TCET', name: 'Shrishti Saroj', role: 'CP', phone: '8928261591' },
-  { committee: 'BBA - TCET', name: 'Smit Dingankar', role: 'CP', phone: '8591550413' }
+  { committee: 'BBA - TCET', name: 'Smit Dingankar', role: 'CP', phone: '8591550413' },
+  { committee: 'RC - TCET', name: 'RC Desk', role: 'CP', phone: '9987330273' },
+  { committee: 'Maverics - TCET', name: 'Technical Head', role: 'CP', phone: '9137520094' },
+  { committee: 'Eclipse Racing Club - TCET', name: 'Technical Head', role: 'CP', phone: '9137520094' }
 ];
 
 export const OUTREACH_CONTACTS = [
@@ -71,6 +74,10 @@ export const CONTACT_INFO = {
     { committee: 'IEI', lead: 'Head, IEI TCET', phone: '+91 7208445992' },
     { committee: 'ASME', lead: 'Chairperson, ASME TCET', phone: '+91 9167384912' },
     { committee: 'AAAI', lead: 'Chairperson, AAAI TCET', phone: '+91 8928261591' },
-    { committee: 'BBA', lead: 'Department Lead, BBA TCET', phone: '+91 8591550413' }
+    { committee: 'BBA', lead: 'Department Lead, BBA TCET', phone: '+91 8591550413' },
+    { committee: 'RC', lead: 'Rotaract Club Desk', phone: '+91 9987330273' },
+    { committee: 'Maverics', lead: 'Lead, Maverics Club', phone: '+91 9137520094' },
+    { committee: 'Racing Club', lead: 'Lead, Eclipse Racing Club', phone: '+91 9137520094' },
+    { committee: 'Maverics × Eclipse Racing Club', lead: 'Lead, Maverics × Eclipse Racing Club', phone: '+91 9137520094' }
   ]
 };

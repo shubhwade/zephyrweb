@@ -164,6 +164,10 @@ export function filterAndSearchSchedule({
         const u = cid.toUpperCase();
         if (normSelected === "SIGAI") return u.includes("SIGAI");
         if (normSelected === "IEI" || normSelected === "IOT") return u.includes("IEI") || u.includes("IOT");
+        if (normSelected === "MAVERICS") return u.includes("MAVERICS");
+        if (normSelected === "RACING CLUB" || normSelected === "ECLIPSE RACING CLUB" || normSelected === "ECLIPSE") return u.includes("RACING") || u.includes("ECLIPSE");
+        if (normSelected.includes("MAVERICS") && u.includes("MAVERICS")) return true;
+        if (normSelected === "RC") return u === "RC" || u.includes("ROTARACT");
         return u === normSelected;
       });
 

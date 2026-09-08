@@ -117,10 +117,27 @@ export function EventsExplorer({ onShowToast }) {
             >
               <option value="ALL">All Active Committees ({ALL_EVENTS.length})</option>
               {ACTIVE_COMMITTEES.map((committee) => {
-                const label = committee === 'TRS' ? 'The Robotics Society (TRS)' : committee;
+                let label = committee;
+                if (committee === 'TRS') label = 'The Robotics Society (TRS)';
+                else if (committee === 'MAVERICS') label = 'Maverics';
+                else if (committee === 'RACING CLUB') label = 'Racing Club';
+                else if (committee === 'RC') label = 'Rotaract Club (RC)';
+
+                const count = ALL_EVENTS.filter((e) => {
+                  const comNorm = committee.toUpperCase();
+                  return (e.committeesList || []).some((c) => {
+                    const cNorm = String(c).toUpperCase();
+                    if (cNorm === comNorm) return true;
+                    if (comNorm === 'MAVERICS' && cNorm.includes('MAVERICS')) return true;
+                    if (comNorm === 'RACING CLUB' && (cNorm.includes('RACING') || cNorm.includes('ECLIPSE'))) return true;
+                    if (comNorm === 'RC' && (cNorm === 'RC' || cNorm.includes('ROTARACT'))) return true;
+                    return false;
+                  });
+                }).length;
+
                 return (
                   <option key={committee} value={committee}>
-                    {label} ({ALL_EVENTS.filter((e) => e.committeesList.includes(committee)).length})
+                    {label} ({count})
                   </option>
                 );
               })}
@@ -168,7 +185,11 @@ export function EventsExplorer({ onShowToast }) {
           <div className="flex flex-wrap gap-2">
             {ACTIVE_COMMITTEES.map((committee) => {
               const isSelected = selectedCommittee === committee;
-              const label = committee === 'TRS' ? 'The Robotics Society' : committee;
+              let label = committee;
+              if (committee === 'TRS') label = 'The Robotics Society';
+              else if (committee === 'MAVERICS') label = 'Maverics';
+              else if (committee === 'RACING CLUB') label = 'Racing Club';
+              else if (committee === 'RC') label = 'RC';
               return (
                 <button
                   key={committee}

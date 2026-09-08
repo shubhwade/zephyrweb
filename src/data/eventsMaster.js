@@ -248,7 +248,7 @@ export const MASTER_EVENTS = [
   {eventName:'The SQL Investigation',title:'The SQL Investigation',id:'the-sql-investigation',committees:['AAAI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'SQL investigation on a computer workstation',description:'A valuable item has been stolen, and you are the prime suspect. Your only way to prove your innocence is by investigating the evidence stored in a database using SQL queries. Across multiple rounds, you will analyze access logs, locations, transactions, communications, CCTV records, and other clues. Each round introduces new SQL concepts and reveals another piece of the mystery. Find contradictions, uncover hidden connections, and identify the real thief. Can your SQL skills clear your name before time runs out?',isShared:false},
   {eventName:'Cyber Heist',title:'Cyber Heist',id:'cyber-heist',committees:['ACM','CSI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'Cybersecurity challenge on a computer workstation',description:'Teams solve coding and puzzle challenges as cyber investigators, progressing through multiple rounds to recover stolen data.',isShared:true},
   {eventName:'Photobooth',title:'Photobooth',id:'photobooth',committees:['BBA'],category:'Creative',mode:'Offline',image:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',imageAlt:'Festive photo booth setup',description:'Capture memorable moments with friends at the festival.',isShared:false},
-  {eventName:'Robot Car in a Cage',title:'Robot Car in a Cage',id:'robot-car-in-a-cage',committees:['Maverics × Eclipse Racing Club'],category:'Tech',mode:'Offline',image:'/wordmark/robot in a car cage.jpg',imageAlt:'Robotic car battle competition in a confined caged arena',description:'Robot Car in a Cage is an intense robotic racing competition where participants put their custom-built robots to the ultimate test inside a confined arena. Teams must control and maneuver their robot cars through obstacles while strategically battling their opponents, showcasing speed, precision, control, and engineering skills. The event offers a hands-on experience of racing technology, vehicle dynamics, design, and performance, challenging participants to combine engineering knowledge with strategy and skill.',isShared:false},
+  {eventName:'Robot Car in a Cage',title:'Robot Car in a Cage',id:'robot-car-in-a-cage',committees:['Maverics','Eclipse Racing Club'],category:'Tech',mode:'Offline',image:'/wordmark/robot in a car cage.jpg',imageAlt:'Robotic car battle competition in a confined caged arena',description:'Robot Car in a Cage is an intense robotic racing competition where participants put their custom-built robots to the ultimate test inside a confined arena. Teams must control and maneuver their robot cars through obstacles while strategically battling their opponents, showcasing speed, precision, control, and engineering skills. The event offers a hands-on experience of racing technology, vehicle dynamics, design, and performance, challenging participants to combine engineering knowledge with strategy and skill.',isShared:true},
   {eventName:'Director’s Cut — Short Film Festival',title:'Director’s Cut — Short Film Festival',id:'directors-cut-short-film-festival',committees:['RC'],category:'Creative',mode:'Offline',image:'/wordmark/directors cut.webp',imageAlt:'Film director clapboard and camera setup for short film festival',description:'A short-film festival celebrating cinematic storytelling, creativity, and imagination. Participants will create an original short film based on the theme “When the Mind Speaks,” exploring thoughts, emotions, perspectives, and untold stories through the power of film',isShared:false}
 ].map((event,index) => ({
   ...event,
@@ -358,6 +358,10 @@ export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
     acc['robot-car'] = event;
     acc['robot-car-in-a-cage'] = event;
     acc['cage-robot-car'] = event;
+    acc['maverics-robot-car-in-a-cage'] = event;
+    acc['racing-club-robot-car-in-a-cage'] = event;
+    acc['eclipse-racing-club-robot-car-in-a-cage'] = event;
+    acc['maverics-eclipse-robot-car-in-a-cage'] = event;
   }
 
   return acc;
@@ -370,6 +374,6 @@ export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
   'robot-car-in-a-cage': MASTER_EVENTS.find((e) => e.eventName === 'Robot Car in a Cage'),
 });
 
-export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IEI','ASME','AAAI','BBA','RC','MAVERICS × ECLIPSE RACING CLUB'];
+export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IEI','ASME','AAAI','BBA','RC','MAVERICS','RACING CLUB'];
 export const EVENT_RELATIONSHIP_COUNT = MASTER_EVENTS.reduce((total, event) => total + event.committeesList.length, 0);
 export const VALID_EVENT_NAMES = MASTER_EVENTS.map((event) => event.eventName);

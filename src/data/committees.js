@@ -181,6 +181,30 @@ export const COMMITTEES_DATA = [
     contact: "+91 9987330273"
   },
   {
+    id: "MAVERICS",
+    code: "MAVERICS",
+    name: "Maverics",
+    shortName: "Maverics",
+    fullName: "Maverics Club — TCET",
+    description: "Robotic combat, battlebots, cage challenges, and embedded hardware innovations.",
+    accent: "#D97706",
+    categorySpecialty: "Combat Robotics & Hardware",
+    lead: "Maverics Council",
+    contact: "+91 9137520094"
+  },
+  {
+    id: "ECLIPSE RACING CLUB",
+    code: "ECLIPSE",
+    name: "Eclipse Racing Club",
+    shortName: "Racing Club",
+    fullName: "Eclipse Racing Club — TCET",
+    description: "Automotive engineering, racing telemetry, track design, and high-performance vehicle dynamics.",
+    accent: "#B45309",
+    categorySpecialty: "Automotive & Track Racing",
+    lead: "Eclipse Racing Council",
+    contact: "+91 9137520094"
+  },
+  {
     id: "MAVERICS × ECLIPSE RACING CLUB",
     code: "MAVERICS × ECLIPSE",
     name: "Maverics × Eclipse Racing Club",
@@ -210,5 +234,7 @@ export const COMMITTEE_CODES = [
   "AAAI",
   "BBA",
   "RC",
+  "MAVERICS",
+  "ECLIPSE RACING CLUB",
   "MAVERICS × ECLIPSE RACING CLUB"
 ];

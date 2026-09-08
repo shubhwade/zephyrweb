@@ -36,13 +36,24 @@ export const ALL_EVENTS = MASTER_EVENTS.map((event) => {
 });
 export function filterAndSearchEvents({ events = ALL_EVENTS, searchQuery = '', selectedCommittee = 'ALL', selectedCategory = 'All', priceFilter = 'all' }) {
   const query = searchQuery.trim().toLowerCase();
+  const selectedComNorm = (selectedCommittee || '').toUpperCase();
+
   return events.filter((evt) => {
     if (query) {
-      const searchable = [evt.title, evt.committeesList.join(' '), evt.category, evt.mode, evt.desc].join(' ').toLowerCase();
+      const searchable = [evt.title, (evt.committeesList || []).join(' '), evt.category, evt.mode, evt.desc].join(' ').toLowerCase();
       if (!searchable.includes(query)) return false;
     }
     if (selectedCommittee !== 'ALL') {
-      if (!evt.committeesList.includes(selectedCommittee)) return false;
+      const list = (evt.committeesList || []).map((c) => String(c).toUpperCase());
+      const matches = list.some((c) => {
+        if (c === selectedComNorm) return true;
+        if (selectedComNorm === 'MAVERICS' && c.includes('MAVERICS')) return true;
+        if ((selectedComNorm === 'RACING CLUB' || selectedComNorm === 'ECLIPSE RACING CLUB') && (c.includes('RACING') || c.includes('ECLIPSE'))) return true;
+        if (selectedComNorm === 'RC' && (c === 'RC' || c.includes('ROTARACT'))) return true;
+        if (selectedComNorm.includes('MAVERICS') && c.includes('MAVERICS')) return true;
+        return false;
+      });
+      if (!matches) return false;
     }
     if (selectedCategory !== 'All' && evt.category !== selectedCategory) return false;
     if (priceFilter === 'free' && evt.priceDisplay && evt.priceDisplay !== 'Free Entry' && evt.priceDisplay !== '₹0') return false;
