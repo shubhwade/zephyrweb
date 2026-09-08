@@ -14,6 +14,9 @@ export const COMMITTEE_CONTACTS = {
   AAAI: { label: 'AAAI - TCET', name: 'Shrishti Saroj', phone: '8928261591' },
   BBA: { label: 'BBA - TCET', name: 'Smit Dingankar', phone: '8591550413' },
   IOT: { label: 'IEI - TCET', name: 'Shreya Shrivastav', phone: '7208445992' },
+  RC: { label: 'Rotaract Club - TCET', name: 'RC Desk', phone: '9987330273' },
+  'MAVERICS × ECLIPSE RACING CLUB': { label: 'Maverics × Eclipse - TCET', name: 'Technical Head', phone: '9137520094' },
+  'MAVERICS × ECLIPSE': { label: 'Maverics × Eclipse - TCET', name: 'Technical Head', phone: '9137520094' },
 };
 
 export const EVENT_COMMITTEE_ROUTE = {
@@ -65,12 +68,12 @@ export const EVENT_COMMITTEE_ROUTE = {
   'Takeshi\'s Castle': ['SIGAI'],
   'Free Fire (TDM)': ['SIGAI'],
   'AI Crime Lab': ['SIGAI'],
-  'Neon Football': ['IOT'],
-  'AR-VR Space Blitz': ['IOT'],
-  'Two Minute Arcade': ['IOT'],
-  'Model Rocketry Workshop': ['IOT'],
-  'Workshop on AI-IoT': ['IOT'],
-  'Mortal Kombat': ['IOT'],
+  'Neon Football': ['IEI'],
+  'AR-VR Space Blitz': ['IEI'],
+  'Two Minute Arcade': ['IEI'],
+  'Model Rocketry Workshop': ['IEI'],
+  'Workshop on AI-IoT': ['IEI'],
+  'Mortal Kombat': ['IEI'],
   'Football Dart': ['ASME'],
   'Spin the Wheel': ['ASME'],
   'Racing Team': ['ASME'],
@@ -78,6 +81,9 @@ export const EVENT_COMMITTEE_ROUTE = {
   'AMONG US': ['AAAI'],
   'The SQL Investigation': ['AAAI'],
   'Photobooth': ['BBA'],
+  'Robot Car in a Cage': ['MAVERICS × ECLIPSE RACING CLUB'],
+  'Director’s Cut — Short Film Festival': ['RC'],
+  "Director's Cut — Short Film Festival": ['RC'],
 };
 
 export function normalizeCommitteeKey(value) {
@@ -86,9 +92,11 @@ export function normalizeCommitteeKey(value) {
   const direct = {
     'ACM-SIGAI': 'SIGAI',
     'ACM SIGAI': 'SIGAI',
-    'IOT / IEI': 'IOT',
-    'IOT/IEI': 'IOT',
-    'IEI': 'IOT',
+    'IOT / IEI': 'IEI',
+    'IOT/IEI': 'IEI',
+    'IOT': 'IEI',
+    'IEI': 'IEI',
+    'IEI - TCET': 'IEI',
     'ACM - TCET': 'ACM',
     'CSI - TCET': 'CSI',
     'ASCE - TCET': 'ASCE',
@@ -102,6 +110,11 @@ export function normalizeCommitteeKey(value) {
     'ASME - TCET': 'ASME',
     'AAAI - TCET': 'AAAI',
     'BBA - TCET': 'BBA',
+    'RC - TCET': 'RC',
+    'RC': 'RC',
+    'MAVERICS × ECLIPSE RACING CLUB': 'MAVERICS × ECLIPSE RACING CLUB',
+    'MAVERICS × ECLIPSE': 'MAVERICS × ECLIPSE RACING CLUB',
+    'Maverics × Eclipse Racing Club': 'MAVERICS × ECLIPSE RACING CLUB',
   };
 
   return direct[normalized] || normalized.toUpperCase();

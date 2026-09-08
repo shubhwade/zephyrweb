@@ -77,7 +77,15 @@ const EVENT_DETAILS = {
   'Squid Game': { prizePool: '₹3,000', priceDisplay: '₹50', teamDisplay: 'Individual' },
   'Gen AI Workshop': { prizePool: '₹1,000', priceDisplay: '₹100', teamDisplay: 'Individual' },
   'Content Creation Workshop': { prizePool: '₹500', priceDisplay: '₹100', teamDisplay: 'Individual' },
-  'Mystery Maze': { prizePool: '₹7,000', priceDisplay: '₹160 (2 Players) / ₹280 (4 Players)', teamDisplay: '2 or 4 Players' },
+  'Mystery Maze': {
+    prizePool: '₹7,000',
+    priceDisplay: '₹160 (2 Players) / ₹280 (4 Players)',
+    teamDisplay: '2 or 4 Players',
+    options: [
+      { key: '2p', label: '2 Players', priceDisplay: '₹160', packageCode: 'SIGAI_MYSTERY_2P' },
+      { key: '4p', label: '4 Players', priceDisplay: '₹280', packageCode: 'SIGAI_MYSTERY' }
+    ]
+  },
   "Takeshi's Castle": {
     prizePool: '₹7,500',
     priceDisplay: '₹170 (2 Players) / ₹300 (4 Players)',
@@ -87,7 +95,57 @@ const EVENT_DETAILS = {
       { key: '4p', label: '4 Players', priceDisplay: '₹300', packageCode: 'SIGAI_TAKESHI' }
     ]
   },
-  'Free Fire (TDM)': { prizePool: '₹7,000', priceDisplay: '₹140 (2 Players) / ₹250 (4 Players)', teamDisplay: '2 or 4 Players' },
+  'Free Fire (TDM)': {
+    prizePool: '₹7,000',
+    priceDisplay: '₹140 (2 Players) / ₹250 (4 Players)',
+    teamDisplay: '2 or 4 Players',
+    options: [
+      { key: '2p', label: '2 Players', priceDisplay: '₹140', packageCode: 'SIGAI_FF_TDM_2P' },
+      { key: '4p', label: '4 Players', priceDisplay: '₹250', packageCode: 'SIGAI_FF_TDM' }
+    ]
+  },
+  'FF TDM': {
+    prizePool: '₹7,000',
+    priceDisplay: '₹140 (2 Players) / ₹250 (4 Players)',
+    teamDisplay: '2 or 4 Players',
+    options: [
+      { key: '2p', label: '2 Players', priceDisplay: '₹140', packageCode: 'SIGAI_FF_TDM_2P' },
+      { key: '4p', label: '4 Players', priceDisplay: '₹250', packageCode: 'SIGAI_FF_TDM' }
+    ]
+  },
+  'Robot Car in a Cage': {
+    prizePool: '₹3,000',
+    priceDisplay: '₹500',
+    teamDisplay: 'Team / Squad',
+    dates: 'All 3 Days',
+    mode: 'Offline'
+  },
+  'Director’s Cut — Short Film Festival': {
+    prizePool: 'Trophies & Awards',
+    priceDisplay: 'FREE (Members) / ₹300/person (Non-Members)',
+    teamDisplay: '6 Members',
+    theme: 'When the Mind Speaks',
+    duration: '7–10 minutes including credits',
+    venue: 'TCET',
+    date: '29th September 2026',
+    options: [
+      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_DIR_CUT_MEM' },
+      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_DIR_CUT_NONMEM' }
+    ]
+  },
+  "Director's Cut — Short Film Festival": {
+    prizePool: 'Trophies & Awards',
+    priceDisplay: 'FREE (Members) / ₹300/person (Non-Members)',
+    teamDisplay: '6 Members',
+    theme: 'When the Mind Speaks',
+    duration: '7–10 minutes including credits',
+    venue: 'TCET',
+    date: '29th September 2026',
+    options: [
+      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_DIR_CUT_MEM' },
+      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_DIR_CUT_NONMEM' }
+    ]
+  },
   'AI Crime Lab': { prizePool: '₹6,000', priceDisplay: '₹60', teamDisplay: 'Solo' },
   'Neon Football': {
     prizePool: '₹5,500',
@@ -178,18 +236,20 @@ export const MASTER_EVENTS = [
   {eventName:"Takeshi's Castle",title:"Takeshi's Castle",id:'takeshi-s-castle',committees:['SIGAI'],category:'Puzzle / Experience',mode:'Offline',image:'/wordmark/takeshi castle.jpg',imageAlt:'Challenge course with contestants navigating obstacles',description:'This Takeshi’s Castle inspired 3-level game includes levels from the real show where players have to combine their physical strength and intelligence in order to clear obstacles present within the rounds.',isShared:false},
   {eventName:'Free Fire (TDM)',title:'Free Fire (TDM)',id:'free-fire-tdm',committees:['SIGAI'],category:'Gaming',mode:'Offline',image:'/wordmark/free fire.jpg',imageAlt:'Close-quarters Team Deathmatch action in a tactical combat arena',description:'The Free Fire event will be conducted as a 4v4 team battle. Teams of four will compete against each other in a best-of-three format. Players must work together strategically to outmaneuver and eliminate the opposing team. The event will test both individual skills and teamwork in a controlled environment, ensuring a fair and competitive experience for all participants.',isShared:false},
   {eventName:'AI Crime Lab',title:'AI Crime Lab',id:'ai-crime-lab',committees:['SIGAI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'AI forensic investigation lab with digital evidence and analysis panels',description:'AI Crime Lab is an interactive AI-themed mystery event where participants step into the role of digital investigators to solve a deepfake-based crime. Participants analyze evidence, collect hidden clues, identify suspects, and use logical reasoning to reverse-engineer the sequence of events. The event combines artificial intelligence concepts, cybersecurity awareness, and problem-solving, offering a fun and engaging learning experience.',isShared:false},
-  {eventName:'Neon Football',title:'Neon Football',id:'neon-football',committees:['IOT'],category:'Sports',mode:'Offline',image:'/wordmark/neon football.jpg',imageAlt:'Football under glowing blue and purple arena lights',description:'Experience traditional football with a visually striking twist, played on a glowing field under immersive neon lights.',isShared:false},
-  {eventName:'AR-VR Space Blitz',title:'AR-VR Space Blitz',id:'ar-vr-space-blitz',committees:['IOT'],category:'Tech',mode:'Offline',image:'/wordmark/ar vr blitz.jpg',imageAlt:'Immersive AR-VR space battlefield with headset and futuristic visuals',description:'A fast-paced, action-filled shooting challenge where players test their aim and reflexes to climb the leaderboard for prizes.',isShared:false},
-  {eventName:'Two Minute Arcade',title:'Two Minute Arcade',id:'two-minute-arcade',committees:['IOT'],category:'Puzzle / Experience',mode:'Offline',image:'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',imageAlt:'Retro-modern arcade machines in a colorful instant-play zone',description:'A fast-paced 1v1 retro gaming showdown where players go head-to-head in classic arcade titles like Street Fighter.',isShared:false},
-  {eventName:'Model Rocketry Workshop',title:'Model Rocketry Workshop',id:'model-rocketry-workshop',committees:['IOT'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',imageAlt:'Hands-on model rocketry workshop with rocket design and fabrication',description:'Model Rocketry Workshop is a hands on experience that takes participants through the world of rocketry. Learn rocket science, design and stability, explore CAD & 3D printing and build your own model rocket.',isShared:false},
-  {eventName:'Mortal Kombat',title:'Mortal Kombat',id:'mortal-kombat',committees:['IOT'],category:'Gaming',mode:'Offline',image:'/wordmark/mortal kombat.jpg',imageAlt:'Fighting game arena with two combatants facing each other',description:'A competitive, round-robin fighting tournament where players battle multiple opponents to prove their reflexes, strategy, and skill.',isShared:false},
+  {eventName:'Neon Football',title:'Neon Football',id:'neon-football',committees:['IEI'],category:'Sports',mode:'Offline',image:'/wordmark/neon football.jpg',imageAlt:'Football under glowing blue and purple arena lights',description:'Experience traditional football with a visually striking twist, played on a glowing field under immersive neon lights.',isShared:false},
+  {eventName:'AR-VR Space Blitz',title:'AR-VR Space Blitz',id:'ar-vr-space-blitz',committees:['IEI'],category:'Tech',mode:'Offline',image:'/wordmark/ar vr blitz.jpg',imageAlt:'Immersive AR-VR space battlefield with headset and futuristic visuals',description:'A fast-paced, action-filled shooting challenge where players test their aim and reflexes to climb the leaderboard for prizes.',isShared:false},
+  {eventName:'Two Minute Arcade',title:'Two Minute Arcade',id:'two-minute-arcade',committees:['IEI'],category:'Puzzle / Experience',mode:'Offline',image:'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',imageAlt:'Retro-modern arcade machines in a colorful instant-play zone',description:'A fast-paced 1v1 retro gaming showdown where players go head-to-head in classic arcade titles like Street Fighter.',isShared:false},
+  {eventName:'Model Rocketry Workshop',title:'Model Rocketry Workshop',id:'model-rocketry-workshop',committees:['IEI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',imageAlt:'Hands-on model rocketry workshop with rocket design and fabrication',description:'Model Rocketry Workshop is a hands on experience that takes participants through the world of rocketry. Learn rocket science, design and stability, explore CAD & 3D printing and build your own model rocket.',isShared:false},
+  {eventName:'Mortal Kombat',title:'Mortal Kombat',id:'mortal-kombat',committees:['IEI'],category:'Gaming',mode:'Offline',image:'/wordmark/mortal kombat.jpg',imageAlt:'Fighting game arena with two combatants facing each other',description:'A competitive, round-robin fighting tournament where players battle multiple opponents to prove their reflexes, strategy, and skill.',isShared:false},
   {eventName:'Football Dart',title:'Football Dart',id:'football-dart',committees:['ASME'],category:'Sports',mode:'Offline',image:'/wordmark/football dart.jpg',imageAlt:'Football hitting a giant dartboard target in a sports challenge',description:'A creative sports challenge where precision meets football power.',isShared:false},
   {eventName:'Spin the Wheel',title:'Spin the Wheel',id:'spin-the-wheel',committees:['ASME'],category:'Puzzle / Experience',mode:'Offline',image:'/wordmark/spin the wheel.jpg',imageAlt:'Prize wheel spinning in a carnival-style event',description:'A suspenseful spin-to-win moment built around rewards and crowd energy.',isShared:false},
   {eventName:'Racing Team',title:'Racing Team',id:'racing-team',committees:['ASME'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',imageAlt:'High-performance racing vehicle and automotive design engineering',description:'High-performance automotive engineering, vehicle design and racing team aerodynamics.',isShared:false},
   {eventName:'AMONG US',title:'Murderer Among Us',id:'among-us',committees:['AAAI'],category:'Gaming',mode:'Offline',image:'/wordmark/among us.jpg',imageAlt:'Among Us game challenge',description:'A classroom will turn into a thrilling crime scene. Where the participants have to find the murderer with the help of the given clues and the murderer is one of the participants. Can you solve the case before time runs out?',isShared:false},
   {eventName:'The SQL Investigation',title:'The SQL Investigation',id:'the-sql-investigation',committees:['AAAI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'SQL investigation on a computer workstation',description:'A valuable item has been stolen, and you are the prime suspect. Your only way to prove your innocence is by investigating the evidence stored in a database using SQL queries. Across multiple rounds, you will analyze access logs, locations, transactions, communications, CCTV records, and other clues. Each round introduces new SQL concepts and reveals another piece of the mystery. Find contradictions, uncover hidden connections, and identify the real thief. Can your SQL skills clear your name before time runs out?',isShared:false},
   {eventName:'Cyber Heist',title:'Cyber Heist',id:'cyber-heist',committees:['ACM','CSI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'Cybersecurity challenge on a computer workstation',description:'Teams solve coding and puzzle challenges as cyber investigators, progressing through multiple rounds to recover stolen data.',isShared:true},
-  {eventName:'Photobooth',title:'Photobooth',id:'photobooth',committees:['BBA'],category:'Creative',mode:'Offline',image:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',imageAlt:'Festive photo booth setup',description:'Capture memorable moments with friends at the festival.',isShared:false}
+  {eventName:'Photobooth',title:'Photobooth',id:'photobooth',committees:['BBA'],category:'Creative',mode:'Offline',image:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',imageAlt:'Festive photo booth setup',description:'Capture memorable moments with friends at the festival.',isShared:false},
+  {eventName:'Robot Car in a Cage',title:'Robot Car in a Cage',id:'robot-car-in-a-cage',committees:['Maverics × Eclipse Racing Club'],category:'Tech',mode:'Offline',image:'/wordmark/robot in a car cage.jpg',imageAlt:'Robotic car battle competition in a confined caged arena',description:'Robot Car in a Cage is an intense robotic racing competition where participants put their custom-built robots to the ultimate test inside a confined arena. Teams must control and maneuver their robot cars through obstacles while strategically battling their opponents, showcasing speed, precision, control, and engineering skills. The event offers a hands-on experience of racing technology, vehicle dynamics, design, and performance, challenging participants to combine engineering knowledge with strategy and skill.',isShared:false},
+  {eventName:'Director’s Cut — Short Film Festival',title:'Director’s Cut — Short Film Festival',id:'directors-cut-short-film-festival',committees:['RC'],category:'Creative',mode:'Offline',image:'/wordmark/directors cut.webp',imageAlt:'Film director clapboard and camera setup for short film festival',description:'A short-film festival celebrating cinematic storytelling, creativity, and imagination. Participants will create an original short film based on the theme “When the Mind Speaks,” exploring thoughts, emotions, perspectives, and untold stories through the power of film',isShared:false}
 ].map((event,index) => ({
   ...event,
   ...(EVENT_DETAILS[event.title] || EVENT_DETAILS[event.eventName] || {}),
@@ -230,6 +290,13 @@ export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
     acc['workshop-on-ai-iot'] = event;
     acc['iot-workshop-on-ai-iot'] = event;
     acc['iot-workshop-ai-iot'] = event;
+    acc['iei-workshop-on-ai-iot'] = event;
+    acc['iei-workshop-ai-iot'] = event;
+  }
+  if (event.committeeIds.includes('IEI')) {
+    acc['iot-' + event.id] = event;
+    acc['iot-' + noApos] = event;
+    acc['iot-' + plain] = event;
   }
   if (event.eventName === 'AMONG US') {
     acc['murderer-among-us'] = event;
@@ -281,6 +348,17 @@ export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
     acc['efootball'] = event;
     acc['owasp-efootball'] = event;
   }
+  if (event.eventName === 'Director’s Cut — Short Film Festival') {
+    acc['directors-cut'] = event;
+    acc['directors-cut-short-film-festival'] = event;
+    acc['rc-directors-cut'] = event;
+    acc['rc-directors-cut-short-film-festival'] = event;
+  }
+  if (event.eventName === 'Robot Car in a Cage') {
+    acc['robot-car'] = event;
+    acc['robot-car-in-a-cage'] = event;
+    acc['cage-robot-car'] = event;
+  }
 
   return acc;
 }, {
@@ -288,8 +366,10 @@ export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
   'asce-autocad': MASTER_EVENTS.find((e) => e.eventName === 'Technical Event (AutoCAD)'),
   'owasp-acm-wwe-console': MASTER_EVENTS.find((e) => e.eventName === 'WWE Console'),
   'trs-asme-bgmi-tdm': MASTER_EVENTS.find((e) => e.eventName === 'BGMI (TDM)'),
+  'rc-directors-cut': MASTER_EVENTS.find((e) => e.eventName === 'Director’s Cut — Short Film Festival'),
+  'robot-car-in-a-cage': MASTER_EVENTS.find((e) => e.eventName === 'Robot Car in a Cage'),
 });
 
-export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IOT','ASME','AAAI','BBA'];
+export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IEI','ASME','AAAI','BBA','RC','MAVERICS × ECLIPSE RACING CLUB'];
 export const EVENT_RELATIONSHIP_COUNT = MASTER_EVENTS.reduce((total, event) => total + event.committeesList.length, 0);
 export const VALID_EVENT_NAMES = MASTER_EVENTS.map((event) => event.eventName);

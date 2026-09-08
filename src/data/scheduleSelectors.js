@@ -163,7 +163,7 @@ export function filterAndSearchSchedule({
       const hasCommittee = item.committeeIds.some((cid) => {
         const u = cid.toUpperCase();
         if (normSelected === "SIGAI") return u.includes("SIGAI");
-        if (normSelected === "IOT") return u.includes("IEI") || u.includes("IOT");
+        if (normSelected === "IEI" || normSelected === "IOT") return u.includes("IEI") || u.includes("IOT");
         return u === normSelected;
       });
 

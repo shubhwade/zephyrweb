@@ -86,6 +86,13 @@ export const EVENT_PARKADDA_MAP = {
   // SIGAI Events
   'box-cricket': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_BOX_CRICKET', eventName: 'Box Cricket' },
   'mystery-maze': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY', eventName: 'Mystery Maze' },
+  'sigai-mystery-maze': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY', eventName: 'Mystery Maze' },
+  'mystery-maze-2p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY_2P', eventName: 'Mystery Maze (2 Players)' },
+  'mystery-maze-4p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY', eventName: 'Mystery Maze (4 Players)' },
+  'mystery-maze-2-players': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY_2P', eventName: 'Mystery Maze (2 Players)' },
+  'mystery-maze-4-players': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY', eventName: 'Mystery Maze (4 Players)' },
+  'sigai-mystery-maze-2p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY_2P', eventName: 'Mystery Maze (2 Players)' },
+  'sigai-mystery-maze-4p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_MYSTERY', eventName: 'Mystery Maze (4 Players)' },
   // Takeshi's Castle
   'takeshis-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
   'takeshi-s-castle': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle" },
@@ -97,6 +104,14 @@ export const EVENT_PARKADDA_MAP = {
   'takeshis-castle-2-players': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI_2P', eventName: "Takeshi's Castle (2 Players)" },
   'takeshis-castle-4-players': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_TAKESHI', eventName: "Takeshi's Castle (4 Players)" },
   'free-fire-tdm': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM)' },
+  'ff-tdm': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM)' },
+  'sigai-free-fire-tdm': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM)' },
+  'free-fire-tdm-2p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM_2P', eventName: 'Free Fire (TDM) (2 Players)' },
+  'free-fire-tdm-4p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM) (4 Players)' },
+  'free-fire-tdm-2-players': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM_2P', eventName: 'Free Fire (TDM) (2 Players)' },
+  'free-fire-tdm-4-players': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM) (4 Players)' },
+  'ff-tdm-2p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM_2P', eventName: 'Free Fire (TDM) (2 Players)' },
+  'ff-tdm-4p': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_FF_TDM', eventName: 'Free Fire (TDM) (4 Players)' },
   'ai-crime-lab': { eventId: 'ZEPHYR26', packageCode: 'SIGAI_AI_CRIME', eventName: 'AI Crime Lab' },
 
   // IEI / IOT Events
@@ -132,6 +147,21 @@ export const EVENT_PARKADDA_MAP = {
   photobooth: { eventId: 'ZEPHYR26', packageCode: 'BBA_PHOTOBOOTH', eventName: 'Photobooth' },
   'photo-booth': { eventId: 'ZEPHYR26', packageCode: 'BBA_PHOTOBOOTH', eventName: 'Photobooth' },
   'bba-photobooth': { eventId: 'ZEPHYR26', packageCode: 'BBA_PHOTOBOOTH', eventName: 'Photobooth' },
+
+  // RC Events
+  'directors-cut-short-film-festival': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
+  'directors-cut': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc-directors-cut': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc-directors-cut-short-film-festival': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc_dir_cut_mem': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT_MEM', eventName: 'Director’s Cut (Members)' },
+  'rc_dir_cut_nonmem': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT_NONMEM', eventName: 'Director’s Cut (Non-Members)' },
+
+  // Maverics × Eclipse Racing Club Events
+  'robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'robot-car': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'cage-robot-car': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'maverics-robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'eclipse-robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
 };
 
 /**

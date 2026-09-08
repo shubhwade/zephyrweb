@@ -121,16 +121,16 @@ export const COMMITTEES_DATA = [
     contact: "+91 9820119482"
   },
   {
-    id: "IOT",
+    id: "IEI",
     code: "IEI",
-    name: "IOT / IEI",
-    shortName: "IOT",
-    fullName: "Internet of Things & AIoT (IEI TCET Chapter)",
-    description: "Hands-on AIoT hardware workshops, AR/VR Space Blitz, Neon Football, and retro arcade arenas.",
+    name: "IEI",
+    shortName: "IEI",
+    fullName: "Institution of Engineers (India) (IEI TCET Chapter)",
+    description: "Hands-on engineering workshops, AR/VR Space Blitz, Neon Football, and retro arcade arenas.",
     accent: "#2D5A46",
-    categorySpecialty: "IoT & Embedded AI",
-    lead: "IEI / IoT Chapter Board",
-    contact: "+91 9833441920"
+    categorySpecialty: "Engineering & Emerging Tech",
+    lead: "IEI Student Chapter",
+    contact: "+91 7208445992"
   },
   {
     id: "ASME",
@@ -167,6 +167,30 @@ export const COMMITTEES_DATA = [
     categorySpecialty: "Management & Creative Media",
     lead: "BBA Working Committee",
     contact: "+91 8591550413"
+  },
+  {
+    id: "RC",
+    code: "RC",
+    name: "RC",
+    shortName: "RC",
+    fullName: "Rotaract Club — TCET Chapter",
+    description: "Short film festivals, creative cinematic storytelling, cultural and social initiatives.",
+    accent: "#E11D48",
+    categorySpecialty: "Cinematics & Creative Arts",
+    lead: "RC Working Committee",
+    contact: "+91 9987330273"
+  },
+  {
+    id: "MAVERICS × ECLIPSE RACING CLUB",
+    code: "MAVERICS × ECLIPSE",
+    name: "Maverics × Eclipse Racing Club",
+    shortName: "Maverics × Eclipse",
+    fullName: "Maverics × Eclipse Racing Club — TCET",
+    description: "Robotic cage battles, automotive engineering, combat robotics, and track racing.",
+    accent: "#D97706",
+    categorySpecialty: "Robotic Combat & Racing",
+    lead: "Maverics & Eclipse Council",
+    contact: "+91 9137520094"
   }
 ];
 
@@ -181,8 +205,10 @@ export const COMMITTEE_CODES = [
   "IEEE",
   "IETE",
   "SIGAI",
-  "IOT",
+  "IEI",
   "ASME",
   "AAAI",
-  "BBA"
+  "BBA",
+  "RC",
+  "MAVERICS × ECLIPSE RACING CLUB"
 ];

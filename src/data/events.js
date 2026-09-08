@@ -1,9 +1,8 @@
-import { MASTER_EVENTS } from './eventsMaster.js';
+import { MASTER_EVENTS, ACTIVE_COMMITTEES } from './eventsMaster.js';
 import { getCommitteeContact } from './committeeContacts.js';
 import { getParkAddaEventUrl, getParkAddaEventId, getParkAddaPackageCode } from './parkadda.js';
-
 export const CATEGORIES = ['All', 'Gaming', 'Sports', 'Tech', 'Creative', 'Puzzle / Experience'];
-export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IOT','ASME','AAAI','BBA'];
+export { ACTIVE_COMMITTEES };
 
 export const ALL_EVENTS = MASTER_EVENTS.map((event) => {
   const eventId = getParkAddaEventId(event);
@@ -15,7 +14,7 @@ export const ALL_EVENTS = MASTER_EVENTS.map((event) => {
     phone_no: getCommitteeContact(event.committees[0])?.phone || '',
     id: event.id || event.eventName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
     title: event.title || event.eventName,
-    tag: event.committees.length > 1 ? event.committees.join(' · ') : `${event.committees[0]} - TCET`,
+    tag: event.tag || (event.committees.length > 1 ? event.committees.join(' · ') : (event.committees[0].includes('Club') ? event.committees[0] : `${event.committees[0]} - TCET`)),
     committee: event.committees[0],
     committeesList: event.committees,
     primaryCommittee: event.committees[0],

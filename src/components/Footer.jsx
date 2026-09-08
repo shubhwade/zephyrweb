@@ -15,7 +15,7 @@ export function Footer({ onNavigate }) {
   ];
 
   const committees = [
-    'CSI', 'ASCE', 'OWASP', 'The Robotics Society', 'ACM', 'S4DS', 'IEEE', 'IETE', 'SIGAI', 'IOT / IEI', 'ASME', 'AAAI', 'BBA'
+    'CSI', 'ASCE', 'OWASP', 'The Robotics Society', 'ACM', 'S4DS', 'IEEE', 'IETE', 'SIGAI', 'IEI', 'ASME', 'AAAI', 'BBA'
   ];
 
   return (

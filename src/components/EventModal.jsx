@@ -219,6 +219,36 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
             </div>
           </div>
 
+          {/* Key Event Attributes (Theme, Duration, Date, Venue) */}
+          {(event.theme || event.duration || event.date || event.dates || event.venue) && (
+            <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] grid grid-cols-2 gap-2 text-xs">
+              {event.theme && (
+                <div>
+                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Theme</span>
+                  <span className="font-neo font-black text-black text-[11px] sm:text-xs">“{event.theme}”</span>
+                </div>
+              )}
+              {event.duration && (
+                <div>
+                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Duration</span>
+                  <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.duration}</span>
+                </div>
+              )}
+              {(event.date || event.dates) && (
+                <div>
+                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Schedule</span>
+                  <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.date || event.dates}</span>
+                </div>
+              )}
+              {event.venue && (
+                <div>
+                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Venue</span>
+                  <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.venue}</span>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Event Overview */}
           <div className="space-y-1">
             <span className="font-neo font-bold text-[10px] uppercase tracking-widest text-black/70 block">

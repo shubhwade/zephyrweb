@@ -16,9 +16,9 @@ export const FESTIVAL_DAYS = [
     id: "day-1",
     dayNumber: "DAY 01",
     dayShort: "D1",
-    dateFormatted: "29 AUG",
-    fullDate: "August 29, 2026",
-    isoDate: "2026-08-29",
+    dateFormatted: "29 SEP",
+    fullDate: "September 29, 2026",
+    isoDate: "2026-09-29",
     theme: "Ignition & Preliminaries",
     subtitle: "Opening Ceremonies, Esports Qualifiers, Heats & Introductory Workshops",
     badge: "Day 1 of 3"
@@ -27,9 +27,9 @@ export const FESTIVAL_DAYS = [
     id: "day-2",
     dayNumber: "DAY 02",
     dayShort: "D2",
-    dateFormatted: "30 AUG",
-    fullDate: "August 30, 2026",
-    isoDate: "2026-08-30",
+    dateFormatted: "30 SEP",
+    fullDate: "September 30, 2026",
+    isoDate: "2026-09-30",
     theme: "Dimension Clash & Hackathons",
     subtitle: "Security CTFs, Sports Knockouts, AI Labs & Fabrication Masterclasses",
     badge: "Day 2 of 3"
@@ -38,9 +38,9 @@ export const FESTIVAL_DAYS = [
     id: "day-3",
     dayNumber: "DAY 03",
     dayShort: "D3",
-    dateFormatted: "31 AUG",
-    fullDate: "August 31, 2026",
-    isoDate: "2026-08-31",
+    dateFormatted: "01 OCT",
+    fullDate: "October 01, 2026",
+    isoDate: "2026-10-01",
     theme: "Grand Finals & Valedictory",
     subtitle: "National Ideathon Showcase, Esports Finals & ₹5 Lakhs Prize Distribution",
     badge: "Day 3 of 3"
@@ -49,12 +49,12 @@ export const FESTIVAL_DAYS = [
 
 export const SCHEDULE_ITEMS = [
   // =========================================================================
-  // DAY 01 — AUGUST 29, 2026 (Ignition & Preliminaries)
+  // DAY 01 — SEPTEMBER 29, 2026 (Ignition & Preliminaries)
   // =========================================================================
   {
     id: "sch-d1-01",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "09:00",
     endTime: "10:30",
     displayTime: "09:00 AM – 10:30 AM",
@@ -70,9 +70,36 @@ export const SCHEDULE_ITEMS = [
     isFeatured: true
   },
   {
+    id: "sch-d1-directors-cut",
+    dayId: "day-1",
+    date: "2026-09-29",
+    startTime: "13:00",
+    endTime: "16:30",
+    displayTime: "01:00 PM – 04:30 PM",
+    eventId: "directors-cut-short-film-festival",
+    venue: "TCET Main Auditorium & Screening Room",
+    venueConfirmed: true,
+    action: { label: "Register (Free / ₹300)", type: "register" },
+    status: "scheduled",
+    isFeatured: true
+  },
+  {
+    id: "sch-d1-robot-car",
+    dayId: "day-1",
+    date: "2026-09-29",
+    startTime: "11:30",
+    endTime: "16:00",
+    displayTime: "11:30 AM – 04:00 PM",
+    eventId: "robot-car-in-a-cage",
+    venue: "Robotics Arena & Battle Cage (Courtyard)",
+    venueConfirmed: true,
+    action: { label: "Register for ₹500", type: "register" },
+    status: "scheduled"
+  },
+  {
     id: "sch-d1-02",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "10:30",
     endTime: "14:00",
     displayTime: "10:30 AM – 02:00 PM",
@@ -85,7 +112,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-03",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "10:30",
     endTime: "13:30",
     displayTime: "10:30 AM – 01:30 PM",
@@ -98,7 +125,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-04",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "11:00",
     endTime: "15:00",
     displayTime: "11:00 AM – 03:00 PM",
@@ -111,7 +138,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-05",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "11:00",
     endTime: "13:30",
     displayTime: "11:00 AM – 01:30 PM",
@@ -124,7 +151,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-06",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "11:30",
     endTime: "14:00",
     displayTime: "11:30 AM – 02:00 PM",
@@ -137,7 +164,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-07",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "12:00",
     endTime: "15:00",
     displayTime: "12:00 PM – 03:00 PM",
@@ -150,7 +177,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-08",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "12:30",
     endTime: "15:30",
     displayTime: "12:30 PM – 03:30 PM",
@@ -163,7 +190,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-09",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "13:00",
     endTime: "15:30",
     displayTime: "01:00 PM – 03:30 PM",
@@ -176,7 +203,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-10",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "13:00",
     endTime: "16:00",
     displayTime: "01:00 PM – 04:00 PM",
@@ -189,7 +216,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-11",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "13:30",
     endTime: "16:30",
     displayTime: "01:30 PM – 04:30 PM",
@@ -202,7 +229,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-12",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "13:30",
     endTime: "16:00",
     displayTime: "01:30 PM – 04:00 PM",
@@ -215,7 +242,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-13",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "14:00",
     endTime: "17:00",
     displayTime: "02:00 PM – 05:00 PM",
@@ -228,7 +255,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-14",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "14:00",
     endTime: "16:30",
     displayTime: "02:00 PM – 04:30 PM",
@@ -241,12 +268,12 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-15",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "14:30",
     endTime: "17:00",
     displayTime: "02:30 PM – 05:00 PM",
-    eventId: "iot-two-minute-arcade",
-    venue: "IoT Project Lab 208",
+    eventId: "iei-two-minute-arcade",
+    venue: "IEI Project Lab 208",
     venueConfirmed: true,
     action: { label: "Register for ₹50", type: "register" },
     status: "scheduled"
@@ -254,7 +281,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-16",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "14:30",
     endTime: "17:30",
     displayTime: "02:30 PM – 05:30 PM",
@@ -267,7 +294,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-17",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "15:00",
     endTime: "17:30",
     displayTime: "03:00 PM – 05:30 PM",
@@ -280,7 +307,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-18",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "15:00",
     endTime: "17:30",
     displayTime: "03:00 PM – 05:30 PM",
@@ -293,7 +320,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-19",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "15:30",
     endTime: "18:00",
     displayTime: "03:30 PM – 06:00 PM",
@@ -306,7 +333,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-20",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "16:00",
     endTime: "18:30",
     displayTime: "04:00 PM – 06:30 PM",
@@ -319,7 +346,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d1-21",
     dayId: "day-1",
-    date: "2026-08-29",
+    date: "2026-09-29",
     startTime: "16:30",
     endTime: "19:00",
     displayTime: "04:30 PM – 07:00 PM",
@@ -331,12 +358,12 @@ export const SCHEDULE_ITEMS = [
   },
 
   // =========================================================================
-  // DAY 02 — AUGUST 30, 2026 (Dimension Clash & Hackathons)
+  // DAY 02 — SEPTEMBER 30, 2026 (Dimension Clash & Hackathons)
   // =========================================================================
   {
     id: "sch-d2-01",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "09:30",
     endTime: "13:30",
     displayTime: "09:30 AM – 01:30 PM",
@@ -348,9 +375,22 @@ export const SCHEDULE_ITEMS = [
     isFeatured: true
   },
   {
+    id: "sch-d2-robot-car",
+    dayId: "day-2",
+    date: "2026-09-30",
+    startTime: "11:00",
+    endTime: "15:30",
+    displayTime: "11:00 AM – 03:30 PM",
+    eventId: "robot-car-in-a-cage",
+    venue: "Robotics Arena & Battle Cage (Courtyard)",
+    venueConfirmed: true,
+    action: { label: "Register for ₹500", type: "register" },
+    status: "scheduled"
+  },
+  {
     id: "sch-d2-02",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "09:30",
     endTime: "12:30",
     displayTime: "09:30 AM – 12:30 PM",
@@ -363,7 +403,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-03",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "10:00",
     endTime: "14:00",
     displayTime: "10:00 AM – 02:00 PM",
@@ -376,7 +416,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-04",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "10:00",
     endTime: "13:00",
     displayTime: "10:00 AM – 01:00 PM",
@@ -389,7 +429,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-05",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "10:30",
     endTime: "15:30",
     displayTime: "10:30 AM – 03:30 PM",
@@ -402,7 +442,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-06",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "10:30",
     endTime: "13:30",
     displayTime: "10:30 AM – 01:30 PM",
@@ -415,7 +455,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-07",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "11:00",
     endTime: "14:00",
     displayTime: "11:00 AM – 02:00 PM",
@@ -428,7 +468,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-08",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "11:30",
     endTime: "14:30",
     displayTime: "11:30 AM – 02:30 PM",
@@ -441,7 +481,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-09",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "11:30",
     endTime: "14:30",
     displayTime: "11:30 AM – 02:30 PM",
@@ -454,7 +494,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-10",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "12:00",
     endTime: "15:00",
     displayTime: "12:00 PM – 03:00 PM",
@@ -467,7 +507,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-11",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "12:30",
     endTime: "15:00",
     displayTime: "12:30 PM – 03:00 PM",
@@ -480,12 +520,12 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-12",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "13:00",
     endTime: "16:30",
     displayTime: "01:00 PM – 04:30 PM",
-    eventId: "iot-workshop-ai-iot",
-    venue: "IoT Excellence Center (Lab 208)",
+    eventId: "iei-workshop-ai-iot",
+    venue: "IEI Excellence Center (Lab 208)",
     venueConfirmed: true,
     action: { label: "Register for ₹100", type: "register" },
     status: "scheduled"
@@ -493,7 +533,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-13",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "13:00",
     endTime: "15:30",
     displayTime: "01:00 PM – 03:30 PM",
@@ -506,7 +546,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-14",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "13:30",
     endTime: "16:30",
     displayTime: "01:30 PM – 04:30 PM",
@@ -519,7 +559,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-15",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "13:30",
     endTime: "16:00",
     displayTime: "01:30 PM – 04:00 PM",
@@ -532,12 +572,12 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-16",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "14:00",
     endTime: "17:30",
     displayTime: "02:00 PM – 05:30 PM",
-    eventId: "iot-mortal-kombat",
-    venue: "IoT Gaming Lounge Lab 208",
+    eventId: "iei-mortal-kombat",
+    venue: "IEI Gaming Lounge Lab 208",
     venueConfirmed: true,
     action: { label: "Register for ₹100", type: "register" },
     status: "scheduled"
@@ -545,7 +585,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-17",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "14:00",
     endTime: "16:30",
     displayTime: "02:00 PM – 04:30 PM",
@@ -558,7 +598,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-18",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "14:30",
     endTime: "18:30",
     displayTime: "02:30 PM – 06:30 PM",
@@ -571,11 +611,11 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-19",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "15:00",
     endTime: "17:30",
     displayTime: "03:00 PM – 05:30 PM",
-    eventId: "iot-neon-football",
+    eventId: "iei-neon-football",
     venue: "Gymkhana Zone B",
     venueConfirmed: true,
     action: { label: "Register for ₹200", type: "register" },
@@ -584,7 +624,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-20",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "15:30",
     endTime: "18:00",
     displayTime: "03:30 PM – 06:00 PM",
@@ -597,7 +637,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d2-21",
     dayId: "day-2",
-    date: "2026-08-30",
+    date: "2026-09-30",
     startTime: "16:00",
     endTime: "18:30",
     displayTime: "04:00 PM – 06:30 PM",
@@ -609,12 +649,12 @@ export const SCHEDULE_ITEMS = [
   },
 
   // =========================================================================
-  // DAY 03 — AUGUST 31, 2026 (Grand Finals & Valedictory)
+  // DAY 03 — OCTOBER 01, 2026 (Grand Finals & Valedictory)
   // =========================================================================
   {
     id: "sch-d3-01",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "09:30",
     endTime: "13:00",
     displayTime: "09:30 AM – 01:00 PM",
@@ -626,9 +666,22 @@ export const SCHEDULE_ITEMS = [
     isFeatured: true
   },
   {
+    id: "sch-d3-robot-car",
+    dayId: "day-3",
+    date: "2026-10-01",
+    startTime: "11:00",
+    endTime: "14:30",
+    displayTime: "11:00 AM – 02:30 PM",
+    eventId: "robot-car-in-a-cage",
+    venue: "Robotics Arena & Battle Cage (Courtyard)",
+    venueConfirmed: true,
+    action: { label: "Register for ₹500", type: "register" },
+    status: "scheduled"
+  },
+  {
     id: "sch-d3-02",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "10:00",
     endTime: "12:30",
     displayTime: "10:00 AM – 12:30 PM",
@@ -641,7 +694,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-03",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "10:00",
     endTime: "13:00",
     displayTime: "10:00 AM – 01:00 PM",
@@ -654,7 +707,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-04",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "10:30",
     endTime: "13:00",
     displayTime: "10:30 AM – 01:00 PM",
@@ -667,7 +720,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-05",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "10:30",
     endTime: "13:00",
     displayTime: "10:30 AM – 01:00 PM",
@@ -680,7 +733,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-06",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "11:00",
     endTime: "14:00",
     displayTime: "11:00 AM – 02:00 PM",
@@ -693,7 +746,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-07",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "11:00",
     endTime: "14:00",
     displayTime: "11:00 AM – 02:00 PM",
@@ -706,7 +759,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-08",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "11:00",
     endTime: "13:30",
     displayTime: "11:00 AM – 01:30 PM",
@@ -719,7 +772,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-09",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "11:30",
     endTime: "14:30",
     displayTime: "11:30 AM – 02:30 PM",
@@ -732,7 +785,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-10",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "12:00",
     endTime: "14:30",
     displayTime: "12:00 PM – 02:30 PM",
@@ -745,7 +798,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-11",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "12:00",
     endTime: "15:00",
     displayTime: "12:00 PM – 03:00 PM",
@@ -758,7 +811,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-12",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "12:30",
     endTime: "15:00",
     displayTime: "12:30 PM – 03:00 PM",
@@ -771,7 +824,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-13",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "13:00",
     endTime: "15:30",
     displayTime: "01:00 PM – 03:30 PM",
@@ -784,7 +837,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-14",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "13:30",
     endTime: "16:00",
     displayTime: "01:30 PM – 04:00 PM",
@@ -797,7 +850,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-15",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "13:30",
     endTime: "16:00",
     displayTime: "01:30 PM – 04:00 PM",
@@ -810,11 +863,11 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-16",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "14:00",
     endTime: "16:30",
     displayTime: "02:00 PM – 04:30 PM",
-    eventId: "iot-ar-vr-space-blitz",
+    eventId: "iei-ar-vr-space-blitz",
     venue: "Virtual Reality Lounge (4th Floor)",
     venueConfirmed: true,
     action: { label: "Register for ₹130", type: "register" },
@@ -823,7 +876,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-17",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "14:00",
     endTime: "16:30",
     displayTime: "02:00 PM – 04:30 PM",
@@ -836,7 +889,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-18",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "14:30",
     endTime: "17:30",
     displayTime: "02:30 PM – 05:30 PM",
@@ -849,7 +902,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-19",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "15:00",
     endTime: "17:30",
     displayTime: "03:00 PM – 05:30 PM",
@@ -862,7 +915,7 @@ export const SCHEDULE_ITEMS = [
   {
     id: "sch-d3-20",
     dayId: "day-3",
-    date: "2026-08-31",
+    date: "2026-10-01",
     startTime: "17:00",
     endTime: "19:30",
     displayTime: "05:00 PM – 07:30 PM",
