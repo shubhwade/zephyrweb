@@ -149,20 +149,26 @@ export const EVENT_PARKADDA_MAP = {
   'bba-photobooth': { eventId: 'ZEPHYR26', packageCode: 'BBA_PHOTOBOOTH', eventName: 'Photobooth' },
 
   // RC Events
-  'directors-cut-short-film-festival': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
-  'directors-cut': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
-  'rc-directors-cut': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
-  'rc-directors-cut-short-film-festival': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
-  'rc_dir_cut_mem': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
-  'rc_dir_cut_nonmem': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
-  'rc_dir_cut': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
+  'directors-cut-short-film-festival': { eventId: 'ZEPHYR26', packageCode: 'RC_SHORT_FILM', eventName: 'Director’s Cut — Short Film Festival' },
+  'directors-cut': { eventId: 'ZEPHYR26', packageCode: 'RC_SHORT_FILM', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc-directors-cut': { eventId: 'ZEPHYR26', packageCode: 'RC_SHORT_FILM', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc-directors-cut-short-film-festival': { eventId: 'ZEPHYR26', packageCode: 'RC_SHORT_FILM', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc_short_film': { eventId: 'ZEPHYR26', packageCode: 'RC_SHORT_FILM', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc_dir_cut_mem': { eventId: 'ZEPHYR26', packageCode: 'RC_SHORT_FILM', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc_dir_cut_nonmem': { eventId: 'ZEPHYR26', packageCode: 'RC_SHORT_FILM', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc_dir_cut': { eventId: 'ZEPHYR26', packageCode: 'RC_SHORT_FILM', eventName: 'Director’s Cut — Short Film Festival' },
 
-  // Maverics × Eclipse Racing Club Events
-  'robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
-  'robot-car': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
-  'cage-robot-car': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
-  'maverics-robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
-  'eclipse-robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  // Maverics × Eclipse Racing Club Events (Hosted on ParkAdda under ASME_ROBOT_CAR)
+  'robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'robot-car': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'cage-robot-car': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'maverics-robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'racing-club-robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'eclipse-racing-club-robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'eclipse-robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'asme-robot-car': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'asme_robot_car': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
+  'eclipse_robot_car': { eventId: 'ZEPHYR26', packageCode: 'ASME_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
 };
 
 /**

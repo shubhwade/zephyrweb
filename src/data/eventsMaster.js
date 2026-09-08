@@ -118,7 +118,8 @@ const EVENT_DETAILS = {
     priceDisplay: '₹500',
     teamDisplay: 'Team / Squad',
     dates: 'All 3 Days',
-    mode: 'Offline'
+    mode: 'Offline',
+    packageCode: 'ASME_ROBOT_CAR'
   },
   'Director’s Cut — Short Film Festival': {
     prizePool: 'Trophies & Awards',
@@ -128,9 +129,10 @@ const EVENT_DETAILS = {
     duration: '7–10 minutes including credits',
     venue: 'TCET',
     date: '29th September 2026',
+    packageCode: 'RC_SHORT_FILM',
     options: [
-      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_DIR_CUT' },
-      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_DIR_CUT' }
+      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_SHORT_FILM' },
+      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_SHORT_FILM' }
     ]
   },
   "Director's Cut — Short Film Festival": {
@@ -141,9 +143,10 @@ const EVENT_DETAILS = {
     duration: '7–10 minutes including credits',
     venue: 'TCET',
     date: '29th September 2026',
+    packageCode: 'RC_SHORT_FILM',
     options: [
-      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_DIR_CUT' },
-      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_DIR_CUT' }
+      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_SHORT_FILM' },
+      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_SHORT_FILM' }
     ]
   },
   'AI Crime Lab': { prizePool: '₹6,000', priceDisplay: '₹60', teamDisplay: 'Solo' },
