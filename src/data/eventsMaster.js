@@ -129,8 +129,8 @@ const EVENT_DETAILS = {
     venue: 'TCET',
     date: '29th September 2026',
     options: [
-      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_DIR_CUT_MEM' },
-      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_DIR_CUT_NONMEM' }
+      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_DIR_CUT' },
+      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_DIR_CUT' }
     ]
   },
   "Director's Cut — Short Film Festival": {
@@ -142,8 +142,8 @@ const EVENT_DETAILS = {
     venue: 'TCET',
     date: '29th September 2026',
     options: [
-      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_DIR_CUT_MEM' },
-      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_DIR_CUT_NONMEM' }
+      { key: 'members', label: 'Members', priceDisplay: 'FREE', packageCode: 'RC_DIR_CUT' },
+      { key: 'non-members', label: 'Non-Members', priceDisplay: '₹300/person', packageCode: 'RC_DIR_CUT' }
     ]
   },
   'AI Crime Lab': { prizePool: '₹6,000', priceDisplay: '₹60', teamDisplay: 'Solo' },

@@ -153,8 +153,9 @@ export const EVENT_PARKADDA_MAP = {
   'directors-cut': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
   'rc-directors-cut': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
   'rc-directors-cut-short-film-festival': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
-  'rc_dir_cut_mem': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT_MEM', eventName: 'Director’s Cut (Members)' },
-  'rc_dir_cut_nonmem': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT_NONMEM', eventName: 'Director’s Cut (Non-Members)' },
+  'rc_dir_cut_mem': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc_dir_cut_nonmem': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
+  'rc_dir_cut': { eventId: 'ZEPHYR26', packageCode: 'RC_DIR_CUT', eventName: 'Director’s Cut — Short Film Festival' },
 
   // Maverics × Eclipse Racing Club Events
   'robot-car-in-a-cage': { eventId: 'ZEPHYR26', packageCode: 'ECLIPSE_ROBOT_CAR', eventName: 'Robot Car in a Cage' },
