@@ -63,7 +63,7 @@ export function ScheduleSection({ onShowToast, _onNavigate }) {
         : 'Solo (1 Player)',
       image: masterEvent.image || `/event${masterEvent.numericId || 1}.webp`,
       phone_no: masterEvent.phoneNo || '9987330273',
-      venue: masterEvent.venueHint || 'TCET Campus',
+      venue: (masterEvent.id === 'robot-car-in-a-cage' || masterEvent.eventName === 'Robot Car in a Cage') ? null : (masterEvent.venueHint || 'TCET Campus'),
       parkAddaEventId,
       parkAddaPackageCode,
       parkAddaUrl

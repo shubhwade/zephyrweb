@@ -91,8 +91,8 @@ export const SCHEDULE_ITEMS = [
     endTime: "16:00",
     displayTime: "11:30 AM – 04:00 PM",
     eventId: "robot-car-in-a-cage",
-    venue: "Robotics Arena & Battle Cage (Courtyard)",
-    venueConfirmed: true,
+    venue: "",
+    venueConfirmed: false,
     action: { label: "Register for ₹500", type: "register" },
     status: "scheduled"
   },
@@ -382,8 +382,8 @@ export const SCHEDULE_ITEMS = [
     endTime: "15:30",
     displayTime: "11:00 AM – 03:30 PM",
     eventId: "robot-car-in-a-cage",
-    venue: "Robotics Arena & Battle Cage (Courtyard)",
-    venueConfirmed: true,
+    venue: "",
+    venueConfirmed: false,
     action: { label: "Register for ₹500", type: "register" },
     status: "scheduled"
   },
@@ -673,8 +673,8 @@ export const SCHEDULE_ITEMS = [
     endTime: "14:30",
     displayTime: "11:00 AM – 02:30 PM",
     eventId: "robot-car-in-a-cage",
-    venue: "Robotics Arena & Battle Cage (Courtyard)",
-    venueConfirmed: true,
+    venue: "",
+    venueConfirmed: false,
     action: { label: "Register for ₹500", type: "register" },
     status: "scheduled"
   },

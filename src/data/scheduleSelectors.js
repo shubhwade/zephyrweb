@@ -80,7 +80,8 @@ export function enrichScheduleItem(rawItem) {
   const note = masterEvent?.note || rawItem.note || null;
 
   // Resolve venue
-  const venue = rawItem.venue || masterEvent?.venueHint || "TCET Campus (Venue TBA)";
+  const isNoVenue = rawItem.eventId === 'robot-car-in-a-cage' || masterEvent?.id === 'robot-car-in-a-cage' || masterEvent?.eventName === 'Robot Car in a Cage';
+  const venue = isNoVenue ? "" : (rawItem.venue || masterEvent?.venueHint || "TCET Campus (Venue TBA)");
 
   // Resolve description
   const description = masterEvent?.description || rawItem.description || "";

@@ -115,12 +115,14 @@ export function ScheduleItemCard({
 
           {/* Venue & Prize Highlights */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-0.5">
-            <span className="flex items-center gap-1 text-xs font-neo font-bold bg-white border-2 border-black px-2 py-0.5 shadow-[1.5px_1.5px_0px_0px_#000]">
-              <MapPin className="w-3.5 h-3.5 text-black shrink-0 stroke-[2.5px]" />
-              <span className={item.venueConfirmed ? "text-black" : "italic text-black/80"}>
-                {item.venue}
+            {item.venue && (
+              <span className="flex items-center gap-1 text-xs font-neo font-bold bg-white border-2 border-black px-2 py-0.5 shadow-[1.5px_1.5px_0px_0px_#000]">
+                <MapPin className="w-3.5 h-3.5 text-black shrink-0 stroke-[2.5px]" />
+                <span className={item.venueConfirmed ? "text-black" : "italic text-black/80"}>
+                  {item.venue}
+                </span>
               </span>
-            </span>
+            )}
 
             {item.prizePool && item.prizePool !== 'Not Applicable' && (
               <span className="flex items-center gap-1 text-xs font-neo font-bold bg-black border-2 border-black px-2 py-0.5 text-white shadow-[1.5px_1.5px_0px_0px_#000]">
