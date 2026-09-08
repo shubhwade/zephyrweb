@@ -80,15 +80,15 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
       role="dialog"
       aria-modal="true"
       aria-labelledby="event-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-6 bg-black/80 backdrop-blur-xs overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/80 backdrop-blur-xs"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl bg-[#FFFDF5] border-4 border-black shadow-[10px_10px_0px_0px_#000] overflow-hidden my-auto max-h-[92vh] flex flex-col md:grid md:grid-cols-12 animate-fade-in"
+        className="relative w-full max-w-4xl bg-[#FFFDF5] border-4 border-black shadow-[10px_10px_0px_0px_#000] overflow-hidden my-auto max-h-[90vh] md:h-[580px] md:max-h-[85vh] flex flex-col md:grid md:grid-cols-12 animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Left Side: Event Image & Badges */}
-        <div className="relative md:col-span-5 bg-black border-b-4 md:border-b-0 md:border-r-4 border-black h-48 sm:h-56 md:h-full min-h-[200px] md:min-h-[420px] flex flex-col justify-between p-3 sm:p-4 overflow-hidden">
+        <div className="relative md:col-span-5 bg-black border-b-4 md:border-b-0 md:border-r-4 border-black h-36 sm:h-44 md:h-full shrink-0 flex flex-col justify-between p-3 sm:p-4 overflow-hidden">
           <img
             src={event.image || `/event${event.numericId || event.id || 1}.webp`}
             alt={event.title}
@@ -131,12 +131,13 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
         </div>
 
         {/* Right Side: Details & ParkAdda Registration Handoff */}
-        <div className="md:col-span-7 p-4 sm:p-6 lg:p-7 flex flex-col justify-between overflow-y-auto bg-[#FFFDF5] space-y-4">
-          <div className="space-y-2">
+        <div className="md:col-span-7 flex flex-col justify-between bg-[#FFFDF5] overflow-hidden h-full min-h-0">
+          {/* Header */}
+          <div className="p-3.5 sm:p-4 pb-2 border-b-2 border-black/10 shrink-0 space-y-1">
             <div className="flex items-start justify-between gap-3">
               <h3
                 id="event-modal-title"
-                className="font-neo font-black text-xl sm:text-2xl lg:text-3xl text-black uppercase tracking-tight leading-tight"
+                className="font-neo font-black text-xl sm:text-2xl text-black uppercase tracking-tight leading-tight"
               >
                 {event.title}
               </h3>
@@ -150,172 +151,175 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
             </div>
 
             {event.collabNote && (
-              <div className="flex items-center gap-2 p-2 bg-black/5 border-2 border-black font-neo font-bold text-[11px] text-black">
+              <div className="flex items-center gap-2 p-1.5 bg-black/5 border-2 border-black font-neo font-bold text-[11px] text-black">
                 <Sparkles className="w-3.5 h-3.5 stroke-[2.5px] shrink-0" />
                 <span>{event.collabNote}</span>
               </div>
             )}
           </div>
 
-          {/* Interactive Tier / Team Option Selector */}
-          {event.options && event.options.length > 1 && (
-            <div className="p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="font-neo font-bold text-[10px] uppercase tracking-wider text-black">
-                  Select Entry Tier / Team Option:
-                </span>
-                <span className="font-neo font-black text-xs text-black">
-                  {selectedOption ? `${selectedOption.label} — ${selectedOption.priceDisplay}` : ''}
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                {event.options.map((opt) => {
-                  const isSelected = selectedOption?.key === opt.key;
-                  return (
-                    <button
-                      key={opt.key}
-                      type="button"
-                      onClick={() => setSelectedOptionKey(opt.key)}
-                      className={`px-3 py-2 text-xs font-neo font-bold uppercase tracking-wider border-2 border-black transition-all flex items-center justify-between ${
-                        isSelected
-                          ? 'bg-black text-white shadow-[2px_2px_0px_0px_#000] -translate-y-0.5'
-                          : 'bg-white text-black hover:bg-black/5'
-                      }`}
-                    >
-                      <span>{opt.label}</span>
-                      <span className="font-neo font-black">{opt.priceDisplay}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Quick Metrics: Fee, Prize Pool, Format */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3">
-            <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
-              <span className="font-neo font-bold text-[9px] sm:text-[10px] text-black/70 uppercase tracking-wider block">
-                Reg Fee
-              </span>
-              <span className="font-neo font-black text-xs sm:text-sm text-black truncate block" title={activePriceDisplay}>
-                {activePriceDisplay}
-              </span>
-            </div>
-            <div className="p-2.5 sm:p-3 bg-black text-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
-              <span className="font-neo font-bold text-[9px] sm:text-[10px] text-white/80 uppercase tracking-wider block">
-                Prize Pool
-              </span>
-              <span className="font-neo font-black text-sm sm:text-base text-white truncate block">
-                {event.prizeDisplay}
-              </span>
-            </div>
-            <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
-              <span className="font-neo font-bold text-[9px] sm:text-[10px] text-black/70 uppercase tracking-wider block">
-                Format
-              </span>
-              <span className="font-neo font-black text-sm sm:text-base text-black truncate block">
-                {event.teamDisplay}
-              </span>
-            </div>
-          </div>
-
-          {/* Key Event Attributes (Theme, Duration, Date, Venue) */}
-          {(event.theme || event.duration || event.date || event.dates || event.venue) && (
-            <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] grid grid-cols-2 gap-2 text-xs">
-              {event.theme && (
-                <div>
-                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Theme</span>
-                  <span className="font-neo font-black text-black text-[11px] sm:text-xs">“{event.theme}”</span>
-                </div>
-              )}
-              {event.duration && (
-                <div>
-                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Duration</span>
-                  <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.duration}</span>
-                </div>
-              )}
-              {(event.date || event.dates) && (
-                <div>
-                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Schedule</span>
-                  <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.date || event.dates}</span>
-                </div>
-              )}
-              {event.venue && (
-                <div>
-                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Venue</span>
-                  <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.venue}</span>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Event Overview */}
-          <div className="space-y-1">
-            <span className="font-neo font-bold text-[10px] uppercase tracking-widest text-black/70 block">
-              Overview
-            </span>
-            <p className="font-body text-xs sm:text-[13px] text-black/85 font-normal leading-relaxed line-clamp-4 md:line-clamp-none">
-              {event.desc}
-            </p>
-          </div>
-
-          {/* Coordinator Direct Contact */}
-          {event.phone_no && (
-            <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 bg-black border-2 border-black flex items-center justify-center text-white shrink-0">
-                  <Phone className="w-3.5 h-3.5 stroke-[2.5px]" />
-                </div>
-                <div>
-                  <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">
-                    Coordinator Desk
+          {/* Scrollable Middle Details Body */}
+          <div className="p-3.5 sm:p-4 overflow-y-auto flex-1 min-h-0 space-y-3">
+            {/* Interactive Tier / Team Option Selector */}
+            {event.options && event.options.length > 1 && (
+              <div className="p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-neo font-bold text-[10px] uppercase tracking-wider text-black">
+                    Select Entry Tier / Team Option:
                   </span>
                   <span className="font-neo font-black text-xs text-black">
-                    +91 {event.phone_no}
+                    {selectedOption ? `${selectedOption.label} — ${selectedOption.priceDisplay}` : ''}
                   </span>
                 </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {event.options.map((opt) => {
+                    const isSelected = selectedOption?.key === opt.key;
+                    return (
+                      <button
+                        key={opt.key}
+                        type="button"
+                        onClick={() => setSelectedOptionKey(opt.key)}
+                        className={`px-3 py-2 text-xs font-neo font-bold uppercase tracking-wider border-2 border-black transition-all flex items-center justify-between ${
+                          isSelected
+                            ? 'bg-black text-white shadow-[2px_2px_0px_0px_#000] -translate-y-0.5'
+                            : 'bg-white text-black hover:bg-black/5'
+                        }`}
+                      >
+                        <span>{opt.label}</span>
+                        <span className="font-neo font-black">{opt.priceDisplay}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={() => onCopyContact?.(event.phone_no)}
-                  className="neo-btn-outline px-2.5 py-1 text-[11px] flex items-center gap-1"
-                  aria-label="Copy phone number"
-                >
-                  <Copy className="w-3 h-3" />
-                  <span>Copy</span>
-                </button>
-                <a
-                  href={`tel:+91${event.phone_no}`}
-                  className="neo-btn-secondary px-2.5 py-1 text-[11px] flex items-center gap-1"
-                  aria-label="Call coordinator"
-                >
-                  <Phone className="w-3 h-3" />
-                  <span>Call</span>
-                </a>
-              </div>
-            </div>
-          )}
+            )}
 
-          {/* Official ParkAdda Portal Destination Notice */}
-          <div className="border-2 border-black bg-white p-3 shadow-[2px_2px_0px_0px_#000] space-y-1.5">
-            <div className="flex items-center justify-between gap-2 flex-wrap">
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-black stroke-[2.5px]" />
-                <span className="font-neo font-bold text-[10px] uppercase tracking-wider text-black">
-                  Official Registration Partner
+            {/* Quick Metrics: Fee, Prize Pool, Format */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
+                <span className="font-neo font-bold text-[9px] sm:text-[10px] text-black/70 uppercase tracking-wider block">
+                  Reg Fee
+                </span>
+                <span className="font-neo font-black text-xs sm:text-sm text-black truncate block" title={activePriceDisplay}>
+                  {activePriceDisplay}
                 </span>
               </div>
-              <span className="px-2 py-0.5 bg-black text-white font-neo font-bold text-[10px] uppercase tracking-widest">
-                ParkAdda • {activePackageCode ? `${parkAddaEventId || 'ZEPHYR26'} (${activePackageCode})` : (parkAddaEventId || 'ZEPHYR26')}
-              </span>
+              <div className="p-2.5 sm:p-3 bg-black text-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
+                <span className="font-neo font-bold text-[9px] sm:text-[10px] text-white/80 uppercase tracking-wider block">
+                  Prize Pool
+                </span>
+                <span className="font-neo font-black text-sm sm:text-base text-white truncate block">
+                  {event.prizeDisplay}
+                </span>
+              </div>
+              <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
+                <span className="font-neo font-bold text-[9px] sm:text-[10px] text-black/70 uppercase tracking-wider block">
+                  Format
+                </span>
+                <span className="font-neo font-black text-sm sm:text-base text-black truncate block">
+                  {event.teamDisplay}
+                </span>
+              </div>
             </div>
-            <p className="font-body text-[11px] text-black/75 leading-relaxed">
-              Clicking register automatically adds <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''} to your ParkAdda cart for instant checkout.
-            </p>
+
+            {/* Key Event Attributes (Theme, Duration, Date, Venue) */}
+            {(event.theme || event.duration || event.date || event.dates || event.venue) && (
+              <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] grid grid-cols-2 gap-2 text-xs">
+                {event.theme && (
+                  <div>
+                    <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Theme</span>
+                    <span className="font-neo font-black text-black text-[11px] sm:text-xs">“{event.theme}”</span>
+                  </div>
+                )}
+                {event.duration && (
+                  <div>
+                    <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Duration</span>
+                    <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.duration}</span>
+                  </div>
+                )}
+                {(event.date || event.dates) && (
+                  <div>
+                    <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Schedule</span>
+                    <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.date || event.dates}</span>
+                  </div>
+                )}
+                {event.venue && (
+                  <div>
+                    <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">Venue</span>
+                    <span className="font-neo font-black text-black text-[11px] sm:text-xs">{event.venue}</span>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Event Overview */}
+            <div className="space-y-1">
+              <span className="font-neo font-bold text-[10px] uppercase tracking-widest text-black/70 block">
+                Overview
+              </span>
+              <p className="font-body text-xs sm:text-[13px] text-black/85 font-normal leading-relaxed">
+                {event.desc}
+              </p>
+            </div>
+
+            {/* Coordinator Direct Contact */}
+            {event.phone_no && (
+              <div className="p-2.5 sm:p-3 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 bg-black border-2 border-black flex items-center justify-center text-white shrink-0">
+                    <Phone className="w-3.5 h-3.5 stroke-[2.5px]" />
+                  </div>
+                  <div>
+                    <span className="font-neo font-bold text-[9px] uppercase tracking-wider text-black/70 block">
+                      Coordinator Desk
+                    </span>
+                    <span className="font-neo font-black text-xs text-black">
+                      +91 {event.phone_no}
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => onCopyContact?.(event.phone_no)}
+                    className="neo-btn-outline px-2.5 py-1 text-[11px] flex items-center gap-1"
+                    aria-label="Copy phone number"
+                  >
+                    <Copy className="w-3 h-3" />
+                    <span>Copy</span>
+                  </button>
+                  <a
+                    href={`tel:+91${event.phone_no}`}
+                    className="neo-btn-secondary px-2.5 py-1 text-[11px] flex items-center gap-1"
+                    aria-label="Call coordinator"
+                  >
+                    <Phone className="w-3 h-3" />
+                    <span>Call</span>
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {/* Official ParkAdda Portal Destination Notice */}
+            <div className="border-2 border-black bg-white p-3 shadow-[2px_2px_0px_0px_#000] space-y-1.5">
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-black stroke-[2.5px]" />
+                  <span className="font-neo font-bold text-[10px] uppercase tracking-wider text-black">
+                    Official Registration Partner
+                  </span>
+                </div>
+                <span className="px-2 py-0.5 bg-black text-white font-neo font-bold text-[10px] uppercase tracking-widest">
+                  ParkAdda • {activePackageCode ? `${parkAddaEventId || 'ZEPHYR26'} (${activePackageCode})` : (parkAddaEventId || 'ZEPHYR26')}
+                </span>
+              </div>
+              <p className="font-body text-[11px] text-black/75 leading-relaxed">
+                Clicking register automatically adds <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''} to your ParkAdda cart for instant checkout.
+              </p>
+            </div>
           </div>
 
-          {/* Bottom Action Buttons */}
-          <div className="pt-2 border-t-2 border-black flex items-center justify-between gap-3">
+          {/* Sticky Bottom Action Bar — Always Visible */}
+          <div className="p-3 sm:p-4 bg-[#FFFDF5] border-t-3 border-black flex items-center justify-between gap-3 shrink-0 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] z-20">
             <button onClick={onClose} className="neo-btn-outline px-4 py-2 text-xs">
               Back
             </button>
@@ -325,7 +329,7 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleRegisterClick}
-              className="neo-btn-primary px-5 sm:px-6 py-2 text-xs flex items-center gap-2 group"
+              className="neo-btn-primary px-5 sm:px-6 py-2.5 text-xs sm:text-sm font-neo font-black tracking-wider uppercase flex items-center gap-2 shadow-[2px_2px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all group"
               aria-label={`Register now for ${event.title}`}
             >
               <span>Register Now{selectedOption ? ` (${selectedOption.label})` : ''}</span>

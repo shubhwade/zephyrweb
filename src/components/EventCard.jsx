@@ -3,7 +3,8 @@ import { ArrowUpRight } from 'lucide-react';
 
 export function EventCard({ event, onSelect }) {
   const imageSrc = event.image || `/event${event.numericId || event.id || 1}.webp`;
-  const priceDisplay = event.priceDisplay || 'Register';
+  const rawPrice = event.priceDisplay || 'Register';
+  const priceDisplay = rawPrice.includes('FREE (Members)') ? 'FREE / ₹300' : rawPrice;
   const prizeDisplay = event.prizeDisplay || 'Open';
 
   return (
