@@ -51,6 +51,7 @@ export const EVENT_COMMITTEE_ROUTE = {
   'Fall Guys': ['TRS'],
   'Dance Workshop': ['ACM'],
   'Vibecoding': ['ACM'],
+  'Code Unlock': ['ACM', 'CSI'],
   'Cyber Heist': ['ACM', 'CSI'],
   'Escape Room': ['ACM'],
   'Scavenger Hunt': ['ACM'],

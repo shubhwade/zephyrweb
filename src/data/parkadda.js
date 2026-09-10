@@ -60,7 +60,8 @@ export const EVENT_PARKADDA_MAP = {
   'scavenger-hunt': { eventId: 'ZEPHYR26', packageCode: 'ACM_SCAV_HUNT', eventName: 'Scavenger Hunt' },
   'power-show': { eventId: 'ZEPHYR26', packageCode: 'ACM_POWER_SHOW', eventName: 'Power Show' },
   'wwe-console': { eventId: 'ZEPHYR26', packageCode: 'ACM_WWE', eventName: 'WWE Console' },
-  'cyber-heist': { eventId: 'ZEPHYR26', packageCode: 'ACM_CYBER_HEIST', eventName: 'Cyber Heist' },
+  'code-unlock': { eventId: 'ZEPHYR26', packageCode: 'ACM_CYBER_HEIST', eventName: 'Code Unlock' },
+  'cyber-heist': { eventId: 'ZEPHYR26', packageCode: 'ACM_CYBER_HEIST', eventName: 'Code Unlock' },
 
   // S4DS Events
   'neon-bowling': { eventId: 'ZEPHYR26', packageCode: 'S4DS_NEON_BOWL', eventName: 'Neon Bowling' },

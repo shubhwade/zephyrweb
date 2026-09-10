@@ -188,6 +188,7 @@ const EVENT_DETAILS = {
   'Murderer Among Us': { prizePool: '₹2,000', priceDisplay: '₹60', teamDisplay: 'Solo' },
   'The SQL Investigation': { prizePool: '₹1,000', priceDisplay: '₹30', teamDisplay: 'Individual' },
   Photobooth: { prizePool: 'Not listed', priceDisplay: '₹100', teamDisplay: 'Solo or Group' },
+  'Code Unlock': { prizePool: '₹1,000', priceDisplay: '₹50', teamDisplay: 'Individual' },
   'Cyber Heist': { prizePool: '₹1,000', priceDisplay: '₹50', teamDisplay: 'Individual' }
 };
 
@@ -249,7 +250,7 @@ export const MASTER_EVENTS = [
   {eventName:'Racing Team',title:'Racing Team',id:'racing-team',committees:['ASME'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80',imageAlt:'High-performance racing vehicle and automotive design engineering',description:'High-performance automotive engineering, vehicle design and racing team aerodynamics.',isShared:false},
   {eventName:'AMONG US',title:'Murderer Among Us',id:'among-us',committees:['AAAI'],category:'Gaming',mode:'Offline',image:'/wordmark/among us.jpg',imageAlt:'Among Us game challenge',description:'A classroom will turn into a thrilling crime scene. Where the participants have to find the murderer with the help of the given clues and the murderer is one of the participants. Can you solve the case before time runs out?',isShared:false},
   {eventName:'The SQL Investigation',title:'The SQL Investigation',id:'the-sql-investigation',committees:['AAAI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'SQL investigation on a computer workstation',description:'A valuable item has been stolen, and you are the prime suspect. Your only way to prove your innocence is by investigating the evidence stored in a database using SQL queries. Across multiple rounds, you will analyze access logs, locations, transactions, communications, CCTV records, and other clues. Each round introduces new SQL concepts and reveals another piece of the mystery. Find contradictions, uncover hidden connections, and identify the real thief. Can your SQL skills clear your name before time runs out?',isShared:false},
-  {eventName:'Cyber Heist',title:'Cyber Heist',id:'cyber-heist',committees:['ACM','CSI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'Cybersecurity challenge on a computer workstation',description:'Teams solve coding and puzzle challenges as cyber investigators, progressing through multiple rounds to recover stolen data.',isShared:true},
+  {eventName:'Code Unlock',title:'Code Unlock',id:'code-unlock',committees:['ACM','CSI'],category:'Tech',mode:'Offline',image:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',imageAlt:'Code Unlock cybersecurity and puzzle challenge on a computer workstation',description:'Teams solve coding and puzzle challenges as cyber investigators, progressing through multiple rounds to recover stolen data.',isShared:true},
   {eventName:'Photobooth',title:'Photobooth',id:'photobooth',committees:['BBA'],category:'Creative',mode:'Offline',image:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',imageAlt:'Festive photo booth setup',description:'Capture memorable moments with friends at the festival.',isShared:false},
   {eventName:'Robot Car in a Cage',title:'Robot Car in a Cage',id:'robot-car-in-a-cage',committees:['Maverics','Eclipse Racing Club'],category:'Tech',mode:'Offline',image:'/wordmark/robot in a car cage.jpg',imageAlt:'Robotic car battle competition in a confined caged arena',description:'Robot Car in a Cage is an intense robotic racing competition where participants put their custom-built robots to the ultimate test inside a confined arena. Teams must control and maneuver their robot cars through obstacles while strategically battling their opponents, showcasing speed, precision, control, and engineering skills. The event offers a hands-on experience of racing technology, vehicle dynamics, design, and performance, challenging participants to combine engineering knowledge with strategy and skill.',isShared:true},
   {eventName:'Director’s Cut — Short Film Festival',title:'Director’s Cut — Short Film Festival',id:'directors-cut-short-film-festival',committees:['RC'],category:'Creative',mode:'Offline',image:'/wordmark/directors cut.webp',imageAlt:'Film director clapboard and camera setup for short film festival',description:'A short-film festival celebrating cinematic storytelling, creativity, and imagination. Participants will create an original short film based on the theme “When the Mind Speaks,” exploring thoughts, emotions, perspectives, and untold stories through the power of film',isShared:false}
@@ -366,6 +367,14 @@ export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
     acc['eclipse-racing-club-robot-car-in-a-cage'] = event;
     acc['maverics-eclipse-robot-car-in-a-cage'] = event;
   }
+  if (event.eventName === 'Code Unlock' || event.id === 'code-unlock') {
+    acc['code-unlock'] = event;
+    acc['cyber-heist'] = event;
+    acc['acm-code-unlock'] = event;
+    acc['csi-code-unlock'] = event;
+    acc['acm-cyber-heist'] = event;
+    acc['csi-cyber-heist'] = event;
+  }
 
   return acc;
 }, {
@@ -375,6 +384,8 @@ export const MASTER_EVENTS_BY_ID = MASTER_EVENTS.reduce((acc, event) => {
   'trs-asme-bgmi-tdm': MASTER_EVENTS.find((e) => e.eventName === 'BGMI (TDM)'),
   'rc-directors-cut': MASTER_EVENTS.find((e) => e.eventName === 'Director’s Cut — Short Film Festival'),
   'robot-car-in-a-cage': MASTER_EVENTS.find((e) => e.eventName === 'Robot Car in a Cage'),
+  'code-unlock': MASTER_EVENTS.find((e) => e.eventName === 'Code Unlock'),
+  'cyber-heist': MASTER_EVENTS.find((e) => e.eventName === 'Code Unlock'),
 });
 
 export const ACTIVE_COMMITTEES = ['CSI','ASCE','OWASP','TRS','ACM','S4DS','IEEE','IETE','SIGAI','IEI','ASME','AAAI','BBA','RC','MAVERICS','RACING CLUB'];
