@@ -41,9 +41,10 @@ export function ScheduleSection({ onShowToast, _onNavigate }) {
 
   const handleOpenEventDetails = (masterEvent) => {
     if (!masterEvent) return;
-    const parkAddaEventId = getParkAddaEventId(masterEvent);
-    const parkAddaPackageCode = getParkAddaPackageCode(masterEvent);
-    const parkAddaUrl = getParkAddaEventUrl(masterEvent);
+    const isSoldOut = Boolean(masterEvent.isSoldOut || masterEvent.status === 'sold_out');
+    const parkAddaEventId = isSoldOut ? null : getParkAddaEventId(masterEvent);
+    const parkAddaPackageCode = isSoldOut ? null : getParkAddaPackageCode(masterEvent);
+    const parkAddaUrl = isSoldOut ? null : getParkAddaEventUrl(masterEvent);
 
     // Format object for EventModal compatibility
     const formattedForModal = {
@@ -64,6 +65,7 @@ export function ScheduleSection({ onShowToast, _onNavigate }) {
       image: masterEvent.image || `/event${masterEvent.numericId || 1}.webp`,
       phone_no: masterEvent.phoneNo || '9987330273',
       venue: (masterEvent.id === 'robot-car-in-a-cage' || masterEvent.eventName === 'Robot Car in a Cage') ? null : (masterEvent.venueHint || 'TCET Campus'),
+      isSoldOut,
       parkAddaEventId,
       parkAddaPackageCode,
       parkAddaUrl
@@ -72,6 +74,7 @@ export function ScheduleSection({ onShowToast, _onNavigate }) {
   };
 
   const handleRegisterFromModal = (event) => {
+    if (event?.isSoldOut) return;
     setModalEvent(null);
     if (onShowToast) {
       onShowToast(`Opening ParkAdda Events Portal for ${event.title}...`);

@@ -26,6 +26,11 @@ export function EventCard({ event, onSelect }) {
           <span className="px-2.5 py-0.5 bg-white text-black border-2 border-black font-neo font-black text-[10px] sm:text-[11px] uppercase tracking-wider shadow-[2px_2px_0px_0px_#000]">
             {event.tag}
           </span>
+          {event.isSoldOut && (
+            <span className="px-2.5 py-0.5 bg-[#fee2e2] text-[#b91c1c] border-2 border-black font-neo font-black text-[10px] sm:text-[11px] uppercase tracking-wider shadow-[2px_2px_0px_0px_#000]">
+              Sold Out
+            </span>
+          )}
           {event.isCollab && (
             <span className="px-2 py-0.5 bg-black text-white border-2 border-black font-neo font-bold text-[9px] uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_#000]">
               Joint
@@ -70,23 +75,32 @@ export function EventCard({ event, onSelect }) {
             </span>
           </div>
 
-          <a
-            href={event.parkAddaUrl || 'https://www.parkadda.com/events'}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-            className="flex items-center gap-2 group/reg hover:opacity-90 transition-opacity"
-            aria-label={`Register for ${event.title} on ParkAdda`}
-          >
-            <span className="font-neo font-black text-[10px] uppercase tracking-[0.18em] text-black group-hover/reg:underline">
-              Register
-            </span>
-            <div className="w-8 h-8 bg-black text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all shrink-0">
-              <ArrowUpRight className="w-4 h-4 stroke-[3px]" />
+          {event.isSoldOut ? (
+            <div
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-[#fee2e2] text-[#b91c1c] border-2 border-black font-neo font-black text-[10px] uppercase tracking-wider shadow-[2px_2px_0px_0px_#000] select-none"
+              title="This event is sold out"
+            >
+              <span>Sold Out</span>
             </div>
-          </a>
+          ) : (
+            <a
+              href={event.parkAddaUrl || 'https://www.parkadda.com/events'}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              className="flex items-center gap-2 group/reg hover:opacity-90 transition-opacity"
+              aria-label={`Register for ${event.title} on ParkAdda`}
+            >
+              <span className="font-neo font-black text-[10px] uppercase tracking-[0.18em] text-black group-hover/reg:underline">
+                Register
+              </span>
+              <div className="w-8 h-8 bg-black text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:shadow-none transition-all shrink-0">
+                <ArrowUpRight className="w-4 h-4 stroke-[3px]" />
+              </div>
+            </a>
+          )}
         </div>
       </div>
     </div>

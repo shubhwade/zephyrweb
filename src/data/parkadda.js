@@ -27,7 +27,7 @@ export const EVENT_PARKADDA_MAP = {
   'garba-workshop': { eventId: 'ZEPHYR26', packageCode: 'CSI_GARBA_WS', eventName: 'Garba Workshop' },
   'rink-football': { eventId: 'ZEPHYR26', packageCode: 'CSI_RINK_FB', eventName: 'Rink Football' },
   'neon-cricket': { eventId: 'ZEPHYR26', packageCode: 'CSI_NEON_CRICKET', eventName: 'Neon Cricket' },
-  'cricket-auction': { eventId: 'ZEPHYR26', packageCode: 'CSI_CRICK_AUCT', eventName: 'Cricket Auction' },
+  'cricket-auction': { eventId: 'ZEPHYR26', packageCode: 'CSI_CRICK_AUCT', eventName: 'Cricket Auction', isSoldOut: true },
   codm: { eventId: 'ZEPHYR26', packageCode: 'CSI_CODM', eventName: 'CodM' },
   'tech-hunt': { eventId: 'ZEPHYR26', packageCode: 'CSI_TECH_HUNT', eventName: 'Tech Hunt' },
   'human-snake-ladder': { eventId: 'ZEPHYR26', packageCode: 'CSI_SNAKE_LAD', eventName: 'Human Snake Ladder' },
@@ -78,7 +78,7 @@ export const EVENT_PARKADDA_MAP = {
 
   // IETE Events
   'fifa-ps5': { eventId: 'ZEPHYR26', packageCode: 'IETE_FIFA_PS5', eventName: 'FIFA PS5' },
-  'haunted-house': { eventId: 'ZEPHYR26', packageCode: 'IETE_HAUNTED', eventName: 'Haunted House' },
+  'haunted-house': { eventId: 'ZEPHYR26', packageCode: 'IETE_HAUNTED', eventName: 'Haunted House', isSoldOut: true },
   'arm-wrestling': { eventId: 'ZEPHYR26', packageCode: 'IETE_ARM_WREST', eventName: 'Arm Wrestling' },
   'squid-game': { eventId: 'ZEPHYR26', packageCode: 'IETE_SQUID', eventName: 'Squid Game' },
   'gen-ai-workshop': { eventId: 'ZEPHYR26', packageCode: 'IETE_GENAI_WS', eventName: 'Gen AI Workshop' },
@@ -242,7 +242,7 @@ export function getParkAddaMapping(eventOrId) {
 /**
  * Resolves the ParkAdda Event ID for a given event object or identifier.
  */
-export function getParkAddaEventId(eventOrId) {
+export function getParkAddaEventId(_eventOrId) {
   return PARKADDA_CONFIG.defaultEventId;
 }
 
@@ -279,6 +279,9 @@ export function buildParkAddaUrl(eventId, packageCode) {
  */
 export function getParkAddaEventUrl(eventOrId) {
   const mapping = getParkAddaMapping(eventOrId);
+  if (eventOrId?.isSoldOut || mapping?.isSoldOut) {
+    return null;
+  }
   const packageCode = mapping?.packageCode || (typeof eventOrId === 'object' ? eventOrId.packageCode || eventOrId.parkAddaPackageCode : null);
   const eventId = mapping?.eventId || (typeof eventOrId === 'object' ? eventOrId.parkAddaEventId : null) || PARKADDA_CONFIG.defaultEventId;
   return buildParkAddaUrl(eventId, packageCode);

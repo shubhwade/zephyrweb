@@ -197,8 +197,9 @@ export const SCHEDULE_ITEMS = [
     eventId: "csi-cricket-auction",
     venue: "Seminar Hall 1",
     venueConfirmed: true,
-    action: { label: "Register for ₹150", type: "register" },
-    status: "scheduled"
+    action: { label: "Sold Out", type: "sold_out" },
+    status: "sold_out",
+    isSoldOut: true
   },
   {
     id: "sch-d1-10",
@@ -449,8 +450,9 @@ export const SCHEDULE_ITEMS = [
     eventId: "iete-haunted-house",
     venue: "Basement Atmospheric Studio",
     venueConfirmed: true,
-    action: { label: "Register for ₹80", type: "register" },
-    status: "scheduled"
+    action: { label: "Sold Out", type: "sold_out" },
+    status: "sold_out",
+    isSoldOut: true
   },
   {
     id: "sch-d2-07",

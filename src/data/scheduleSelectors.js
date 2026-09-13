@@ -90,10 +90,13 @@ export function enrichScheduleItem(rawItem) {
   const price = masterEvent?.price || null;
   const prizePool = masterEvent?.prizePool || null;
 
+  // Resolve sold out status
+  const isSoldOut = Boolean(rawItem.isSoldOut || masterEvent?.isSoldOut || rawItem.status === 'sold_out');
+
   // Resolve action label & handler
   const action = rawItem.action || {
-    label: masterEvent?.numericId ? `Details` : "View Itinerary",
-    type: "details"
+    label: isSoldOut ? "Sold Out" : (masterEvent?.numericId ? `Details` : "View Itinerary"),
+    type: isSoldOut ? "sold_out" : "details"
   };
 
   const statusLive = getScheduleItemLiveStatus(rawItem);
@@ -114,6 +117,7 @@ export function enrichScheduleItem(rawItem) {
     prizePool,
     action,
     statusLive,
+    isSoldOut,
     isCollab: committeeIds.length > 1
   };
 }

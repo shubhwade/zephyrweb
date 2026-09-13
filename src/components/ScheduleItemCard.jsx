@@ -38,6 +38,13 @@ export function ScheduleItemCard({
         </div>
       )}
 
+      {item.isSoldOut && !isLive && (
+        <div className="absolute top-0 right-0 transform translate-x-0 -translate-y-1/2 px-3 py-1 bg-[#fee2e2] text-[#b91c1c] font-neo font-black text-[10px] uppercase tracking-widest flex items-center gap-1.5 border-2 border-black shadow-[2px_2px_0px_0px_#000] rotate-1 z-10">
+          <span className="w-2 h-2 rounded-full bg-[#b91c1c]" />
+          <span>Sold Out</span>
+        </div>
+      )}
+
       {/* Left & Center Information Grid */}
       <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 flex-1">
         
@@ -147,9 +154,13 @@ export function ScheduleItemCard({
         <button
           onClick={handleActionClick}
           aria-label={`${item.action?.label || 'View details for'} ${item.title}`}
-          className="neo-btn-primary w-full sm:w-auto px-4 py-2 text-xs flex items-center justify-center gap-1.5 focus-visible:outline-none"
+          className={`w-full sm:w-auto px-4 py-2 text-xs flex items-center justify-center gap-1.5 focus-visible:outline-none transition-all ${
+            item.isSoldOut
+              ? 'bg-[#fee2e2] text-[#b91c1c] border-2 border-black font-neo font-black uppercase shadow-[2px_2px_0px_0px_#000] hover:bg-white'
+              : 'neo-btn-primary'
+          }`}
         >
-          <span>{item.action?.label || 'Event Details'}</span>
+          <span>{item.isSoldOut ? (item.action?.label || 'Sold Out') : (item.action?.label || 'Event Details')}</span>
           <ArrowRight className="w-3.5 h-3.5 stroke-[3px]" />
         </button>
       </div>

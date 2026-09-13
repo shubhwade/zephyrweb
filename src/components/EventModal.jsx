@@ -30,6 +30,7 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
   }, [event, selectedOption]);
 
   const activeParkAddaUrl = useMemo(() => {
+    if (event?.isSoldOut) return null;
     if (activePackageCode) {
       return buildParkAddaUrl(parkAddaEventId || 'ZEPHYR26', activePackageCode);
     }
@@ -64,7 +65,11 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
 
   if (!isOpen || !event) return null;
 
-  const handleRegisterClick = () => {
+  const handleRegisterClick = (e) => {
+    if (event?.isSoldOut) {
+      if (e) e.preventDefault();
+      return;
+    }
     if (onRegister) {
       onRegister({
         ...event,
@@ -114,6 +119,11 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
           </div>
 
           <div className="relative z-10 flex flex-wrap items-center gap-1.5">
+            {event.isSoldOut && (
+              <span className="px-2.5 py-0.5 bg-[#fee2e2] text-[#b91c1c] border-2 border-black font-neo font-black text-[10px] sm:text-[11px] uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_#000]">
+                Sold Out
+              </span>
+            )}
             <span className="px-2.5 py-0.5 bg-black text-white border-2 border-black font-neo font-bold text-[10px] sm:text-[11px] uppercase tracking-wider">
               {event.category}
             </span>
@@ -149,6 +159,13 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
                 <X className="w-4 h-4 stroke-[3px]" />
               </button>
             </div>
+
+            {event.isSoldOut && (
+              <div className="flex items-center gap-2 p-1.5 bg-[#fee2e2] border-2 border-black font-neo font-black text-[11px] text-[#b91c1c] uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_#000]">
+                <span className="w-2 h-2 rounded-full bg-[#b91c1c] shrink-0 animate-pulse" />
+                <span>Registrations Closed • Sold Out</span>
+              </div>
+            )}
 
             {event.collabNote && (
               <div className="flex items-center gap-2 p-1.5 bg-black/5 border-2 border-black font-neo font-bold text-[11px] text-black">
@@ -299,21 +316,25 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
               </div>
             )}
 
-            {/* Official ParkAdda Portal Destination Notice */}
-            <div className="border-2 border-black bg-white p-3 shadow-[2px_2px_0px_0px_#000] space-y-1.5">
+            {/* Official ParkAdda Portal Destination Notice / Sold Out Notice */}
+            <div className={`border-2 border-black p-3 shadow-[2px_2px_0px_0px_#000] space-y-1.5 ${event.isSoldOut ? 'bg-[#fff1f2]' : 'bg-white'}`}>
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <div className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-black stroke-[2.5px]" />
                   <span className="font-neo font-bold text-[10px] uppercase tracking-wider text-black">
-                    Official Registration Partner
+                    {event.isSoldOut ? 'Registration Status' : 'Official Registration Partner'}
                   </span>
                 </div>
-                <span className="px-2 py-0.5 bg-black text-white font-neo font-bold text-[10px] uppercase tracking-widest">
-                  ParkAdda • {activePackageCode ? `${parkAddaEventId || 'ZEPHYR26'} (${activePackageCode})` : (parkAddaEventId || 'ZEPHYR26')}
+                <span className={`px-2 py-0.5 font-neo font-bold text-[10px] uppercase tracking-widest ${event.isSoldOut ? 'bg-[#b91c1c] text-white' : 'bg-black text-white'}`}>
+                  {event.isSoldOut ? 'Sold Out' : `ParkAdda • ${activePackageCode ? `${parkAddaEventId || 'ZEPHYR26'} (${activePackageCode})` : (parkAddaEventId || 'ZEPHYR26')}`}
                 </span>
               </div>
               <p className="font-body text-[11px] text-black/75 leading-relaxed">
-                Clicking register automatically adds <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''} to your ParkAdda cart for instant checkout.
+                {event.isSoldOut ? (
+                  <>Registrations for <strong>{event.title}</strong> are closed. All participant slots have been booked and no further entries are being accepted through the portal.</>
+                ) : (
+                  <>Clicking register automatically adds <strong>{event.title}</strong>{selectedOption ? ` [${selectedOption.label}]` : ''} to your ParkAdda cart for instant checkout.</>
+                )}
               </p>
             </div>
           </div>
@@ -324,17 +345,28 @@ export function EventModal({ event, isOpen, onClose, onRegister, onCopyContact }
               Back
             </button>
 
-            <a
-              href={activeParkAddaUrl || 'https://www.parkadda.com/events'}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleRegisterClick}
-              className="neo-btn-primary px-5 sm:px-6 py-2.5 text-xs sm:text-sm font-neo font-black tracking-wider uppercase flex items-center gap-2 shadow-[2px_2px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all group"
-              aria-label={`Register now for ${event.title}`}
-            >
-              <span>Register Now{selectedOption ? ` (${selectedOption.label})` : ''}</span>
-              <ArrowRight className="w-3.5 h-3.5 stroke-[3px] group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            {event.isSoldOut ? (
+              <button
+                type="button"
+                disabled
+                className="px-5 sm:px-6 py-2.5 text-xs sm:text-sm font-neo font-black tracking-wider uppercase flex items-center gap-2 bg-[#fee2e2] text-[#b91c1c] border-2 border-black opacity-90 cursor-not-allowed shadow-[2px_2px_0px_0px_#000]"
+                aria-label={`${event.title} is sold out`}
+              >
+                <span>Sold Out</span>
+              </button>
+            ) : (
+              <a
+                href={activeParkAddaUrl || 'https://www.parkadda.com/events'}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleRegisterClick}
+                className="neo-btn-primary px-5 sm:px-6 py-2.5 text-xs sm:text-sm font-neo font-black tracking-wider uppercase flex items-center gap-2 shadow-[2px_2px_0px_0px_#000] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all group"
+                aria-label={`Register now for ${event.title}`}
+              >
+                <span>Register Now{selectedOption ? ` (${selectedOption.label})` : ''}</span>
+                <ArrowRight className="w-3.5 h-3.5 stroke-[3px] group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -29,9 +29,10 @@ export const ALL_EVENTS = MASTER_EVENTS.map((event) => {
     priceDisplay: event.priceDisplay || 'Register',
     prizeDisplay: event.prizeDisplay || event.prizePool || 'Open',
     teamDisplay: event.teamDisplay || 'Team',
-    parkAddaEventId: eventId || 'ZEPHYR26',
-    parkAddaPackageCode: packageCode || 'ZEPHYR26',
-    parkAddaUrl: parkAddaUrl || 'https://www.parkadda.com/events',
+    isSoldOut: Boolean(event.isSoldOut),
+    parkAddaEventId: event.isSoldOut ? null : (eventId || 'ZEPHYR26'),
+    parkAddaPackageCode: event.isSoldOut ? null : (packageCode || 'ZEPHYR26'),
+    parkAddaUrl: event.isSoldOut ? null : (parkAddaUrl || 'https://www.parkadda.com/events'),
   };
 });
 export function filterAndSearchEvents({ events = ALL_EVENTS, searchQuery = '', selectedCommittee = 'ALL', selectedCategory = 'All', priceFilter = 'all' }) {
